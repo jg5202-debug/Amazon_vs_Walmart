@@ -1,0 +1,51 @@
+Working directory: <project_root>/module_02
+Configuration: <project_root>/module_01/study.json
+Planned records: 12
+Index base year: 2019
+Database: <project_root>/data/retail_comparison.sqlite
+Loaded amazon_north_america: 6 rows
+Loaded walmart_us: 6 rows
+Combined raw records: 12
+             unit_id fiscal_year net_sales_raw operating_income_raw
+amazon_north_america        2019       170,773                7,033
+amazon_north_america        2020       236,282                8,651
+amazon_north_america        2021       279,833                7,271
+amazon_north_america        2022       315,880              (2,847)
+amazon_north_america        2023       352,828               14,877
+amazon_north_america        2024       387,497               24,967
+          walmart_us        2020       341,004               17,380
+          walmart_us        2021       369,963               19,116
+          walmart_us        2022       393,247               21,587
+          walmart_us        2023       420,553               20,620
+          walmart_us        2024       441,817               22,154
+          walmart_us        2025       462,415               23,882
+Financial record checks passed.
+             unit_id  fiscal_year period_start period_end  net_sales_usd_m  operating_income_usd_m
+amazon_north_america         2019   2019-01-01 2019-12-31         170773.0                  7033.0
+amazon_north_america         2020   2020-01-01 2020-12-31         236282.0                  8651.0
+amazon_north_america         2021   2021-01-01 2021-12-31         279833.0                  7271.0
+amazon_north_america         2022   2022-01-01 2022-12-31         315880.0                 -2847.0
+amazon_north_america         2023   2023-01-01 2023-12-31         352828.0                 14877.0
+amazon_north_america         2024   2024-01-01 2024-12-31         387497.0                 24967.0
+          walmart_us         2020   2019-02-01 2020-01-31         341004.0                 17380.0
+          walmart_us         2021   2020-02-01 2021-01-31         369963.0                 19116.0
+          walmart_us         2022   2021-02-01 2022-01-31         393247.0                 21587.0
+          walmart_us         2023   2022-02-01 2023-01-31         420553.0                 20620.0
+          walmart_us         2024   2023-02-01 2024-01-31         441817.0                 22154.0
+          walmart_us         2025   2024-02-01 2025-01-31         462415.0                 23882.0
+Import snapshot saved: <project_root>/data/financial_data.csv
+Clean audit file saved: <project_root>/data/clean/financial_records.csv
+Database connected and tables are available.
+Inserted records: 0
+Updated records: 0
+Unchanged records: 12
+Database read-back verification passed.
+Selected financial records: 12
+business_units: 2 rows
+financial_records: 12 rows
+metric_results: 0 rows
+Database connection closed.
+Module 02 completed.
+Persistent database: <project_root>/data/retail_comparison.sqlite
+Next: query financial_records, join study periods and calculate metrics.
+No sales growth, operating margin or sales index has been calculated in Module 02.

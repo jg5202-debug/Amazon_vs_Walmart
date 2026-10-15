@@ -1,0 +1,372 @@
+{
+  "project_name": "Retail Growth and Profitability Comparison",
+  "prepared_date": "2026-10-12",
+  "completed_modules": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "planned_modules": [],
+  "notebook_code_cells": 44,
+  "database_rows": {
+    "business_units": 2,
+    "financial_records": 12,
+    "metric_results": 36
+  },
+  "current_signature": "fff3b71fa5b9c8a5d0b9b931bd34cbf12b33166b53f581994daf28678b5f9355",
+  "file_count": 70,
+  "files": [
+    {
+      "path": "PROJECT_CONTEXT.md",
+      "bytes": 7839,
+      "sha256": "b3bab6e0147ae9ece120d3d170d266cdb4c8a863ac67ef0b1d3ebf4408463986"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4735,
+      "sha256": "27330c4dae6f77b485d96fa119c0a1ca0cb8e747941705187558f783f56bb0a0"
+    },
+    {
+      "path": "data/README.md",
+      "bytes": 1487,
+      "sha256": "795b4053c289a0ea99863ad5c1e04903c17d12bd57d65bf33fee81b1c5c9f752"
+    },
+    {
+      "path": "data/clean/financial_records.csv",
+      "bytes": 4896,
+      "sha256": "13d0142fbf15b166ed3f4e7e7b5f1c6707b786c6b4189d57189dd6ae02e4e21c"
+    },
+    {
+      "path": "data/financial_data.csv",
+      "bytes": 4656,
+      "sha256": "783d2d0588e9fd9813fe3e229d988a347e3d5575fd3d74b22aac96708d7910fc"
+    },
+    {
+      "path": "data/raw/amazon_segment_raw.csv",
+      "bytes": 2419,
+      "sha256": "2b3f0c4f2cb4ccec015ece31ab38aa695c22f1b750ac427bc10206543f240649"
+    },
+    {
+      "path": "data/raw/reports/README.md",
+      "bytes": 921,
+      "sha256": "138e671cb42aea7e30ce4b509b4b5bbf5dfa2cb3b76929a5e3b8a6c7cacb960c"
+    },
+    {
+      "path": "data/raw/source_manifest.json",
+      "bytes": 2193,
+      "sha256": "1af498eb2a7981c23bfd56ca9811ff7c675a6b97d0fd3972457361d9159b0bfd"
+    },
+    {
+      "path": "data/raw/walmart_segment_raw.csv",
+      "bytes": 2439,
+      "sha256": "0d2e104d35b1ee9ce6f2defd6cd57114ea5a1c02a90fa79563e52b3fa4fa4f9e"
+    },
+    {
+      "path": "data/retail_comparison.sqlite",
+      "bytes": 53248,
+      "sha256": "ae2ecbeec83f9605ae76f3cac96684219d278556a0df8a2117fa7fc721e91ccb"
+    },
+    {
+      "path": "diagram_guide.md",
+      "bytes": 16509,
+      "sha256": "0626b13aebf03166f606aeb6b41b6b2bdf27d567d9a3ce3132e0e684a127f9a3"
+    },
+    {
+      "path": "diagrams/01_project_workflow.png",
+      "bytes": 459986,
+      "sha256": "4f5844c5b4f73340de5b3d89141817bf38b1317e07ea2d9e95d5e6f2902e3757"
+    },
+    {
+      "path": "diagrams/01_project_workflow.svg",
+      "bytes": 14154,
+      "sha256": "7c865e06f3ab040d3f7ae24fdc22f3622f0928cf36c01197394bd72938c2b070"
+    },
+    {
+      "path": "diagrams/02_data_pipeline.png",
+      "bytes": 985710,
+      "sha256": "dbcb02720d98c52fbbaa5af16b05fbcfe75a68df7af11b1640e9fd4c7d6ad07f"
+    },
+    {
+      "path": "diagrams/02_data_pipeline.svg",
+      "bytes": 27310,
+      "sha256": "b52d7435f6ac79466b6560745b426f7485edf10fb647365031c5fc2e299dcba5"
+    },
+    {
+      "path": "module_01/README.md",
+      "bytes": 2747,
+      "sha256": "67a5948e80b6b00759c48f3fa5b6eddc9ce653b0b284ae5f943ce85feb6997fc"
+    },
+    {
+      "path": "module_01/guide.md",
+      "bytes": 66228,
+      "sha256": "7aa7e9dead944b70028ab9174c1b831caa20d62d8b8b1a9bd41c70f5172e4afd"
+    },
+    {
+      "path": "module_01/module_01_research_configuration.ipynb",
+      "bytes": 81361,
+      "sha256": "e414d64ec04370a6433455576dec2e46eeb875472a4b3eb7469332fd68b6d135"
+    },
+    {
+      "path": "module_01/study.json",
+      "bytes": 3971,
+      "sha256": "8c5bef463504a001b554cf8ffdaefbe9da2052323854476907e32fa189e7d04c"
+    },
+    {
+      "path": "module_01/study_config.py",
+      "bytes": 9810,
+      "sha256": "a2ca4f9cc194bc52f8d0f7576667e438ee764ff54b59b13e58ee416c15ee842e"
+    },
+    {
+      "path": "module_02/README.md",
+      "bytes": 5234,
+      "sha256": "08608ce134beaffe911dd366dd00b52fad0051da7f38997c24c2e7ddb63e8a40"
+    },
+    {
+      "path": "module_02/combined_notebook_guide_verification.txt",
+      "bytes": 8790,
+      "sha256": "c7955801428e4a8b08df91a1497333f8c31bde42f7f94ed3b45c8a4a8bd0de65"
+    },
+    {
+      "path": "module_02/data_management.py",
+      "bytes": 13313,
+      "sha256": "04f13410b33b3fd288196700fd206b405a82e9d42984adda1376bb1531ae7cc2"
+    },
+    {
+      "path": "module_02/guide.md",
+      "bytes": 58086,
+      "sha256": "7c7ba3a431bbb8a191d5c88c65392fb12aa2c4747467fb7f70003fd2f4b2a5bf"
+    },
+    {
+      "path": "module_02/guide_layout_preview.jpg",
+      "bytes": 43623,
+      "sha256": "fb2b52997bce0a63fc15aee19771d6617343945249119909ef23be95a2dd07a3"
+    },
+    {
+      "path": "module_02/module_02_code_explanation_guide.html",
+      "bytes": 218919,
+      "sha256": "d476446184c1f261076f6490f1b5eff04ebfb0c9803423bfca9094c8a7adc5bf"
+    },
+    {
+      "path": "module_02/module_02_combined_notebook_detailed_guide.md",
+      "bytes": 103061,
+      "sha256": "efabe78292734480dfda571171efda5cbd6ef87523fd012869b255d6f2502460"
+    },
+    {
+      "path": "module_02/module_02_data_and_database_management.ipynb",
+      "bytes": 73335,
+      "sha256": "5abc8be99281c84769f8c9f060435c2cc0c4059d732b2e2ee4f9010555a32952"
+    },
+    {
+      "path": "module_02/requirements.txt",
+      "bytes": 17,
+      "sha256": "2c4005cebf39f5937b0547b7a339d2cb147202592811bf4c51951feb2efad09e"
+    },
+    {
+      "path": "module_02/run_summary.txt",
+      "bytes": 3137,
+      "sha256": "63dcb0d703eb88082d22704ae89ed76331d108e878cc8bb124f7c2b815e48ef2"
+    },
+    {
+      "path": "module_02/source_notes.md",
+      "bytes": 3458,
+      "sha256": "e733788819e753a014a4b5e6b7e6359a5ce18bcbcf8588a8f18b639d129fd0b6"
+    },
+    {
+      "path": "module_03/README.md",
+      "bytes": 2292,
+      "sha256": "0d271557701fbbdfdba47fc96e4169b7ffd0313464cdcf1398aee1044b267e23"
+    },
+    {
+      "path": "module_03/guide.md",
+      "bytes": 86634,
+      "sha256": "5bcf04381723eab46bffdcd97966f36210dc72ab98715f4688d6b4f9252129ca"
+    },
+    {
+      "path": "module_03/guide_layout_preview.jpg",
+      "bytes": 117202,
+      "sha256": "f06771f5aa64cf85cee5b455af649b8f5736a61dc2fd1e5719fe69d9142c91cd"
+    },
+    {
+      "path": "module_03/metrics_analysis.py",
+      "bytes": 11928,
+      "sha256": "807219c12ba3126dc3490f3614bc05bda31cb908b99cde08e8acb270326f1efe"
+    },
+    {
+      "path": "module_03/module_03_code_explanation_guide.html",
+      "bytes": 180482,
+      "sha256": "6d34ab711c86336b6cee61712c7e0b82e424eced83d7071a0862212a573778af"
+    },
+    {
+      "path": "module_03/module_03_metrics_and_comparative_analysis.ipynb",
+      "bytes": 115455,
+      "sha256": "29c803abea1d42a43ff795dde71c3fbaf8b398bf53a872fa25d5a614e9273be6"
+    },
+    {
+      "path": "module_03/run_summary.txt",
+      "bytes": 9935,
+      "sha256": "5d9e660ad6c7772852d5167e69060dabe1b38042e017923381fcac0064dde89b"
+    },
+    {
+      "path": "module_03/verification.txt",
+      "bytes": 14450,
+      "sha256": "97bfff03d64a50f37cf81b8276f9401b4d0ead58e035cc6a357c806b7b19b61f"
+    },
+    {
+      "path": "module_04/README.md",
+      "bytes": 1817,
+      "sha256": "d195ad6438b894ae1a6896da4e6ad2bfeb1e776e6748bbb02e0aa54fdc29c11f"
+    },
+    {
+      "path": "module_04/guide.md",
+      "bytes": 98750,
+      "sha256": "a6f6af16153722aeaa0c35e0ea0fc2ed9b5d4f3363084f5fb9196447c4f57c25"
+    },
+    {
+      "path": "module_04/guide_layout_preview.jpg",
+      "bytes": 115497,
+      "sha256": "3d7b33f72115bb0f6e6723837db8a8839055f0a01a21509b7a6f6bb284597e93"
+    },
+    {
+      "path": "module_04/module_04_code_explanation_guide.html",
+      "bytes": 194044,
+      "sha256": "20ab3cdbf0618af3c0aab22c263386f26657981ad76d29a98d6f7e7d1987056b"
+    },
+    {
+      "path": "module_04/module_04_reporting_and_workflow.ipynb",
+      "bytes": 131809,
+      "sha256": "bc890734c69748f97c3c6105a22af39093c7a5bf6393303d1aa5cba62ad04a41"
+    },
+    {
+      "path": "module_04/modules_01_03_check.md",
+      "bytes": 1207,
+      "sha256": "77a86bb57ad4dad55a1a1abf5e5a8b4c127da5fa41212c21d2bf10733fccbfbd"
+    },
+    {
+      "path": "module_04/modules_01_03_review.json",
+      "bytes": 875,
+      "sha256": "d8981a080bce28c7b0b1b32adb7158c1f56aa96d481c4f6af540142287ac9071"
+    },
+    {
+      "path": "module_04/report_chart_preview.jpg",
+      "bytes": 71017,
+      "sha256": "7258361a97a5bdd05ce89b11c61b1f655164ef0cf88246153ea24804bc29d21d"
+    },
+    {
+      "path": "module_04/report_preview.jpg",
+      "bytes": 109561,
+      "sha256": "f26749268e51c458127c596fbfdacfd88021ded6b0f3600c78007ce981a909e5"
+    },
+    {
+      "path": "module_04/reporting.py",
+      "bytes": 16482,
+      "sha256": "f35abfb34d7bce6c05adc5e19aadf08e1361bf2f42ffbb31dfc981119eca7e72"
+    },
+    {
+      "path": "module_04/run_summary.txt",
+      "bytes": 14146,
+      "sha256": "43d5c011252f5bbe64bc63d2d91afc7716a61ba767afa528f1b6a6618189beaf"
+    },
+    {
+      "path": "module_04/verification.txt",
+      "bytes": 1673,
+      "sha256": "67887c2bddb9b1ae9d80ed49481f56910ee47e490dd9522c9e4834bdc2059fa6"
+    },
+    {
+      "path": "project_plan.md",
+      "bytes": 12052,
+      "sha256": "a126712c97f9aa84baa06d5a0719af7cc7862d40fbe9a1a66bbb815ec3bbf23c"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 28,
+      "sha256": "a4ab3a39744e3c8342137d556fa136462b9a9376826d69e1ab0c88330fb594bc"
+    },
+    {
+      "path": "results/analysis_manifest.json",
+      "bytes": 638,
+      "sha256": "c6e9ee57b2487314401337066efe8d2651854a569a3b5955b9297d0b6f64cf20"
+    },
+    {
+      "path": "results/annual_metrics.csv",
+      "bytes": 6009,
+      "sha256": "43a4fd75c4350610889a3037ffe8421d5f337edf571b9d3703e801b216faf1ec"
+    },
+    {
+      "path": "results/figures/operating_margin.png",
+      "bytes": 145994,
+      "sha256": "083e4160ef18f87e117047ce4553e709896eba879feb730214f4fab6c74b771b"
+    },
+    {
+      "path": "results/figures/operating_margin.svg",
+      "bytes": 86199,
+      "sha256": "ca66a3b3ef09eebe78f725ab50837224922b62c92e1c2fa4168ae56e49b736f0"
+    },
+    {
+      "path": "results/figures/sales_growth.png",
+      "bytes": 139419,
+      "sha256": "2a47db0ad0f5b6aba7ca521a339194d41148dd20a00616baa9cbaf0c69748f2d"
+    },
+    {
+      "path": "results/figures/sales_growth.svg",
+      "bytes": 88130,
+      "sha256": "3ad7430e5031d661c34e0ef3f08df658798ad14cf6c57f52870e56237bf561d9"
+    },
+    {
+      "path": "results/figures/sales_index.png",
+      "bytes": 145187,
+      "sha256": "5eea7dc22cefa8ad297387580cad6b8b54f3a93fda29f845a2649a248314d51d"
+    },
+    {
+      "path": "results/figures/sales_index.svg",
+      "bytes": 86791,
+      "sha256": "b9c61e1f61845294fd3b7ab8d0cd6da9bb399c72cf39cd5963381e7e4bb17867"
+    },
+    {
+      "path": "results/metric_records.csv",
+      "bytes": 6955,
+      "sha256": "913e58cf96437d785280b9b88794551a253ca9c7a4325499ba9611a3165338b0"
+    },
+    {
+      "path": "results/pdf_export_manifest.json",
+      "bytes": 718,
+      "sha256": "6a65efca24f4b7fcbc9f7d1ab584cd280748f26dd2516d5b786327d975d943a0"
+    },
+    {
+      "path": "results/report_manifest.json",
+      "bytes": 5657,
+      "sha256": "5962df977822af382ce95895e2aef5d05cac37954a4d6bc3fb861b8dbe8ea588"
+    },
+    {
+      "path": "results/research_report.html",
+      "bytes": 20840,
+      "sha256": "824c67dced9c5e6e9cd20e543941e57519c6179349143e1039ab1e594e3cf646"
+    },
+    {
+      "path": "results/research_report.pdf",
+      "bytes": 462100,
+      "sha256": "a49a05d81360adf4034f2f913a6a5b9b77a4c69738573b12e2e243eab2508749"
+    },
+    {
+      "path": "results/stage_summary.csv",
+      "bytes": 1021,
+      "sha256": "baef10f373327103d28d9d666ec45f84cf490c865288f5abd3bb703394497f38"
+    },
+    {
+      "path": "retail_growth_and_profitability_comparison.ipynb",
+      "bytes": 800479,
+      "sha256": "8deed699df161f73c96f1fe8e397a32050c9fa047e67fce1f102a27528ab778a"
+    },
+    {
+      "path": "study.json",
+      "bytes": 3962,
+      "sha256": "fa9641f51bdf487b095ec874aced571bc2169907824011a7032f17b863820846"
+    },
+    {
+      "path": "verification.txt",
+      "bytes": 1673,
+      "sha256": "67887c2bddb9b1ae9d80ed49481f56910ee47e490dd9522c9e4834bdc2059fa6"
+    }
+  ],
+  "manifest_scope": "Current complete project delivery; historical archives excluded."
+}

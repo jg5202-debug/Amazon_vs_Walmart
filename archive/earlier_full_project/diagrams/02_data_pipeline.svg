@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="3190" viewBox="0 0 1800 3190">
+<style>text{font-family:Arial,Helvetica,sans-serif}</style>
+<rect width="1800" height="3190" fill="#F7F9FC"/>
+<text x="60" y="74.75999999999999" font-size="39" font-weight="700" fill="#172B44" text-anchor="start">Data Pipeline and DataFrame Flow</text>
+<text x="60" y="116.48" font-size="22" font-weight="400" fill="#52647A" text-anchor="start">Retail Growth and Profitability Comparison  |  Implementation blueprint supporting Diagram 1</text>
+<text x="60" y="149.8" font-size="20" font-weight="400" fill="#52647A" text-anchor="start">All four modules implemented: CSV, SQLite, metrics, verified reporting and charts.</text>
+<rect x="60" y="184" width="800" height="158" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="82" y="220.32" font-size="23" font-weight="700" fill="#245DA8" text-anchor="start">AMAZON NORTH AMERICA</text>
+<text x="82" y="256.8" font-size="20" font-weight="400" fill="#172B44" text-anchor="start">Source: official SEC 10-K, Note 10 - Segment Information</text>
+<a href="https://www.sec.gov/Archives/edgar/data/1018724/000101872422000005/amzn-20211231.htm"><text x="82" y="289.8" font-size="20" font-weight="400" fill="#245DA8" text-anchor="start">S1: 2021 10-K -&gt; 2019-2021</text></a>
+<a href="https://www.sec.gov/Archives/edgar/data/1018724/000101872425000004/amzn-20241231.htm"><text x="82" y="320.8" font-size="20" font-weight="400" fill="#245DA8" text-anchor="start">S2: 2024 10-K -&gt; 2022-2024</text></a>
+<rect x="940" y="184" width="800" height="158" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="962" y="220.32" font-size="23" font-weight="700" fill="#245DA8" text-anchor="start">WALMART U.S.</text>
+<text x="962" y="256.8" font-size="20" font-weight="400" fill="#172B44" text-anchor="start">Source: official SEC 10-K, Walmart U.S. segment table</text>
+<a href="https://www.sec.gov/Archives/edgar/data/104169/000010416922000012/wmt-20220131.htm"><text x="962" y="289.8" font-size="20" font-weight="400" fill="#245DA8" text-anchor="start">S3: FY2022 10-K -&gt; FY2020-FY2022</text></a>
+<a href="https://www.sec.gov/Archives/edgar/data/104169/000010416925000021/wmt-20250131.htm"><text x="962" y="320.8" font-size="20" font-weight="400" fill="#245DA8" text-anchor="start">S4: FY2025 10-K -&gt; FY2023-FY2025</text></a>
+<polyline points="460,342 460,379" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="460,379 465.0,368.0 455.0,368.0" fill="#6C8098"/>
+<polyline points="1340,342 1340,379" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="1340,379 1345.0,368.0 1335.0,368.0" fill="#6C8098"/>
+<rect x="60" y="379" width="800" height="130" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="78" y="411.8" font-size="20" font-weight="700" fill="#245DA8" text-anchor="start">Acquire and transcribe | Browser + CSV editor</text>
+<text x="78" y="442.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Save source_manifest.json and official report URLs.</text>
+<text x="78" y="467.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Manually verify and save data/raw/amazon_segment_raw.csv.</text>
+<text x="78" y="492.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Preserve source strings; full HTML snapshots are optional.</text>
+<rect x="940" y="379" width="800" height="130" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="958" y="411.8" font-size="20" font-weight="700" fill="#245DA8" text-anchor="start">Acquire and transcribe | Browser + CSV editor</text>
+<text x="958" y="442.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Save source_manifest.json and official report URLs.</text>
+<text x="958" y="467.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Manually verify and save data/raw/walmart_segment_raw.csv.</text>
+<text x="958" y="492.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Keep segment net sales distinct from total revenues.</text>
+<polyline points="460,509 460,550" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="460,550 465.0,539.0 455.0,539.0" fill="#6C8098"/>
+<polyline points="1340,509 1340,550" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="1340,550 1345.0,539.0 1335.0,539.0" fill="#6C8098"/>
+<rect x="60" y="550" width="800" height="339" rx="12" fill="#EEF4FC" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="82" y="587.32" font-size="23" font-weight="700" fill="#245DA8" text-anchor="start">amazon_raw_df  |  6 rows</text>
+<text x="82" y="621.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Tool: pandas.read_csv(..., dtype=str)</text>
+<text x="82" y="652.12" font-size="18" font-weight="400" fill="#52647A" text-anchor="start">Verified preview: S1 / S2 | source amounts in USD millions</text>
+<polyline points="82,669 838,669" fill="none" stroke="#6C8098" stroke-width="1" stroke-linejoin="round"/>
+<text x="84" y="695.12" font-size="18" font-weight="700" fill="#172B44" text-anchor="start">Fiscal year</text>
+<text x="400" y="695.12" font-size="18" font-weight="700" fill="#172B44" text-anchor="end">net_sales_raw</text>
+<text x="814" y="695.12" font-size="18" font-weight="700" fill="#172B44" text-anchor="end">operating_income_raw</text>
+<text x="84" y="728.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">2019</text>
+<text x="400" y="728.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">170,773</text>
+<text x="814" y="728.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">7,033</text>
+<text x="84" y="753.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">2020</text>
+<text x="400" y="753.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">236,282</text>
+<text x="814" y="753.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">8,651</text>
+<text x="84" y="778.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">2021</text>
+<text x="400" y="778.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">279,833</text>
+<text x="814" y="778.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">7,271</text>
+<text x="84" y="803.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">2022</text>
+<text x="400" y="803.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">315,880</text>
+<text x="814" y="803.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">(2,847)</text>
+<text x="84" y="828.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">2023</text>
+<text x="400" y="828.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">352,828</text>
+<text x="814" y="828.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">14,877</text>
+<text x="84" y="853.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">2024</text>
+<text x="400" y="853.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">387,497</text>
+<text x="814" y="853.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">24,967</text>
+<text x="82" y="880.28" font-size="17" font-weight="400" fill="#52647A" text-anchor="start">Also retain: segment ID, report dates, currency, unit and source reference.</text>
+<rect x="940" y="550" width="800" height="339" rx="12" fill="#EEF4FC" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="962" y="587.32" font-size="23" font-weight="700" fill="#245DA8" text-anchor="start">walmart_raw_df  |  6 rows</text>
+<text x="962" y="621.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Tool: pandas.read_csv(..., dtype=str)</text>
+<text x="962" y="652.12" font-size="18" font-weight="400" fill="#52647A" text-anchor="start">Verified preview: S3 / S4 | source amounts in USD millions</text>
+<polyline points="962,669 1718,669" fill="none" stroke="#6C8098" stroke-width="1" stroke-linejoin="round"/>
+<text x="964" y="695.12" font-size="18" font-weight="700" fill="#172B44" text-anchor="start">Fiscal year</text>
+<text x="1280" y="695.12" font-size="18" font-weight="700" fill="#172B44" text-anchor="end">net_sales_raw</text>
+<text x="1694" y="695.12" font-size="18" font-weight="700" fill="#172B44" text-anchor="end">operating_income_raw</text>
+<text x="964" y="728.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">2020</text>
+<text x="1280" y="728.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">341,004</text>
+<text x="1694" y="728.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">17,380</text>
+<text x="964" y="753.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">2021</text>
+<text x="1280" y="753.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">369,963</text>
+<text x="1694" y="753.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">19,116</text>
+<text x="964" y="778.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">2022</text>
+<text x="1280" y="778.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">393,247</text>
+<text x="1694" y="778.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">21,587</text>
+<text x="964" y="803.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">2023</text>
+<text x="1280" y="803.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">420,553</text>
+<text x="1694" y="803.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">20,620</text>
+<text x="964" y="828.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">2024</text>
+<text x="1280" y="828.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">441,817</text>
+<text x="1694" y="828.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">22,154</text>
+<text x="964" y="853.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">2025</text>
+<text x="1280" y="853.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">462,415</text>
+<text x="1694" y="853.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="end">23,882</text>
+<text x="962" y="880.28" font-size="17" font-weight="400" fill="#52647A" text-anchor="start">Also retain: segment ID, report dates, currency, unit and source reference.</text>
+<polyline points="460,889 460,904 900,904 900,920" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="900,920 905.0,909.0 895.0,909.0" fill="#6C8098"/>
+<polyline points="1340,889 1340,904 900,904" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<rect x="490" y="920" width="820" height="111" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="508" y="952.8" font-size="20" font-weight="700" fill="#245DA8" text-anchor="start">Combine -&gt; raw_df | 12 annual rows</text>
+<text x="508" y="983.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Tool: pandas.concat; retain both source-specific raw files.</text>
+<text x="508" y="1008.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Save import snapshot: data/financial_data.csv (to_csv).</text>
+<polyline points="900,1031 900,1070" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="900,1070 905.0,1059.0 895.0,1059.0" fill="#6C8098"/>
+<rect x="350" y="1070" width="1100" height="158" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="368" y="1102.8" font-size="20" font-weight="700" fill="#245DA8" text-anchor="start">Standardize -&gt; clean_df | pandas + ordinary Python functions</text>
+<text x="368" y="1133.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Remove commas; convert loss parentheses to minus signs; use to_numeric.</text>
+<text x="368" y="1158.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Parse report dates with to_datetime; retain original strings and units.</text>
+<text x="368" y="1183.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Numeric measures: net_sales_usd_m and operating_income_usd_m.</text>
+<text x="368" y="1208.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Check source, exact coverage, required values and unique segment/year keys.</text>
+<polyline points="900,1228 900,1253" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="900,1253 905.0,1242.0 895.0,1242.0" fill="#6C8098"/>
+<polygon points="900,1253.0 990.0,1310 900,1367.0 810.0,1310" fill="#EEF4FC" stroke="#245DA8" stroke-width="1.5"/>
+<text x="900" y="1317.64" font-size="21" font-weight="700" fill="#172B44" text-anchor="middle">Data valid?</text>
+<rect x="60" y="1260" width="390" height="105" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="78" y="1291.96" font-size="19" font-weight="700" fill="#245DA8" text-anchor="start">No: correct and reload</text>
+<text x="78" y="1323.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">Review the source reports.</text>
+<text x="78" y="1348.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">Fix raw CSV, then load again.</text>
+<polyline points="810,1310 450,1310" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="450,1310 461.0,1315.0 461.0,1305.0" fill="#6C8098"/>
+<text x="560" y="1300.12" font-size="18" font-weight="400" fill="#52647A" text-anchor="start">No</text>
+<polyline points="60,1310 28,1310 28,530 460,530 460,550" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round" stroke-dasharray="7 5"/>
+<polygon points="460,550 465.0,539.0 455.0,539.0" fill="#6C8098"/>
+<polyline points="28,530 1340,530 1340,550" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round" stroke-dasharray="7 5"/>
+<polygon points="1340,550 1345.0,539.0 1335.0,539.0" fill="#6C8098"/>
+<rect x="1190" y="1260" width="550" height="112" rx="12" fill="#EDF8F4" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="1208" y="1291.96" font-size="19" font-weight="700" fill="#245DA8" text-anchor="start">Yes: persist accepted records</text>
+<text x="1208" y="1323.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">Audit CSV: data/clean/financial_records.csv</text>
+<text x="1208" y="1348.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">SQLite writes: DatabaseManager + sqlite3</text>
+<polyline points="990,1310 1190,1310" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="1190,1310 1179.0,1305.0 1179.0,1315.0" fill="#6C8098"/>
+<text x="1070" y="1300.12" font-size="18" font-weight="400" fill="#147A6A" text-anchor="start">Yes</text>
+<polyline points="1465,1372 1465,1415" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="1465,1415 1470.0,1404.0 1460.0,1404.0" fill="#6C8098"/>
+<rect x="1190" y="1433" width="550" height="147" rx="0" fill="#EDF8F4" stroke="#EDF8F4" stroke-width="1.5"/>
+<ellipse cx="1465.0" cy="1580.0" rx="275.0" ry="18.0" fill="#EDF8F4" stroke="#B8C6D6" stroke-width="1.5"/>
+<polyline points="1190,1433 1190,1580" fill="none" stroke="#6C8098" stroke-width="1.5" stroke-linejoin="round"/>
+<polyline points="1740,1433 1740,1580" fill="none" stroke="#6C8098" stroke-width="1.5" stroke-linejoin="round"/>
+<ellipse cx="1465.0" cy="1433.0" rx="275.0" ry="18.0" fill="#EDF8F4" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="1465.0" y="1482.48" font-size="22" font-weight="700" fill="#147A6A" text-anchor="middle">SQLite: persistent data store</text>
+<text x="1465.0" y="1515.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="middle">data/retail_comparison.sqlite</text>
+<text x="1465.0" y="1546.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="middle">business_units | financial_records</text>
+<text x="1465.0" y="1571.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="middle">metric_results</text>
+<rect x="60" y="1440" width="435" height="138" rx="12" fill="#EEF4FC" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="78" y="1471.96" font-size="19" font-weight="700" fill="#245DA8" text-anchor="start">Configuration input | Module 01</text>
+<text x="78" y="1503.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">study.json -&gt; period dictionaries</text>
+<text x="78" y="1528.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">unit_id, fiscal_year, analysis_year</text>
+<text x="78" y="1553.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">2019 base year + comparison stages</text>
+<rect x="580" y="1440" width="530" height="108" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="598" y="1471.96" font-size="19" font-weight="700" fill="#245DA8" text-anchor="start">Query -&gt; financial_df | 12 rows</text>
+<text x="598" y="1503.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">Tool: pandas.read_sql_query + sqlite3</text>
+<text x="598" y="1528.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">Read selected financial_records.</text>
+<polyline points="1190,1494 1110,1494" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="1110,1494 1121.0,1499.0 1121.0,1489.0" fill="#6C8098"/>
+<text x="1124" y="1476.28" font-size="17" font-weight="400" fill="#147A6A" text-anchor="start">Read</text>
+<polyline points="845,1548 845,1640" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="845,1640 850.0,1629.0 840.0,1629.0" fill="#6C8098"/>
+<polyline points="277,1578 277,1696 400,1696" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round" stroke-dasharray="7 5"/>
+<polygon points="400,1696 389.0,1691.0 389.0,1701.0" fill="#6C8098"/>
+<rect x="400" y="1640" width="1000" height="126" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="418" y="1671.96" font-size="19" font-weight="700" fill="#245DA8" text-anchor="start">Align -&gt; analysis_df | 12 study-period rows</text>
+<text x="418" y="1703.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">Tool: MetricCalculator.build_analysis_frame; dictionary lookup by unit_id + fiscal_year.</text>
+<text x="418" y="1728.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">Add analysis_year and comparison_stage; retain actual report dates and financial measures.</text>
+<text x="418" y="1753.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">Amazon 2019 -&gt; Walmart FY2020; fiscal matching is approximate, not identical.</text>
+<polyline points="900,1766 900,1802" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="900,1802 905.0,1791.0 895.0,1791.0" fill="#6C8098"/>
+<rect x="350" y="1802" width="1100" height="149" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="368" y="1833.96" font-size="19" font-weight="700" fill="#245DA8" text-anchor="start">Calculate -&gt; analysis_df | 12 rows, 3 metric columns</text>
+<text x="368" y="1865.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">Tools: sort_values + simple for loops / if checks, separately for each segment.</text>
+<text x="368" y="1890.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">sales_growth_pct = (current sales / previous sales - 1) * 100</text>
+<text x="368" y="1915.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">operating_margin_pct = income / sales * 100; sales_index = sales / 2019 sales * 100</text>
+<text x="368" y="1940.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">2019 growth is NULL; 2020-2024 growth uses prior-year sales. Negative income is valid.</text>
+<polyline points="900,1951 900,1990" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="900,1990 905.0,1979.0 895.0,1979.0" fill="#6C8098"/>
+<rect x="400" y="1990" width="1000" height="126" rx="12" fill="#EDF8F4" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="418" y="2021.96" font-size="19" font-weight="700" fill="#245DA8" text-anchor="start">Save -&gt; metric_df | 36 rows, including 2 NULL growth values</text>
+<text x="418" y="2053.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">One row per study, segment, analysis year and metric; attach config signature.</text>
+<text x="418" y="2078.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">Write metric_results via save_metric_results + sqlite3 bound parameters.</text>
+<text x="418" y="2103.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">Retain value units, calculation time and missing-value reasons.</text>
+<polyline points="1400,2053 1775,2053 1775,1478 1740,1478" fill="none" stroke="#147A6A" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="1740,1478 1751.0,1483.0 1751.0,1473.0" fill="#147A6A"/>
+<text x="1545" y="2037.28" font-size="17" font-weight="400" fill="#147A6A" text-anchor="start">Write metrics</text>
+<rect x="400" y="2200" width="1000" height="131" rx="12" fill="#EEF4FC" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="418" y="2231.96" font-size="19" font-weight="700" fill="#245DA8" text-anchor="start">Read back -&gt; stored_metric_df -&gt; saved results</text>
+<text x="418" y="2263.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">Query current study/signature; verify_metric_copy checks all fields.</text>
+<text x="418" y="2288.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">CSV: annual_metrics.csv, metric_records.csv, stage_summary.csv + analysis_manifest.json</text>
+<text x="418" y="2313.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">stage_summary_df: unweighted valid-year means and available-year counts.</text>
+<polyline points="1740,1542 1760,1542 1760,2250 1400,2250" fill="none" stroke="#245DA8" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="1400,2250 1411.0,2255.0 1411.0,2245.0" fill="#245DA8"/>
+<text x="1520" y="2236.28" font-size="17" font-weight="400" fill="#245DA8" text-anchor="start">Read saved results</text>
+<polyline points="900,2331 900,2370" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="900,2370 905.0,2359.0 895.0,2359.0" fill="#6C8098"/>
+<rect x="400" y="2370" width="1000" height="142" rx="12" fill="#EEF4FC" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="418" y="2401.96" font-size="19" font-weight="700" fill="#245DA8" text-anchor="start">Module 04: read_reporting_data -&gt; report_df</text>
+<text x="418" y="2433.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">Requery current sources; recompute expected_df only to verify saved metrics.</text>
+<text x="418" y="2458.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">report_metric_df: 36 current-signature SQL rows -&gt; values_by_key dictionary.</text>
+<text x="418" y="2483.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">report_df: 12 x 22; displayed metric values come from the saved SQL query.</text>
+<text x="418" y="2508.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">Tools: DatabaseManager, pandas; query_only connection; finally closes it.</text>
+<polyline points="900,2512 900,2552" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="900,2552 905.0,2541.0 895.0,2541.0" fill="#6C8098"/>
+<rect x="400" y="2552" width="1000" height="130" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="418" y="2583.96" font-size="19" font-weight="700" fill="#245DA8" text-anchor="start">Build presentation tables and findings</text>
+<text x="418" y="2615.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">baseline_comparison_df: 12 x 9; sales percentages / margin percentage points.</text>
+<text x="418" y="2640.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">report_stage_df: 6 x 12; build_stage_summary preserves valid-year counts.</text>
+<text x="418" y="2665.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">Tools: ordinary functions, dictionary records, DataFrame.to_html.</text>
+<polyline points="900,2682 900,2715" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="900,2715 905.0,2704.0 895.0,2704.0" fill="#6C8098"/>
+<rect x="400" y="2715" width="1000" height="146" rx="12" fill="#EDF8F4" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="418" y="2746.96" font-size="19" font-weight="700" fill="#245DA8" text-anchor="start">ReportBuilder -&gt; persisted report and charts</text>
+<text x="418" y="2778.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">Matplotlib subplots + savefig: results/figures/{metric}.png and .svg (3 each).</text>
+<text x="418" y="2803.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">Path.write_text: results/research_report.html; image links use figures/.</text>
+<text x="418" y="2828.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">json.dump: results/report_manifest.json; input signature + settings snapshot.</text>
+<text x="418" y="2853.12" font-size="18" font-weight="400" fill="#172B44" text-anchor="start">Notebook preview: IPython HTML / Image / display; no SQLite writes.</text>
+<rect x="60" y="2890" width="1680" height="165" rx="12" fill="#EDF8F4" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="82" y="2928.32" font-size="23" font-weight="700" fill="#147A6A" text-anchor="start">Interpretation and chart annotations | stage labels come from study.json</text>
+<text x="82" y="2966.8" font-size="20" font-weight="400" fill="#172B44" text-anchor="start">2019: Pre-pandemic baseline | 2020-2021: Pandemic disruption | 2022-2024: Subsequent adjustment</text>
+<text x="82" y="3003.8" font-size="20" font-weight="400" fill="#172B44" text-anchor="start">Stage shading and base-year lines are saved in all three charts. Share HTML with its figures folder.</text>
+<text x="82" y="3039.8" font-size="20" font-weight="400" fill="#52647A" text-anchor="start">Descriptive patterns only. One pre-pandemic year cannot establish trends or identify a causal effect.</text>
+<text x="60" y="3106.8" font-size="20" font-weight="400" fill="#52647A" text-anchor="start">DataFrames live in memory. HTML / CSV / JSON / SQLite / PNG / SVG / Markdown files persist on disk.</text>
+<text x="60" y="3137.96" font-size="19" font-weight="400" fill="#52647A" text-anchor="start">All destinations are project-relative. S1-S4 source links and full schemas are in diagram_guide.md.</text>
+<text x="60" y="3169.96" font-size="19" font-weight="400" fill="#52647A" text-anchor="start">Stage boundaries are study conventions; the 2022-2024 adjustment period may still include pandemic effects.</text>
+</svg>

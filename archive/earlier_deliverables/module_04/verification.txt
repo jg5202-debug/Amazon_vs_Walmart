@@ -1,0 +1,17 @@
+PASS: The user Desktop Notebook had 32 code cells and no saved error outputs.
+PASS: Modules 01-03 ran from the first cell in an isolated copy; all formulas independently checked with Decimal.
+PASS: All 44 code cells of the delivered full Notebook executed in a fresh Jupyter kernel using the user .venv Python.
+PASS: Module 04 preserved all rows and values in all three SQLite tables.
+PASS: Current signature only; 12 annual rows / 36 metric rows / 2 missing growth values.
+PASS: All 12 baseline sales percentages and margin-point changes checked with independent Decimal arithmetic.
+PASS: Report HTML has 3 images, 4 tables with 12/12/6/12 rows, and 4 official source links.
+PASS: 3 PNG files (1800 x 1080) and 3 SVG files; manifest settings and signature match.
+PASS: Missing metrics, altered metric values, and changed source data rejected.
+PASS: A 2021 base-year and index-only configuration select the correct signature and produce one chart.
+PASS: Identical displayed company/segment names still match distinct unit IDs correctly; HTML text escaped.
+PASS: Repeat report reads do not add database rows; SQLite integrity ok and foreign keys valid.
+PASS: User Desktop Notebook, JSON, database records and original CSV/manifest files unchanged.
+Visual QA of generated charts, report and guide is recorded separately after inspection.
+PASS: Visual inspection of all chart types: annual labels, unit legends, base-year lines, stage shading and captions.
+PASS: Report browser loaded all 3 images and 4 tables, with no page-level horizontal overflow.
+PASS: Guide browser has 12 cells and 159 explanations, separated code/prose columns, line-jump highlighting 3/4/5 verified.

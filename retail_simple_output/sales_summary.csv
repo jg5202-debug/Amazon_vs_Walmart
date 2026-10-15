@@ -1,0 +1,3 @@
+unit_id,company,segment,start_year,end_year,growth_intervals,start_sales,end_sales,sales_cagr_pct
+amazon,"Amazon.com, Inc.",North America,2019,2024,5,170773.0,387497.0,17.80665568652344
+walmart,Walmart Inc.,Walmart U.S.,2019,2024,5,341004.0,462415.0,6.280720035426746

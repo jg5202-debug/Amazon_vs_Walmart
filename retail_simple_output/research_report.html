@@ -1,0 +1,420 @@
+<html lang='en'><head><meta charset='utf-8'><title>Retail Growth and Profitability</title><style>body{font:16px Arial;max-width:1100px;margin:40px auto;line-height:1.6}img{max-width:100%}table{display:block;overflow-x:auto;border-collapse:collapse;font-size:13px}th,td{padding:8px;border:1px solid #ddd}</style></head><body>
+<h1>Retail Growth and Profitability Comparison: Amazon North America and Walmart U.S., 2019-2024</h1><p>How did segment sales growth and operating profitability change around the pandemic, relative to 2019?</p>
+<h2>Measures</h2><p>Annual sales growth = (current / previous sales - 1) * 100; operating margin = operating income / net sales * 100; sales index = sales / reference-year sales * 100. Full-window sales CAGR = ((last sales / first sales) ** (1 / growth intervals) - 1) * 100.</p>
+<h2>Observed results</h2>
+<p>Amazon North America: sales changed by 126.91% from the reference year; full-window sales CAGR was 17.81% over 5 intervals. Ending operating margin was 6.44%, a change of 2.32 percentage points.</p>
+<p>Walmart U.S.: sales changed by 35.60% from the reference year; full-window sales CAGR was 6.28% over 5 intervals. Ending operating margin was 5.16%, a change of 0.07 percentage points.</p>
+<h2>Full-window sales CAGR</h2><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>unit_id</th>
+      <th>company</th>
+      <th>segment</th>
+      <th>start_year</th>
+      <th>end_year</th>
+      <th>growth_intervals</th>
+      <th>start_sales</th>
+      <th>end_sales</th>
+      <th>sales_cagr_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>amazon</td>
+      <td>Amazon.com, Inc.</td>
+      <td>North America</td>
+      <td>2019</td>
+      <td>2024</td>
+      <td>5</td>
+      <td>170773.0</td>
+      <td>387497.0</td>
+      <td>17.81</td>
+    </tr>
+    <tr>
+      <td>walmart</td>
+      <td>Walmart Inc.</td>
+      <td>Walmart U.S.</td>
+      <td>2019</td>
+      <td>2024</td>
+      <td>5</td>
+      <td>341004.0</td>
+      <td>462415.0</td>
+      <td>6.28</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Annual Sales Growth</h2><img alt='Annual Sales Growth' src='sales_growth_pct.png'>
+<h2>Sales Index</h2><img alt='Sales Index' src='sales_index.png'>
+<h2>Operating Margin</h2><img alt='Operating Margin' src='operating_margin_pct.png'>
+<h2>Business context</h2>
+<h3>The 2022 margin dip</h3><p>Amazon rapidly expanded its fulfillment network during the pandemic. Its 2022 filing describes demand returning toward normal seasonal levels relative to network fixed costs, alongside higher transportation, utility and wage costs. This supports an interpretation of capacity growing faster than normalized demand and inflation-related cost pressure around the North America loss.</p>
+<a href='https://www.sec.gov/Archives/edgar/data/1018724/000101872423000004/amzn-20221231.htm'>Amazon 2022 Form 10-K, MD&amp;A: operating cost pressures</a><br>
+<a href='https://www.aboutamazon.com/news/company-news/amazon-ceo-andy-jassy-2022-letter-to-shareholders'>Amazon 2022 shareholder letter: fulfillment expansion</a><br>
+<h3>The recovery through 2024</h3><p>Amazon describes regionalization as placing inventory closer to customers, shortening transport distances and lowering cost to serve; its 2024 letter describes continued network improvements. These changes provide context for the margin recovery. The 2024 filing also attributes higher North America operating income primarily to increased unit and advertising sales, partly offset by higher total fulfillment and shipping costs. Lower unit costs do not mean total costs fell.</p>
+<a href='https://www.aboutamazon.com/news/company-news/amazon-ceo-andy-jassy-2023-letter-to-shareholders'>Amazon 2023 shareholder letter: regionalization and unit costs</a><br>
+<a href='https://www.aboutamazon.com/news/company-news/amazon-ceo-andy-jassy-2024-letter-to-shareholders'>Amazon 2024 shareholder letter: fulfillment network redesign</a><br>
+<a href='https://www.sec.gov/Archives/edgar/data/1018724/000101872425000004/amzn-20241231.htm'>Amazon 2024 Form 10-K, MD&amp;A: North America operating income</a><br>
+<p>These management explanations provide context; the small descriptive sample cannot isolate each factor's causal contribution.</p>
+<h2>Annual results and reporting dates</h2><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>company</th>
+      <th>segment</th>
+      <th>analysis_year</th>
+      <th>fiscal_year</th>
+      <th>period_start</th>
+      <th>period_end</th>
+      <th>net_sales</th>
+      <th>operating_income</th>
+      <th>sales_growth_pct</th>
+      <th>operating_margin_pct</th>
+      <th>sales_index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Amazon.com, Inc.</td>
+      <td>North America</td>
+      <td>2019</td>
+      <td>2019</td>
+      <td>2019-01-01</td>
+      <td>2019-12-31</td>
+      <td>170773.0</td>
+      <td>7033.0</td>
+      <td>N/A</td>
+      <td>4.12</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>Amazon.com, Inc.</td>
+      <td>North America</td>
+      <td>2020</td>
+      <td>2020</td>
+      <td>2020-01-01</td>
+      <td>2020-12-31</td>
+      <td>236282.0</td>
+      <td>8651.0</td>
+      <td>38.36</td>
+      <td>3.66</td>
+      <td>138.36</td>
+    </tr>
+    <tr>
+      <td>Amazon.com, Inc.</td>
+      <td>North America</td>
+      <td>2021</td>
+      <td>2021</td>
+      <td>2021-01-01</td>
+      <td>2021-12-31</td>
+      <td>279833.0</td>
+      <td>7271.0</td>
+      <td>18.43</td>
+      <td>2.60</td>
+      <td>163.86</td>
+    </tr>
+    <tr>
+      <td>Amazon.com, Inc.</td>
+      <td>North America</td>
+      <td>2022</td>
+      <td>2022</td>
+      <td>2022-01-01</td>
+      <td>2022-12-31</td>
+      <td>315880.0</td>
+      <td>-2847.0</td>
+      <td>12.88</td>
+      <td>-0.90</td>
+      <td>184.97</td>
+    </tr>
+    <tr>
+      <td>Amazon.com, Inc.</td>
+      <td>North America</td>
+      <td>2023</td>
+      <td>2023</td>
+      <td>2023-01-01</td>
+      <td>2023-12-31</td>
+      <td>352828.0</td>
+      <td>14877.0</td>
+      <td>11.70</td>
+      <td>4.22</td>
+      <td>206.61</td>
+    </tr>
+    <tr>
+      <td>Amazon.com, Inc.</td>
+      <td>North America</td>
+      <td>2024</td>
+      <td>2024</td>
+      <td>2024-01-01</td>
+      <td>2024-12-31</td>
+      <td>387497.0</td>
+      <td>24967.0</td>
+      <td>9.83</td>
+      <td>6.44</td>
+      <td>226.91</td>
+    </tr>
+    <tr>
+      <td>Walmart Inc.</td>
+      <td>Walmart U.S.</td>
+      <td>2019</td>
+      <td>2020</td>
+      <td>2019-02-01</td>
+      <td>2020-01-31</td>
+      <td>341004.0</td>
+      <td>17380.0</td>
+      <td>N/A</td>
+      <td>5.10</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>Walmart Inc.</td>
+      <td>Walmart U.S.</td>
+      <td>2020</td>
+      <td>2021</td>
+      <td>2020-02-01</td>
+      <td>2021-01-31</td>
+      <td>369963.0</td>
+      <td>19116.0</td>
+      <td>8.49</td>
+      <td>5.17</td>
+      <td>108.49</td>
+    </tr>
+    <tr>
+      <td>Walmart Inc.</td>
+      <td>Walmart U.S.</td>
+      <td>2021</td>
+      <td>2022</td>
+      <td>2021-02-01</td>
+      <td>2022-01-31</td>
+      <td>393247.0</td>
+      <td>21587.0</td>
+      <td>6.29</td>
+      <td>5.49</td>
+      <td>115.32</td>
+    </tr>
+    <tr>
+      <td>Walmart Inc.</td>
+      <td>Walmart U.S.</td>
+      <td>2022</td>
+      <td>2023</td>
+      <td>2022-02-01</td>
+      <td>2023-01-31</td>
+      <td>420553.0</td>
+      <td>20620.0</td>
+      <td>6.94</td>
+      <td>4.90</td>
+      <td>123.33</td>
+    </tr>
+    <tr>
+      <td>Walmart Inc.</td>
+      <td>Walmart U.S.</td>
+      <td>2023</td>
+      <td>2024</td>
+      <td>2023-02-01</td>
+      <td>2024-01-31</td>
+      <td>441817.0</td>
+      <td>22154.0</td>
+      <td>5.06</td>
+      <td>5.01</td>
+      <td>129.56</td>
+    </tr>
+    <tr>
+      <td>Walmart Inc.</td>
+      <td>Walmart U.S.</td>
+      <td>2024</td>
+      <td>2025</td>
+      <td>2024-02-01</td>
+      <td>2025-01-31</td>
+      <td>462415.0</td>
+      <td>23882.0</td>
+      <td>4.66</td>
+      <td>5.16</td>
+      <td>135.60</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Stage arithmetic means and valid years</h2><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>company</th>
+      <th>segment</th>
+      <th>comparison_stage</th>
+      <th>record_count</th>
+      <th>sales_growth_pct_mean</th>
+      <th>sales_growth_pct_valid_years</th>
+      <th>operating_margin_pct_mean</th>
+      <th>operating_margin_pct_valid_years</th>
+      <th>sales_index_mean</th>
+      <th>sales_index_valid_years</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Amazon.com, Inc.</td>
+      <td>North America</td>
+      <td>Pre-pandemic baseline</td>
+      <td>1</td>
+      <td>N/A</td>
+      <td>0</td>
+      <td>4.12</td>
+      <td>1</td>
+      <td>100.00</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Amazon.com, Inc.</td>
+      <td>North America</td>
+      <td>Pandemic disruption</td>
+      <td>2</td>
+      <td>28.40</td>
+      <td>2</td>
+      <td>3.13</td>
+      <td>2</td>
+      <td>151.11</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Amazon.com, Inc.</td>
+      <td>North America</td>
+      <td>Subsequent adjustment</td>
+      <td>3</td>
+      <td>11.47</td>
+      <td>3</td>
+      <td>3.25</td>
+      <td>3</td>
+      <td>206.16</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Walmart Inc.</td>
+      <td>Walmart U.S.</td>
+      <td>Pre-pandemic baseline</td>
+      <td>1</td>
+      <td>N/A</td>
+      <td>0</td>
+      <td>5.10</td>
+      <td>1</td>
+      <td>100.00</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Walmart Inc.</td>
+      <td>Walmart U.S.</td>
+      <td>Pandemic disruption</td>
+      <td>2</td>
+      <td>7.39</td>
+      <td>2</td>
+      <td>5.33</td>
+      <td>2</td>
+      <td>111.91</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Walmart Inc.</td>
+      <td>Walmart U.S.</td>
+      <td>Subsequent adjustment</td>
+      <td>3</td>
+      <td>5.55</td>
+      <td>3</td>
+      <td>5.03</td>
+      <td>3</td>
+      <td>129.50</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+<h2>SQL stage-growth query</h2><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>unit_id</th>
+      <th>company</th>
+      <th>segment</th>
+      <th>comparison_stage</th>
+      <th>first_year</th>
+      <th>last_year</th>
+      <th>annual_records</th>
+      <th>valid_growth_years</th>
+      <th>average_growth_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>amazon</td>
+      <td>Amazon.com, Inc.</td>
+      <td>North America</td>
+      <td>Pre-pandemic baseline</td>
+      <td>2019</td>
+      <td>2019</td>
+      <td>1</td>
+      <td>0</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>amazon</td>
+      <td>Amazon.com, Inc.</td>
+      <td>North America</td>
+      <td>Pandemic disruption</td>
+      <td>2020</td>
+      <td>2021</td>
+      <td>2</td>
+      <td>2</td>
+      <td>28.40</td>
+    </tr>
+    <tr>
+      <td>amazon</td>
+      <td>Amazon.com, Inc.</td>
+      <td>North America</td>
+      <td>Subsequent adjustment</td>
+      <td>2022</td>
+      <td>2024</td>
+      <td>3</td>
+      <td>3</td>
+      <td>11.47</td>
+    </tr>
+    <tr>
+      <td>walmart</td>
+      <td>Walmart Inc.</td>
+      <td>Walmart U.S.</td>
+      <td>Pre-pandemic baseline</td>
+      <td>2019</td>
+      <td>2019</td>
+      <td>1</td>
+      <td>0</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>walmart</td>
+      <td>Walmart Inc.</td>
+      <td>Walmart U.S.</td>
+      <td>Pandemic disruption</td>
+      <td>2020</td>
+      <td>2021</td>
+      <td>2</td>
+      <td>2</td>
+      <td>7.39</td>
+    </tr>
+    <tr>
+      <td>walmart</td>
+      <td>Walmart Inc.</td>
+      <td>Walmart U.S.</td>
+      <td>Subsequent adjustment</td>
+      <td>2022</td>
+      <td>2024</td>
+      <td>3</td>
+      <td>3</td>
+      <td>5.55</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Study notes</h2>
+<p>Amazon CY2019-CY2024 (January-December) is approximately paired with Walmart FY2020-FY2025 (February-January). For example, Amazon CY2023 runs January 1-December 31, 2023; Walmart FY2024 runs February 1, 2023-January 31, 2024. The windows are shifted by one month, not identical.</p>
+<p>All financial amounts are nominal USD millions, without inflation adjustment. Sales means segment net sales.</p>
+<p>First study-year growth is unavailable, not zero. The sales index uses the configured base year.</p>
+<p>Stage means average available annual values. They are not CAGR or pooled operating margins.</p>
+<p>Stage labels are study groupings. One pre-pandemic year and different segment business mixes do not support causal pandemic conclusions.</p>
+<p>Amazon North America includes services and excludes AWS. Walmart U.S. excludes Sam&#x27;s Club and Walmart International. Their geography and revenue recognition differ.</p>
+<p>Amounts were manually transcribed from adopted historical official filings. Later restatements are not automatically included.</p>
+<p>Sales CAGR is calculated over the full configured study window: six annual observations from 2019 to 2024 contain five compounding intervals. It is separate from the stage arithmetic means.</p>
+<h2>Financial data sources</h2>
+<p><a href='https://www.sec.gov/Archives/edgar/data/1018724/000101872422000005/amzn-20211231.htm'>https://www.sec.gov/Archives/edgar/data/1018724/000101872422000005/amzn-20211231.htm</a></p>
+<p><a href='https://www.sec.gov/Archives/edgar/data/1018724/000101872425000004/amzn-20241231.htm'>https://www.sec.gov/Archives/edgar/data/1018724/000101872425000004/amzn-20241231.htm</a></p>
+<p><a href='https://www.sec.gov/Archives/edgar/data/104169/000010416922000012/wmt-20220131.htm'>https://www.sec.gov/Archives/edgar/data/104169/000010416922000012/wmt-20220131.htm</a></p>
+<p><a href='https://www.sec.gov/Archives/edgar/data/104169/000010416925000021/wmt-20250131.htm'>https://www.sec.gov/Archives/edgar/data/104169/000010416925000021/wmt-20250131.htm</a></p>
+</body></html>

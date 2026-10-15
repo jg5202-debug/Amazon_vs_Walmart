@@ -1,0 +1,60 @@
+Configuration is valid.
+Study: Sales Growth and Operating Profitability of Internet-Origin and Store-Origin Retailers: Amazon North America and Walmart U.S. Around the COVID-19 Pandemic, 2019-2024
+Research question: Relative to a 2019 pre-pandemic baseline, how did sales growth and operating margins differ between Amazon North America and Walmart U.S. during 2020-2021 and the subsequent 2022-2024 adjustment period? This is a descriptive comparison, not an estimate of the causal effect of COVID-19.
+Currency: USD
+Business units: 2
+Planned observations: 12
+Metrics: sales_growth, operating_margin, sales_index
+Index base year: 2019
+
+Business unit scope:
+Amazon.com, Inc. / North America
+  - Use North America segment net sales and operating income, not consolidated totals.
+  - The segment excludes AWS but includes advertising, subscription services, and third-party seller services.
+  - The segment's geographical scope and revenue recognition differ from Walmart U.S.
+Walmart Inc. / Walmart U.S.
+  - Use Walmart U.S. segment net sales and operating income, not consolidated totals.
+  - Exclude Sam's Club and Walmart International from the selected segment data.
+  - Walmart fiscal years end on January 31 of the labeled year.
+
+Fiscal period mapping:
+Analysis year: 2019
+  Comparison stage: Pre-pandemic baseline
+  Amazon.com, Inc.: FY2019
+  Walmart Inc.: FY2020
+Analysis year: 2020
+  Comparison stage: Pandemic disruption
+  Amazon.com, Inc.: FY2020
+  Walmart Inc.: FY2021
+Analysis year: 2021
+  Comparison stage: Pandemic disruption
+  Amazon.com, Inc.: FY2021
+  Walmart Inc.: FY2022
+Analysis year: 2022
+  Comparison stage: Subsequent adjustment
+  Amazon.com, Inc.: FY2022
+  Walmart Inc.: FY2023
+Analysis year: 2023
+  Comparison stage: Subsequent adjustment
+  Amazon.com, Inc.: FY2023
+  Walmart Inc.: FY2024
+Analysis year: 2024
+  Comparison stage: Subsequent adjustment
+  Amazon.com, Inc.: FY2024
+  Walmart Inc.: FY2025
+
+Alignment note: Amazon years ending December 31 are paired with Walmart fiscal years ending January 31 of the following year. These are approximately corresponding periods, not identical periods. Actual start and end dates must be recorded and checked in the data module.
+Financial data has not been loaded or calculated.
+Config file: /Users/dadabaibaidegoose/Desktop/JupyterProject/study.json
+Configuration saved and reloaded successfully.
+Import file: /Users/dadabaibaidegoose/Desktop/JupyterProject/data/financial_data.csv
+Database file: /Users/dadabaibaidegoose/Desktop/JupyterProject/data/retail_comparison.sqlite
+Results directory: /Users/dadabaibaidegoose/Desktop/JupyterProject/results
+No financial data file, database, or results directory was created.
+Working directory: /Users/dadabaibaidegoose/Desktop/JupyterProject
+Configuration: /Users/dadabaibaidegoose/Desktop/JupyterProject/study.json
+Planned records: 12
+Index base year: 2019
+Database: /Users/dadabaibaidegoose/Desktop/JupyterProject/data/retail_comparison.sqlite
+Passed: existing combined Notebook cells, configuration paths and both raw source files.
+Passed: all 12 financial records standardized and validated; no database writes performed.

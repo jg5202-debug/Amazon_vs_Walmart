@@ -1,0 +1,146 @@
+Configuration is valid.
+Study: Sales Growth and Operating Profitability of Internet-Origin and Store-Origin Retailers: Amazon North America and Walmart U.S. Around the COVID-19 Pandemic, 2019-2024
+Research question: Relative to a 2019 pre-pandemic baseline, how did sales growth and operating margins differ between Amazon North America and Walmart U.S. during 2020-2021 and the subsequent 2022-2024 adjustment period? This is a descriptive comparison, not an estimate of the causal effect of COVID-19.
+Currency: USD
+Business units: 2
+Planned observations: 12
+Metrics: sales_growth, operating_margin, sales_index
+Index base year: 2019
+
+Business unit scope:
+Amazon.com, Inc. / North America
+  - Use North America segment net sales and operating income, not consolidated totals.
+  - The segment excludes AWS but includes advertising, subscription services, and third-party seller services.
+  - The segment's geographical scope and revenue recognition differ from Walmart U.S.
+Walmart Inc. / Walmart U.S.
+  - Use Walmart U.S. segment net sales and operating income, not consolidated totals.
+  - Exclude Sam's Club and Walmart International from the selected segment data.
+  - Walmart fiscal years end on January 31 of the labeled year.
+
+Fiscal period mapping:
+Analysis year: 2019
+  Comparison stage: Pre-pandemic baseline
+  Amazon.com, Inc.: FY2019
+  Walmart Inc.: FY2020
+Analysis year: 2020
+  Comparison stage: Pandemic disruption
+  Amazon.com, Inc.: FY2020
+  Walmart Inc.: FY2021
+Analysis year: 2021
+  Comparison stage: Pandemic disruption
+  Amazon.com, Inc.: FY2021
+  Walmart Inc.: FY2022
+Analysis year: 2022
+  Comparison stage: Subsequent adjustment
+  Amazon.com, Inc.: FY2022
+  Walmart Inc.: FY2023
+Analysis year: 2023
+  Comparison stage: Subsequent adjustment
+  Amazon.com, Inc.: FY2023
+  Walmart Inc.: FY2024
+Analysis year: 2024
+  Comparison stage: Subsequent adjustment
+  Amazon.com, Inc.: FY2024
+  Walmart Inc.: FY2025
+
+Alignment note: Amazon years ending December 31 are paired with Walmart fiscal years ending January 31 of the following year. These are approximately corresponding periods, not identical periods. Actual start and end dates must be recorded and checked in the data module.
+Financial data has not been loaded or calculated.
+Config file: <project_root>/study.json
+Configuration saved and reloaded successfully.
+Import file: <project_root>/data/financial_data.csv
+Database file: <project_root>/data/retail_comparison.sqlite
+Results directory: <project_root>/results
+No financial data file, database, or results directory was created.
+Working directory: <project_root>
+Configuration: <project_root>/study.json
+Planned records: 12
+Index base year: 2019
+Database: <project_root>/data/retail_comparison.sqlite
+Loaded amazon_north_america: 6 rows
+Loaded walmart_us: 6 rows
+Combined raw records: 12
+             unit_id fiscal_year net_sales_raw operating_income_raw
+amazon_north_america        2019       170,773                7,033
+amazon_north_america        2020       236,282                8,651
+amazon_north_america        2021       279,833                7,271
+amazon_north_america        2022       315,880              (2,847)
+amazon_north_america        2023       352,828               14,877
+amazon_north_america        2024       387,497               24,967
+          walmart_us        2020       341,004               17,380
+          walmart_us        2021       369,963               19,116
+          walmart_us        2022       393,247               21,587
+          walmart_us        2023       420,553               20,620
+          walmart_us        2024       441,817               22,154
+          walmart_us        2025       462,415               23,882
+Financial record checks passed.
+             unit_id  fiscal_year period_start period_end  net_sales_usd_m  operating_income_usd_m
+amazon_north_america         2019   2019-01-01 2019-12-31         170773.0                  7033.0
+amazon_north_america         2020   2020-01-01 2020-12-31         236282.0                  8651.0
+amazon_north_america         2021   2021-01-01 2021-12-31         279833.0                  7271.0
+amazon_north_america         2022   2022-01-01 2022-12-31         315880.0                 -2847.0
+amazon_north_america         2023   2023-01-01 2023-12-31         352828.0                 14877.0
+amazon_north_america         2024   2024-01-01 2024-12-31         387497.0                 24967.0
+          walmart_us         2020   2019-02-01 2020-01-31         341004.0                 17380.0
+          walmart_us         2021   2020-02-01 2021-01-31         369963.0                 19116.0
+          walmart_us         2022   2021-02-01 2022-01-31         393247.0                 21587.0
+          walmart_us         2023   2022-02-01 2023-01-31         420553.0                 20620.0
+          walmart_us         2024   2023-02-01 2024-01-31         441817.0                 22154.0
+          walmart_us         2025   2024-02-01 2025-01-31         462415.0                 23882.0
+Import snapshot saved: <project_root>/data/financial_data.csv
+Clean audit file saved: <project_root>/data/clean/financial_records.csv
+Database connected and tables are available.
+Inserted records: 0
+Updated records: 0
+Unchanged records: 12
+Database read-back verification passed.
+Selected financial records: 12
+business_units: 2 rows
+financial_records: 12 rows
+metric_results: 0 rows
+Database connection closed.
+Module 02 completed.
+Persistent database: <project_root>/data/retail_comparison.sqlite
+Next: query financial_records, join study periods and calculate metrics.
+No sales growth, operating margin or sales index has been calculated in Module 02.
+Configuration: <project_root>/study.json
+Database: <project_root>/data/retail_comparison.sqlite
+Results directory: <project_root>/results
+Configured base year: 2019
+Selected source records: 12
+Annual metric rows: 12
+Input signature: fff3b71fa5b9c8a5d0b9b931bd34cbf12b33166b53f581994daf28678b5f9355
+Annual metric checks passed.
+             unit_id  analysis_year      comparison_stage  sales_growth_pct  operating_margin_pct  sales_index
+amazon_north_america           2019 Pre-pandemic baseline               NaN                4.1183     100.0000
+          walmart_us           2019 Pre-pandemic baseline               NaN                5.0967     100.0000
+amazon_north_america           2020   Pandemic disruption           38.3603                3.6613     138.3603
+          walmart_us           2020   Pandemic disruption            8.4923                5.1670     108.4923
+amazon_north_america           2021   Pandemic disruption           18.4318                2.5983     163.8626
+          walmart_us           2021   Pandemic disruption            6.2936                5.4894     115.3203
+amazon_north_america           2022 Subsequent adjustment           12.8816               -0.9013     184.9707
+          walmart_us           2022 Subsequent adjustment            6.9437                4.9031     123.3279
+amazon_north_america           2023 Subsequent adjustment           11.6968                4.2165     206.6064
+          walmart_us           2023 Subsequent adjustment            5.0562                5.0143     129.5636
+amazon_north_america           2024 Subsequent adjustment            9.8260                6.4431     226.9076
+          walmart_us           2024 Subsequent adjustment            4.6621                5.1646     135.6040
+Long metric records: 36
+Missing metric values: 2
+Saved records for this run: 36
+Read-back records for this run: 36
+Metric database verification passed.
+All metric rows in the database: 36
+             unit_id     company_name  segment_name      comparison_stage   analysis_years  record_count  sales_growth_pct_valid_years  sales_growth_pct_mean  operating_margin_pct_valid_years  operating_margin_pct_mean  sales_index_valid_years  sales_index_mean
+amazon_north_america Amazon.com, Inc. North America Pre-pandemic baseline             2019             1                             0                    NaN                                 1                     4.1183                        1          100.0000
+amazon_north_america Amazon.com, Inc. North America   Pandemic disruption       2020, 2021             2                             2                28.3960                                 2                     3.1298                        2          151.1114
+amazon_north_america Amazon.com, Inc. North America Subsequent adjustment 2022, 2023, 2024             3                             3                11.4682                                 3                     3.2528                        3          206.1616
+          walmart_us     Walmart Inc.  Walmart U.S. Pre-pandemic baseline             2019             1                             0                    NaN                                 1                     5.0967                        1          100.0000
+          walmart_us     Walmart Inc.  Walmart U.S.   Pandemic disruption       2020, 2021             2                             2                 7.3929                                 2                     5.3282                        2          111.9063
+          walmart_us     Walmart Inc.  Walmart U.S. Subsequent adjustment 2022, 2023, 2024             3                             3                 5.5540                                 3                     5.0273                        3          129.4985
+Annual results saved: <project_root>/results/annual_metrics.csv
+Metric query saved: <project_root>/results/metric_records.csv
+Stage summary saved: <project_root>/results/stage_summary.csv
+Analysis manifest saved: <project_root>/results/analysis_manifest.json
+Database connection closed.
+Module 03 completed.
+Next: create charts and write a descriptive report using the saved results.
+Stage averages are not CAGR, pooled margins or estimates of a causal pandemic effect.

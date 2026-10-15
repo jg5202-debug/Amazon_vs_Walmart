@@ -1,0 +1,1291 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Module 02 Code Explanation Guide</title><style>:root{color-scheme:light;--ink:#1e293b;--muted:#64748b;--line:#d7dee7;--code:#f3f6f9;--accent:#1d4ed8}
+*{box-sizing:border-box}html{scroll-behavior:auto;scroll-padding-top:76px}body{margin:0;color:var(--ink);background:#fff;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;font-size:16px;line-height:1.8}a{color:var(--accent)}button{font:inherit;cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:12px 28px;gap:20px}.brand{font-size:14px;font-weight:650;line-height:1.5}.brand small{display:block;color:var(--muted);font-weight:400}.layout-toggle{border:1px solid var(--line);background:#fff;border-radius:5px;padding:5px 14px;font-size:13px;white-space:nowrap}
+.page{display:grid;grid-template-columns:225px minmax(0,1fr);max-width:1800px;margin:auto}.sidebar{padding:28px 18px 32px;border-right:1px solid var(--line)}.sidebar-inner{position:sticky;top:92px}.sidebar h2{font-size:13px;margin:0 0 14px;color:var(--muted)}.sidebar a{display:flex;gap:10px;font-size:12px;color:#334155;text-decoration:none;padding:7px 4px;line-height:1.6}.sidebar a:hover{color:var(--accent);background:#f5f7fa}.sidebar a span{font-family:monospace;color:var(--muted);flex-shrink:0}
+main{min-width:0;padding:32px 34px 80px}.intro{max-width:940px;margin-bottom:38px}h1{font-size:26px;font-weight:650;line-height:1.4;margin:0 0 16px}.intro p{margin:10px 0;color:#475569}.intro code{font-family:Menlo,Consolas,monospace;background:var(--code);padding:2px 4px;font-size:13px}.read-key{border-left:3px solid var(--accent);padding:5px 18px;margin-top:20px;background:#f8fafc;font-size:14px}
+.cell-section{border-top:1px solid var(--line);padding:28px 0 48px;scroll-margin-top:12px}h2{font-size:19px;margin:0 0 22px;line-height:1.6}.reading-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:30px;align-items:start}.code-panel{position:sticky;top:91px;border:1px solid var(--line);border-radius:7px;overflow:hidden;background:var(--code);min-width:0}.code-toolbar{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font-size:13px;font-weight:600;background:#eaf0f6}.copy{border:1px solid #cbd5e1;background:white;border-radius:4px;font-family:Menlo,Consolas,monospace;font-size:12px;padding:4px 10px;color:#334155}.code-scroll{max-height:66vh;overflow:auto}.full-code{margin:0;padding:16px 16px 18px 0;min-width:max-content;font:13px/1.85 Menlo,Consolas,monospace;tab-size:4;color:#172338}.code-line{display:block;white-space:pre;min-width:100%;padding-right:12px;transition:background .2s}.code-line:before{content:attr(data-line);display:inline-block;width:46px;text-align:right;padding-right:14px;color:#8190a3;user-select:none}.code-line.selected{background:#dce9ff}.code-caption{padding:10px 14px;border-top:1px solid var(--line);font-size:12px;line-height:1.65;color:#64748b;background:#f7f9fb}
+.prose-panel{min-width:0}.prose-panel h3{font-size:14px;margin:0 0 12px;color:var(--muted);font-weight:500}.explanation{padding:0 0 23px;margin:0 0 23px;border-bottom:1px solid #e8edf2}.line-jump{display:flex;align-items:baseline;gap:9px;width:100%;border:0;background:transparent;text-align:left;padding:0;color:#1e293b;line-height:1.7;font-weight:650;font-size:15px}.line-label{font:12px/1.6 Menlo,Consolas,monospace;color:#1d4ed8;background:#edf3ff;padding:2px 5px;border-radius:3px;white-space:nowrap}.locate{margin-left:auto;color:var(--muted);font-size:11px;white-space:nowrap;font-weight:400}.snippet{font:12px/1.75 Menlo,Consolas,monospace;background:#f7f9fb;border-left:2px solid #cbd5e1;padding:10px 12px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;margin:12px 0;color:#475569}.explanation p{margin:10px 0 0;font-size:15px;line-height:1.95;overflow-wrap:anywhere}.explanation strong{display:block;font-size:12px;color:#64748b;margin-bottom:3px;font-weight:600}.footer{border-top:1px solid var(--line);padding-top:26px;color:var(--muted);font-size:14px}
+body.stacked .reading-grid{grid-template-columns:1fr}body.stacked .code-panel{position:static}body.stacked .code-scroll{max-height:520px}body.stacked .prose-panel{max-width:1000px}
+@media(max-width:1150px){.page{grid-template-columns:185px minmax(0,1fr)}main{padding:26px 22px 60px}.reading-grid{gap:20px}.full-code{font-size:12px}.sidebar{padding:24px 12px}.explanation p{font-size:14px}}
+@media(max-width:900px){.page{display:block}.sidebar{border-right:0;border-bottom:1px solid var(--line);padding:12px 20px}.sidebar-inner{position:static}.sidebar h2{display:none}.sidebar nav{display:flex;flex-wrap:wrap;gap:4px 14px}.sidebar a{max-width:220px}.reading-grid{grid-template-columns:1fr}.code-panel{position:static}.code-scroll{max-height:500px}.topbar{padding:10px 20px}.intro p{font-size:14px}.locate{display:none}h1{font-size:23px}}
+@media print{.topbar,.sidebar,.copy,.layout-toggle,.locate{display:none}.page{display:block}main{padding:0}body{font-size:11pt}.reading-grid{display:block}.code-panel{position:static}.code-scroll{max-height:none;overflow:visible}.full-code{font-size:8pt;min-width:0}.code-line{white-space:pre-wrap;overflow-wrap:anywhere}.prose-panel{margin-top:20px}.explanation{break-inside:avoid}.cell-section{break-before:page}.intro{margin-bottom:20px}}
+
+.code-panel{scroll-margin-top:84px}@media(max-width:900px){.layout-toggle{display:none}}
+</style></head><body>
+<header class="topbar"><div class="brand">Retail Growth and Profitability Comparison<small>Module 02 · Code Explanation Guide</small></div><button class="layout-toggle">Switch to stacked</button></header>
+<div class="page"><aside class="sidebar"><div class="sidebar-inner"><h2>12 个 cells</h2><nav><a href="#cell01"><span>01</span>Import Libraries</a><a href="#cell02"><span>02</span>Load Study Configuration and Set Input Paths</a><a href="#cell03"><span>03</span>Define Cleaning Functions</a><a href="#cell04"><span>04</span>Define Record Validation</a><a href="#cell05"><span>05</span>Define the Database Manager</a><a href="#cell06"><span>06</span>Load Source CSV Files into DataFrames</a><a href="#cell07"><span>07</span>Standardize and Validate the Financial Records</a><a href="#cell08"><span>08</span>Save the Import Snapshot and Clean Audit File</a><a href="#cell09"><span>09</span>Connect to SQLite and Create Tables</a><a href="#cell10"><span>10</span>Write the Accepted Records in One Transaction</a><a href="#cell11"><span>11</span>Read Back and Verify the Persisted Records</a><a href="#cell12"><span>12</span>Close the Connection and Prepare the Next Module</a></nav></div></aside><main>
+<div class="intro"><h1>Module 02 Code Explanation Guide</h1><p>逐句解释实际 Python 和 SQL 代码。代码使用等宽字体、浅灰背景与行号；中文说明使用白底正文，并分别解释语法含义与这样写的原因。</p><p>本版用于两个模块在同一个总 Notebook 中运行。先执行第一模块 Cell 01—08，再按第二模块顺序执行；Cell 02 直接复用第一模块的 <code>load_study_config</code>。</p><div class="read-key">桌面宽屏可左右对照阅读；右上角可切换为上下排版。点击解释中的行号会高亮并定位代码。Copy cell 只复制完整英文代码，不含行号和中文说明。</div></div>
+<section class="cell-section" id="cell01">
+<h2>Cell 01: Import Libraries</h2>
+<div class="reading-grid">
+<div class="code-panel"><div class="code-toolbar"><span>完整英文代码</span><button class="copy" data-cell="01">Copy cell</button></div>
+<div class="code-scroll" id="code-pane-01"><pre class="full-code"><code><span class="code-line" id="c01-l1" data-line="1"># Cell 01: Import Libraries</span><span class="code-line" id="c01-l2" data-line="2"> </span><span class="code-line" id="c01-l3" data-line="3">import math</span><span class="code-line" id="c01-l4" data-line="4">import re</span><span class="code-line" id="c01-l5" data-line="5">import sqlite3</span><span class="code-line" id="c01-l6" data-line="6">from pathlib import Path</span><span class="code-line" id="c01-l7" data-line="7">from urllib.parse import urlparse</span><span class="code-line" id="c01-l8" data-line="8"> </span><span class="code-line" id="c01-l9" data-line="9">import pandas as pd</span><span class="code-line" id="c01-l10" data-line="10">import sys</span></code></pre></div>
+<div class="code-caption">行号仅供阅读，复制时会自动去除。点击右侧行号可定位对应语句。</div></div>
+<div class="prose-panel"><h3>逐句解释</h3><article class="explanation">
+<button class="line-jump" data-cell="01" data-start="1" data-end="1" title="Locate these lines in the full code"><span class="line-label">L1</span> 英文 cell 注释标题<span class="locate">定位代码</span></button>
+<pre class="snippet"><code># Cell 01: Import Libraries</code></pre>
+<p><strong>语法和执行含义</strong>井号 # 后面是注释，Python 不把它作为操作执行。Cell 编号表示本模块中的格子编号，不是 Notebook 的执行次数。</p>
+<p><strong>为什么这样写</strong>便于复制和定位每一格；保留英文标题，代码内不混入中文说明。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="01" data-start="3" data-end="3" title="Locate these lines in the full code"><span class="line-label">L3</span> 导入数学模块<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>import math</code></pre>
+<p><strong>语法和执行含义</strong>import math 将 math 这个模块名称放入当前 kernel。后面 math.isfinite(amount) 通过点号取得其中的函数。</p>
+<p><strong>为什么这样写</strong>检查金额是否为有限数值；本行只导入工具，还没有检查金额。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="01" data-start="4" data-end="4" title="Locate these lines in the full code"><span class="line-label">L4</span> 导入正则表达式模块<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>import re</code></pre>
+<p><strong>语法和执行含义</strong>import re 导入用于匹配文本格式的模块。后面 re.fullmatch 检查整个金额字符串是否符合规定格式。</p>
+<p><strong>为什么这样写</strong>转换前识别不合法的文字，避免误把错误内容当成金额。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="01" data-start="5" data-end="5" title="Locate these lines in the full code"><span class="line-label">L5</span> 导入 SQLite 接口<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>import sqlite3</code></pre>
+<p><strong>语法和执行含义</strong>sqlite3 是 Python 标准库模块。后面用 sqlite3.connect 建立连接，再通过连接执行 SQL。</p>
+<p><strong>为什么这样写</strong>操作本地 SQLite 文件；导入这一行不会创建或连接数据库。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="01" data-start="6" data-end="6" title="Locate these lines in the full code"><span class="line-label">L6</span> 只导入 Path 名称<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>from pathlib import Path</code></pre>
+<p><strong>语法和执行含义</strong>from pathlib import Path 从 pathlib 模块取出 Path，后面直接写 Path(...)，不用写 pathlib.Path(...)。</p>
+<p><strong>为什么这样写</strong>用专门的路径对象处理目录和文件，减少手工拼接路径字符串。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="01" data-start="7" data-end="7" title="Locate these lines in the full code"><span class="line-label">L7</span> 只导入网址解析函数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>from urllib.parse import urlparse</code></pre>
+<p><strong>语法和执行含义</strong>从 urllib.parse 导入 urlparse；它将网址拆成协议、网络地址、路径等部分。</p>
+<p><strong>为什么这样写</strong>后面检查来源 URL 的基本格式；这不是网页下载函数。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="01" data-start="9" data-end="9" title="Locate these lines in the full code"><span class="line-label">L9</span> 给 pandas 起别名<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>import pandas as pd</code></pre>
+<p><strong>语法和执行含义</strong>import pandas as pd 导入 pandas，并以 pd 作为本 Notebook 中的简称。</p>
+<p><strong>为什么这样写</strong>后面写 pd.read_csv、pd.concat 和 pd.to_numeric，减少重复书写。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="01" data-start="10" data-end="10" title="Locate these lines in the full code"><span class="line-label">L10</span> 当前没有使用的导入<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>import sys</code></pre>
+<p><strong>语法和执行含义</strong>sys 是 Python 运行环境模块。原独立 Notebook 版本使用 sys.path 寻找配套文件；当前总 Notebook 版本已经直接复用第一模块函数，因此没有使用它。</p>
+<p><strong>为什么这样写</strong>保留本行不影响执行；也可以删去本行，不必因为编辑器显示灰色就认为运行失败。</p>
+</article></div>
+</div></section><section class="cell-section" id="cell02">
+<h2>Cell 02: Load Study Configuration and Set Input Paths</h2>
+<div class="reading-grid">
+<div class="code-panel"><div class="code-toolbar"><span>完整英文代码</span><button class="copy" data-cell="02">Copy cell</button></div>
+<div class="code-scroll" id="code-pane-02"><pre class="full-code"><code><span class="code-line" id="c02-l1" data-line="1"># Cell 02: Load Study Configuration and Set Input Paths</span><span class="code-line" id="c02-l2" data-line="2"> </span><span class="code-line" id="c02-l3" data-line="3">CONFIG_PATH = Path.cwd() / &quot;study.json&quot;</span><span class="code-line" id="c02-l4" data-line="4"> </span><span class="code-line" id="c02-l5" data-line="5">config = load_study_config(CONFIG_PATH)</span><span class="code-line" id="c02-l6" data-line="6">paths = config.resolve_paths(CONFIG_PATH)</span><span class="code-line" id="c02-l7" data-line="7">DATA_FILE = paths[&quot;data_file&quot;]</span><span class="code-line" id="c02-l8" data-line="8">DATABASE_FILE = paths[&quot;database_file&quot;]</span><span class="code-line" id="c02-l9" data-line="9">RAW_DIRECTORY = DATA_FILE.parent / &quot;raw&quot;</span><span class="code-line" id="c02-l10" data-line="10">CLEAN_FILE = DATA_FILE.parent / &quot;clean&quot; / &quot;financial_records.csv&quot;</span><span class="code-line" id="c02-l11" data-line="11"> </span><span class="code-line" id="c02-l12" data-line="12">RAW_FILES = {</span><span class="code-line" id="c02-l13" data-line="13">    &quot;amazon_north_america&quot;: RAW_DIRECTORY / &quot;amazon_segment_raw.csv&quot;,</span><span class="code-line" id="c02-l14" data-line="14">    &quot;walmart_us&quot;: RAW_DIRECTORY / &quot;walmart_segment_raw.csv&quot;,</span><span class="code-line" id="c02-l15" data-line="15">}</span><span class="code-line" id="c02-l16" data-line="16"> </span><span class="code-line" id="c02-l17" data-line="17">print(f&quot;Working directory: {Path.cwd()}&quot;)</span><span class="code-line" id="c02-l18" data-line="18">print(f&quot;Configuration: {CONFIG_PATH}&quot;)</span><span class="code-line" id="c02-l19" data-line="19">print(f&quot;Planned records: {config.get_observation_count()}&quot;)</span><span class="code-line" id="c02-l20" data-line="20">print(f&quot;Index base year: {config.index_base_year}&quot;)</span><span class="code-line" id="c02-l21" data-line="21">print(f&quot;Database: {DATABASE_FILE}&quot;)</span></code></pre></div>
+<div class="code-caption">行号仅供阅读，复制时会自动去除。点击右侧行号可定位对应语句。</div></div>
+<div class="prose-panel"><h3>逐句解释</h3><article class="explanation">
+<button class="line-jump" data-cell="02" data-start="1" data-end="1" title="Locate these lines in the full code"><span class="line-label">L1</span> 英文 cell 注释标题<span class="locate">定位代码</span></button>
+<pre class="snippet"><code># Cell 02: Load Study Configuration and Set Input Paths</code></pre>
+<p><strong>语法和执行含义</strong>井号 # 后面是注释，Python 不把它作为操作执行。Cell 编号表示本模块中的格子编号，不是 Notebook 的执行次数。</p>
+<p><strong>为什么这样写</strong>便于复制和定位每一格；保留英文标题，代码内不混入中文说明。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="02" data-start="3" data-end="3" title="Locate these lines in the full code"><span class="line-label">L3</span> 取得配置文件位置<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>CONFIG_PATH = Path.cwd() / &quot;study.json&quot;</code></pre>
+<p><strong>语法和执行含义</strong>先执行 Path.cwd()，取得 kernel 的当前工作目录；Path 对象的 / 运算拼上 study.json；最后将结果赋给 CONFIG_PATH。</p>
+<p><strong>为什么这样写</strong>你的 JSON 放在项目根目录，因此以当前项目目录作为入口。这里没有打开文件，也不会自动推算 Notebook 的存放位置。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="02" data-start="5" data-end="5" title="Locate these lines in the full code"><span class="line-label">L5</span> 调用配置读取函数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>config = load_study_config(CONFIG_PATH)</code></pre>
+<p><strong>语法和执行含义</strong>右边先调用第一模块定义的 load_study_config(CONFIG_PATH)，读取 JSON、创建并检查 StudyConfig；左边 config 接收返回的对象。</p>
+<p><strong>为什么这样写</strong>复用同一套配置规则。先运行第一模块的定义与保存格，否则函数名称可能不存在或 JSON 尚未保存。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="02" data-start="6" data-end="6" title="Locate these lines in the full code"><span class="line-label">L6</span> 通过对象方法解析三个路径<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>paths = config.resolve_paths(CONFIG_PATH)</code></pre>
+<p><strong>语法和执行含义</strong>config.resolve_paths(CONFIG_PATH) 使用 JSON 所在目录作为基准，返回含 data_file、database_file、results_directory 的字典，保存到 paths。</p>
+<p><strong>为什么这样写</strong>数据路径依赖配置内容，不散落在清洗或 SQL 函数里。这一步也不创建文件。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="02" data-start="7" data-end="7" title="Locate these lines in the full code"><span class="line-label">L7</span> 取出组合快照路径<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>DATA_FILE = paths[&quot;data_file&quot;]</code></pre>
+<p><strong>语法和执行含义</strong>paths[&quot;data_file&quot;] 用字典键取得 Path 值，赋给 DATA_FILE。它对应之后导出的 financial_data.csv。</p>
+<p><strong>为什么这样写</strong>DATA_FILE 是组合快照的保存位置；实际输入仍是 raw/ 中的两个源 CSV，不要把它误认成读取入口。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="02" data-start="8" data-end="8" title="Locate these lines in the full code"><span class="line-label">L8</span> 取出数据库路径<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>DATABASE_FILE = paths[&quot;database_file&quot;]</code></pre>
+<p><strong>语法和执行含义</strong>通过 database_file 键取得 SQLite 文件位置，赋给 DATABASE_FILE。</p>
+<p><strong>为什么这样写</strong>让数据库类使用配置指定的文件，换保存位置时不需要修改类的方法。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="02" data-start="9" data-end="9" title="Locate these lines in the full code"><span class="line-label">L9</span> 从数据目录得到 raw 目录<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>RAW_DIRECTORY = DATA_FILE.parent / &quot;raw&quot;</code></pre>
+<p><strong>语法和执行含义</strong>DATA_FILE.parent 取得 financial_data.csv 所在的 data 文件夹，再 / &quot;raw&quot; 得到原始输入目录。</p>
+<p><strong>为什么这样写</strong>原始输入与导出采用同一数据根目录，避免分别写两个可能不一致的位置。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="02" data-start="10" data-end="10" title="Locate these lines in the full code"><span class="line-label">L10</span> 确定清洗核对文件<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>CLEAN_FILE = DATA_FILE.parent / &quot;clean&quot; / &quot;financial_records.csv&quot;</code></pre>
+<p><strong>语法和执行含义</strong>先取得 data 文件夹，再依次拼上 clean 文件夹与 financial_records.csv 文件名。</p>
+<p><strong>为什么这样写</strong>原始组合快照和清洗结果分开存，便于审查；这一行只准备路径。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="02" data-start="12" data-end="15" title="Locate these lines in the full code"><span class="line-label">L12—15</span> 建立标识到源文件的映射<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>RAW_FILES = {
+    &quot;amazon_north_america&quot;: RAW_DIRECTORY / &quot;amazon_segment_raw.csv&quot;,
+    &quot;walmart_us&quot;: RAW_DIRECTORY / &quot;walmart_segment_raw.csv&quot;,
+}</code></pre>
+<p><strong>语法和执行含义</strong>花括号创建字典。第 13 行的键是 Amazon 分部标识，值是其 CSV 路径；第 14 行对 Walmart 做同样安排；第 15 行结束字典。</p>
+<p><strong>为什么这样写</strong>后面循环按标识读取对应文件。换内容时调整配置、真实输入与这份映射，通用清洗函数不判断公司名称。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="02" data-start="17" data-end="17" title="Locate these lines in the full code"><span class="line-label">L17</span> 打印当前工作目录<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(f&quot;Working directory: {Path.cwd()}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>f-string 把花括号中的 Path.cwd() 结果嵌入显示文字，再由 print 输出。</p>
+<p><strong>为什么这样写</strong>确认 kernel 的实际目录。相对路径从这里出发，不一定从 Notebook 文件所在位置出发。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="02" data-start="18" data-end="18" title="Locate these lines in the full code"><span class="line-label">L18</span> 打印实际配置位置<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(f&quot;Configuration: {CONFIG_PATH}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>将 CONFIG_PATH 的值嵌入输出文字。</p>
+<p><strong>为什么这样写</strong>确认读的是项目中的那份 JSON，避免误用另一处同名文件。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="02" data-start="19" data-end="19" title="Locate these lines in the full code"><span class="line-label">L19</span> 调用方法显示计划数量<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(f&quot;Planned records: {config.get_observation_count()}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>config.get_observation_count() 根据分部数和时期数得到计划数量，本案例为 12；print 只是显示它。</p>
+<p><strong>为什么这样写</strong>这里尚未读入实际财务记录，计划数量与实际数量要在后面分别核对。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="02" data-start="20" data-end="20" title="Locate these lines in the full code"><span class="line-label">L20</span> 显示对象保存的基期<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(f&quot;Index base year: {config.index_base_year}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>config.index_base_year 通过点号访问对象属性；这里读取配置里的 2019。</p>
+<p><strong>为什么这样写</strong>核对基期设置；这一行没有计算销售指数。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="02" data-start="21" data-end="21" title="Locate these lines in the full code"><span class="line-label">L21</span> 显示数据库目标位置<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(f&quot;Database: {DATABASE_FILE}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>将 DATABASE_FILE 嵌入显示文字。</p>
+<p><strong>为什么这样写</strong>确认数据库将在项目内部 data/ 中创建；看到路径不代表文件已创建。</p>
+</article></div>
+</div></section><section class="cell-section" id="cell03">
+<h2>Cell 03: Define Cleaning Functions</h2>
+<div class="reading-grid">
+<div class="code-panel"><div class="code-toolbar"><span>完整英文代码</span><button class="copy" data-cell="03">Copy cell</button></div>
+<div class="code-scroll" id="code-pane-03"><pre class="full-code"><code><span class="code-line" id="c03-l1" data-line="1"># Cell 03: Define Cleaning Functions</span><span class="code-line" id="c03-l2" data-line="2"> </span><span class="code-line" id="c03-l3" data-line="3">RAW_COLUMNS = [</span><span class="code-line" id="c03-l4" data-line="4">    &quot;unit_id&quot;, &quot;company_name&quot;, &quot;segment_name&quot;, &quot;fiscal_year&quot;,</span><span class="code-line" id="c03-l5" data-line="5">    &quot;period_start&quot;, &quot;period_end&quot;, &quot;net_sales_raw&quot;, &quot;operating_income_raw&quot;,</span><span class="code-line" id="c03-l6" data-line="6">    &quot;reported_currency&quot;, &quot;reported_unit&quot;, &quot;source_url&quot;, &quot;source_section&quot;,</span><span class="code-line" id="c03-l7" data-line="7">    &quot;accessed_date&quot;, &quot;date_basis&quot;,</span><span class="code-line" id="c03-l8" data-line="8">]</span><span class="code-line" id="c03-l9" data-line="9"> </span><span class="code-line" id="c03-l10" data-line="10">UNIT_MULTIPLIERS = {&quot;units&quot;: 0.000001, &quot;millions&quot;: 1.0, &quot;billions&quot;: 1000.0}</span><span class="code-line" id="c03-l11" data-line="11"> </span><span class="code-line" id="c03-l12" data-line="12">RECORD_COLUMNS = [</span><span class="code-line" id="c03-l13" data-line="13">    &quot;unit_id&quot;, &quot;fiscal_year&quot;, &quot;period_start&quot;, &quot;period_end&quot;,</span><span class="code-line" id="c03-l14" data-line="14">    &quot;net_sales_raw&quot;, &quot;operating_income_raw&quot;, &quot;reported_currency&quot;,</span><span class="code-line" id="c03-l15" data-line="15">    &quot;reported_unit&quot;, &quot;source_url&quot;, &quot;source_section&quot;, &quot;accessed_date&quot;,</span><span class="code-line" id="c03-l16" data-line="16">    &quot;date_basis&quot;, &quot;net_sales_usd_m&quot;, &quot;operating_income_usd_m&quot;,</span><span class="code-line" id="c03-l17" data-line="17">]</span><span class="code-line" id="c03-l18" data-line="18"> </span><span class="code-line" id="c03-l19" data-line="19"> </span><span class="code-line" id="c03-l20" data-line="20">def parse_amount(value):</span><span class="code-line" id="c03-l21" data-line="21">    &quot;&quot;&quot;Convert a reported amount string without treating missing data as zero.&quot;&quot;&quot;</span><span class="code-line" id="c03-l22" data-line="22">    text = str(value).strip().replace(&quot;,&quot;, &quot;&quot;)</span><span class="code-line" id="c03-l23" data-line="23">    if text.startswith(&quot;(&quot;) and text.endswith(&quot;)&quot;):</span><span class="code-line" id="c03-l24" data-line="24">        text = &quot;-&quot; + text[1:-1]</span><span class="code-line" id="c03-l25" data-line="25">    if re.fullmatch(r&quot;-?\d+(\.\d+)?&quot;, text) is None:</span><span class="code-line" id="c03-l26" data-line="26">        raise ValueError(f&quot;Invalid reported amount: {value}&quot;)</span><span class="code-line" id="c03-l27" data-line="27">    amount = float(pd.to_numeric(text, errors=&quot;raise&quot;))</span><span class="code-line" id="c03-l28" data-line="28">    if not math.isfinite(amount):</span><span class="code-line" id="c03-l29" data-line="29">        raise ValueError(f&quot;Reported amount must be finite: {value}&quot;)</span><span class="code-line" id="c03-l30" data-line="30">    return amount</span><span class="code-line" id="c03-l31" data-line="31"> </span><span class="code-line" id="c03-l32" data-line="32"> </span><span class="code-line" id="c03-l33" data-line="33">def standardize_records(raw_df):</span><span class="code-line" id="c03-l34" data-line="34">    &quot;&quot;&quot;Preserve source strings and add numeric amounts in USD millions.&quot;&quot;&quot;</span><span class="code-line" id="c03-l35" data-line="35">    for column in RAW_COLUMNS:</span><span class="code-line" id="c03-l36" data-line="36">        if column not in raw_df.columns:</span><span class="code-line" id="c03-l37" data-line="37">            raise ValueError(f&quot;Missing raw column: {column}&quot;)</span><span class="code-line" id="c03-l38" data-line="38"> </span><span class="code-line" id="c03-l39" data-line="39">    clean_df = raw_df[RAW_COLUMNS].copy()</span><span class="code-line" id="c03-l40" data-line="40">    for column in RAW_COLUMNS:</span><span class="code-line" id="c03-l41" data-line="41">        if clean_df[column].isna().any():</span><span class="code-line" id="c03-l42" data-line="42">            raise ValueError(f&quot;Missing value in column: {column}&quot;)</span><span class="code-line" id="c03-l43" data-line="43">        clean_df[column] = clean_df[column].astype(str).str.strip()</span><span class="code-line" id="c03-l44" data-line="44">        if clean_df[column].eq(&quot;&quot;).any():</span><span class="code-line" id="c03-l45" data-line="45">            raise ValueError(f&quot;Blank value in column: {column}&quot;)</span><span class="code-line" id="c03-l46" data-line="46"> </span><span class="code-line" id="c03-l47" data-line="47">    years = pd.to_numeric(clean_df[&quot;fiscal_year&quot;], errors=&quot;raise&quot;)</span><span class="code-line" id="c03-l48" data-line="48">    if not years.between(1900, 2100).all() or not years.eq(years.round()).all():</span><span class="code-line" id="c03-l49" data-line="49">        raise ValueError(&quot;Fiscal years must be integer years between 1900 and 2100.&quot;)</span><span class="code-line" id="c03-l50" data-line="50">    clean_df[&quot;fiscal_year&quot;] = years.astype(int)</span><span class="code-line" id="c03-l51" data-line="51"> </span><span class="code-line" id="c03-l52" data-line="52">    for column in [&quot;period_start&quot;, &quot;period_end&quot;, &quot;accessed_date&quot;]:</span><span class="code-line" id="c03-l53" data-line="53">        dates = pd.to_datetime(clean_df[column], format=&quot;%Y-%m-%d&quot;, errors=&quot;raise&quot;)</span><span class="code-line" id="c03-l54" data-line="54">        clean_df[column] = dates.dt.strftime(&quot;%Y-%m-%d&quot;)</span><span class="code-line" id="c03-l55" data-line="55"> </span><span class="code-line" id="c03-l56" data-line="56">    sales_values = []</span><span class="code-line" id="c03-l57" data-line="57">    income_values = []</span><span class="code-line" id="c03-l58" data-line="58">    for row in clean_df.to_dict(&quot;records&quot;):</span><span class="code-line" id="c03-l59" data-line="59">        if row[&quot;reported_currency&quot;] != &quot;USD&quot;:</span><span class="code-line" id="c03-l60" data-line="60">            raise ValueError(&quot;This version supports USD records only; it does not convert currencies.&quot;)</span><span class="code-line" id="c03-l61" data-line="61">        if row[&quot;reported_unit&quot;] not in UNIT_MULTIPLIERS:</span><span class="code-line" id="c03-l62" data-line="62">            raise ValueError(f&quot;Unsupported reported unit: {row[&#x27;reported_unit&#x27;]}&quot;)</span><span class="code-line" id="c03-l63" data-line="63">        multiplier = UNIT_MULTIPLIERS[row[&quot;reported_unit&quot;]]</span><span class="code-line" id="c03-l64" data-line="64">        sales_values.append(parse_amount(row[&quot;net_sales_raw&quot;]) * multiplier)</span><span class="code-line" id="c03-l65" data-line="65">        income_values.append(parse_amount(row[&quot;operating_income_raw&quot;]) * multiplier)</span><span class="code-line" id="c03-l66" data-line="66"> </span><span class="code-line" id="c03-l67" data-line="67">    clean_df[&quot;net_sales_usd_m&quot;] = sales_values</span><span class="code-line" id="c03-l68" data-line="68">    clean_df[&quot;operating_income_usd_m&quot;] = income_values</span><span class="code-line" id="c03-l69" data-line="69">    return clean_df.sort_values([&quot;unit_id&quot;, &quot;fiscal_year&quot;]).reset_index(drop=True)</span></code></pre></div>
+<div class="code-caption">行号仅供阅读，复制时会自动去除。点击右侧行号可定位对应语句。</div></div>
+<div class="prose-panel"><h3>逐句解释</h3><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="1" data-end="1" title="Locate these lines in the full code"><span class="line-label">L1</span> 英文 cell 注释标题<span class="locate">定位代码</span></button>
+<pre class="snippet"><code># Cell 03: Define Cleaning Functions</code></pre>
+<p><strong>语法和执行含义</strong>井号 # 后面是注释，Python 不把它作为操作执行。Cell 编号表示本模块中的格子编号，不是 Notebook 的执行次数。</p>
+<p><strong>为什么这样写</strong>便于复制和定位每一格；保留英文标题，代码内不混入中文说明。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="3" data-end="8" title="Locate these lines in the full code"><span class="line-label">L3—8</span> 规定原始表的十四列<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>RAW_COLUMNS = [
+    &quot;unit_id&quot;, &quot;company_name&quot;, &quot;segment_name&quot;, &quot;fiscal_year&quot;,
+    &quot;period_start&quot;, &quot;period_end&quot;, &quot;net_sales_raw&quot;, &quot;operating_income_raw&quot;,
+    &quot;reported_currency&quot;, &quot;reported_unit&quot;, &quot;source_url&quot;, &quot;source_section&quot;,
+    &quot;accessed_date&quot;, &quot;date_basis&quot;,
+]</code></pre>
+<p><strong>语法和执行含义</strong>方括号建立有顺序的列名列表。第 4 行是分部身份和财年；第 5 行是期间和原始金额；第 6 行是币种、单位、URL 与章节；第 7 行是访问日与日期依据；第 8 行结束列表。</p>
+<p><strong>为什么这样写</strong>定义清洗函数的输入接口。raw_df 必须具备这些字段，多余列不会自动进入本次标准输出。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="10" data-end="10" title="Locate these lines in the full code"><span class="line-label">L10</span> 规定单位换算乘数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>UNIT_MULTIPLIERS = {&quot;units&quot;: 0.000001, &quot;millions&quot;: 1.0, &quot;billions&quot;: 1000.0}</code></pre>
+<p><strong>语法和执行含义</strong>字典以 units、millions、billions 查询乘数。整美元乘 0.000001、百万美元乘 1、十亿美元乘 1000，结果统一为百万美元。</p>
+<p><strong>为什么这样写</strong>统一金额数量级；这不是汇率换算，本版本只支持 USD。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="12" data-end="17" title="Locate these lines in the full code"><span class="line-label">L12—17</span> 规定数据库财务字段的顺序<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>RECORD_COLUMNS = [
+    &quot;unit_id&quot;, &quot;fiscal_year&quot;, &quot;period_start&quot;, &quot;period_end&quot;,
+    &quot;net_sales_raw&quot;, &quot;operating_income_raw&quot;, &quot;reported_currency&quot;,
+    &quot;reported_unit&quot;, &quot;source_url&quot;, &quot;source_section&quot;, &quot;accessed_date&quot;,
+    &quot;date_basis&quot;, &quot;net_sales_usd_m&quot;, &quot;operating_income_usd_m&quot;,
+]</code></pre>
+<p><strong>语法和执行含义</strong>此列表含十四个要存入 financial_records 的字段：前两个是联合主键，后十二个是期间、原始披露、来源和标准金额。名称字段改放 business_units，查询时再取回。</p>
+<p><strong>为什么这样写</strong>后面 SELECT、INSERT、UPDATE 以及参数元组都依赖这份固定顺序；它与 RAW_COLUMNS 的内容不同。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="20" data-end="21" title="Locate these lines in the full code"><span class="line-label">L20—21</span> 定义单个金额解析函数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>def parse_amount(value):
+    &quot;&quot;&quot;Convert a reported amount string without treating missing data as zero.&quot;&quot;&quot;</code></pre>
+<p><strong>语法和执行含义</strong>def 定义普通函数 parse_amount，value 接收一次传入的金额；三引号是函数说明字符串。这里只保存函数定义，函数体在被调用时才执行。</p>
+<p><strong>为什么这样写</strong>将金额解析独立出来，两种金额列与其他同格式记录都可复用。返回值是一个普通浮点数。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="22" data-end="22" title="Locate these lines in the full code"><span class="line-label">L22</span> 连续处理原始字符串<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    text = str(value).strip().replace(&quot;,&quot;, &quot;&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>从内向外依次执行 str(value)、strip()、replace(&quot;,&quot;, &quot;&quot;)：先转成文本，去两端空白，再删除千位逗号，结果赋给 text。</p>
+<p><strong>为什么这样写</strong>例如 &quot; (2,847) &quot; 得到 &quot;(2847)&quot;。处理局部变量，不覆盖 DataFrame 的原始金额列。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="23" data-end="23" title="Locate these lines in the full code"><span class="line-label">L23</span> 检查成对亏损括号<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    if text.startswith(&quot;(&quot;) and text.endswith(&quot;)&quot;):</code></pre>
+<p><strong>语法和执行含义</strong>startswith 判断开头是否为左括号，endswith 判断结尾是否为右括号，and 要求两个条件都为真。</p>
+<p><strong>为什么这样写</strong>只有左右括号同时存在，才按财报括号亏损规则处理。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="24" data-end="24" title="Locate these lines in the full code"><span class="line-label">L24</span> 把括号金额变成负数文本<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        text = &quot;-&quot; + text[1:-1]</code></pre>
+<p><strong>语法和执行含义</strong>text[1:-1] 取索引 1 到最后字符之前的内容，去掉最外层括号；前面拼上 &quot;-&quot;，再赋回 text。</p>
+<p><strong>为什么这样写</strong>&quot;(2847)&quot; 变为 &quot;-2847&quot;。这里仍是字符串，下一步才转成数值。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="25" data-end="25" title="Locate these lines in the full code"><span class="line-label">L25</span> 检查整段金额格式<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    if re.fullmatch(r&quot;-?\d+(\.\d+)?&quot;, text) is None:</code></pre>
+<p><strong>语法和执行含义</strong>re.fullmatch 要求整个 text 匹配。r 是原始字符串；-? 是可选负号；\d+ 是至少一个数字；\. 是字面小数点；(\.\d+)? 表示小数部分可有可无。失败返回 None，is None 检查失败。</p>
+<p><strong>为什么这样写</strong>允许本项目采用的普通整数或小数文本。货币符号、文字、科学记数法等不属于这个函数支持的格式。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="26" data-end="26" title="Locate these lines in the full code"><span class="line-label">L26</span> 拒绝无法解释的金额<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        raise ValueError(f&quot;Invalid reported amount: {value}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>raise ValueError 主动抛出错误；f-string 将原 value 放进提示。没有捕获异常时，本次函数和当前 cell 停止。</p>
+<p><strong>为什么这样写</strong>暴露坏输入供你修正，避免把空白或文字当成零。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="27" data-end="27" title="Locate these lines in the full code"><span class="line-label">L27</span> 转换为普通浮点数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    amount = float(pd.to_numeric(text, errors=&quot;raise&quot;))</code></pre>
+<p><strong>语法和执行含义</strong>先调用 pd.to_numeric(text, errors=&quot;raise&quot;) 将文本解释为数值，失败报错；再 float(...) 统一为普通浮点数，赋给 amount。</p>
+<p><strong>为什么这样写</strong>&quot;-2847&quot; 得到 -2847.0，之后可做单位换算与指标计算。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="28" data-end="29" title="Locate these lines in the full code"><span class="line-label">L28—29</span> 拒绝非有限结果<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    if not math.isfinite(amount):
+        raise ValueError(f&quot;Reported amount must be finite: {value}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>math.isfinite(amount) 对有限数返回 True；not 反转判断。若为 NaN 或无穷大，第 29 行抛出包含原输入的错误。</p>
+<p><strong>为什么这样写</strong>有限的负数是合法金额；无穷大等结果不能作为可靠财务数据。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="30" data-end="30" title="Locate these lines in the full code"><span class="line-label">L30</span> 将解析结果交给调用者<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    return amount</code></pre>
+<p><strong>语法和执行含义</strong>return amount 结束本次函数调用，并把 amount 的值交回调用位置。</p>
+<p><strong>为什么这样写</strong>后面 append(parse_amount(...) * multiplier) 才能取得这个金额；不写 return 会默认得到 None。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="33" data-end="34" title="Locate these lines in the full code"><span class="line-label">L33—34</span> 定义整张表标准化函数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>def standardize_records(raw_df):
+    &quot;&quot;&quot;Preserve source strings and add numeric amounts in USD millions.&quot;&quot;&quot;</code></pre>
+<p><strong>语法和执行含义</strong>raw_df 是输入 DataFrame，说明字符串描述保留源文本并新增标准金额。def 结束后函数可调用，但本格尚未实际清洗。</p>
+<p><strong>为什么这样写</strong>将单值解析与整表处理分开。此函数返回新的 clean_df，调用时需要接收返回值。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="35" data-end="37" title="Locate these lines in the full code"><span class="line-label">L35—37</span> 先确认列齐全<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    for column in RAW_COLUMNS:
+        if column not in raw_df.columns:
+            raise ValueError(f&quot;Missing raw column: {column}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>for 逐个取得 RAW_COLUMNS 的列名；not in raw_df.columns 检查是否缺列；有缺失则 raise，并将列名写入提示。</p>
+<p><strong>为什么这样写</strong>先确认字段可访问，再转换数据，避免在中途遇到不明确的 KeyError。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="39" data-end="39" title="Locate these lines in the full code"><span class="line-label">L39</span> 选择列并复制表<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    clean_df = raw_df[RAW_COLUMNS].copy()</code></pre>
+<p><strong>语法和执行含义</strong>raw_df[RAW_COLUMNS] 按列表选择并排列列；copy() 创建独立的 DataFrame，赋给 clean_df。</p>
+<p><strong>为什么这样写</strong>后面可以修改 clean_df，同时保留 raw_df 用于原始快照。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="40" data-end="42" title="Locate these lines in the full code"><span class="line-label">L40—42</span> 检查真正的缺失值<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    for column in RAW_COLUMNS:
+        if clean_df[column].isna().any():
+            raise ValueError(f&quot;Missing value in column: {column}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>for 逐列检查。isna() 为各行产生布尔值，any() 判断是否至少一行缺失；若为真，raise 提示对应列。</p>
+<p><strong>为什么这样写</strong>在转成字符串前拒绝缺失，避免 NaN 或 None 被转换成看似非空的文字。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="43" data-end="43" title="Locate these lines in the full code"><span class="line-label">L43</span> 统一文本并去空格<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        clean_df[column] = clean_df[column].astype(str).str.strip()</code></pre>
+<p><strong>语法和执行含义</strong>astype(str) 转换整列的值，.str.strip() 对每个字符串去两端空白，再将结果保存回同名列。</p>
+<p><strong>为什么这样写</strong>清理录入的外围空格，保证名称、币种和后面空文本检查一致。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="44" data-end="45" title="Locate these lines in the full code"><span class="line-label">L44—45</span> 检查空文本<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        if clean_df[column].eq(&quot;&quot;).any():
+            raise ValueError(f&quot;Blank value in column: {column}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>eq(&quot;&quot;) 逐行比较是否为空字符串，any() 要求只要有一个就触发 raise。</p>
+<p><strong>为什么这样写</strong>只有空格的输入经过 strip 会变为空字符串；它与真正缺失值需要分别检查。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="47" data-end="47" title="Locate these lines in the full code"><span class="line-label">L47</span> 将财年列解释为数字<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    years = pd.to_numeric(clean_df[&quot;fiscal_year&quot;], errors=&quot;raise&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>这里 to_numeric 接收一整列，返回数值 Series；errors=&quot;raise&quot; 让无法转换的年份报错，结果赋给 years。</p>
+<p><strong>为什么这样写</strong>整列数值便于检查范围和是否为整数，不直接截断不合法输入。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="48" data-end="49" title="Locate these lines in the full code"><span class="line-label">L48—49</span> 检查每个年份都合理且为整数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    if not years.between(1900, 2100).all() or not years.eq(years.round()).all():
+        raise ValueError(&quot;Fiscal years must be integer years between 1900 and 2100.&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>between 检查范围，再 all() 要求每行满足；round 得到舍入值，eq 检查原值是否等于舍入值，再 all()。or 表示任意一项失败就 raise。</p>
+<p><strong>为什么这样写</strong>2019.5 不等于它的舍入值，因而先拒绝。all 是所有行，any 是至少一行，不能互换。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="50" data-end="50" title="Locate these lines in the full code"><span class="line-label">L50</span> 保存整数财年<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    clean_df[&quot;fiscal_year&quot;] = years.astype(int)</code></pre>
+<p><strong>语法和执行含义</strong>years.astype(int) 将已检查的财年转成整数，再保存回 clean_df 的 fiscal_year 列。</p>
+<p><strong>为什么这样写</strong>后面联合键、年份比较和 SQLite INTEGER 字段使用整数；检查通过后转换才不会掩盖小数年份。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="52" data-end="52" title="Locate these lines in the full code"><span class="line-label">L52</span> 依次处理三列日期<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    for column in [&quot;period_start&quot;, &quot;period_end&quot;, &quot;accessed_date&quot;]:</code></pre>
+<p><strong>语法和执行含义</strong>for column 从三个列名中逐个取值，同样处理开始日、结束日和访问日。</p>
+<p><strong>为什么这样写</strong>共用一段日期转换代码，不重复写三个几乎相同的处理。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="53" data-end="53" title="Locate these lines in the full code"><span class="line-label">L53</span> 解释为有效日期<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        dates = pd.to_datetime(clean_df[column], format=&quot;%Y-%m-%d&quot;, errors=&quot;raise&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>pd.to_datetime 接收该列，按年-月-日格式解析为日期 Series；%Y、%m、%d 分别表示年、月、日。错误输入会报错。</p>
+<p><strong>为什么这样写</strong>先确认日期可以解释，再统一保存格式，避免无效日期进入数据库。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="54" data-end="54" title="Locate these lines in the full code"><span class="line-label">L54</span> 将日期统一输出为文本<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        clean_df[column] = dates.dt.strftime(&quot;%Y-%m-%d&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>dates.dt 是访问整列日期属性的入口；strftime 将每个日期格式化成 YYYY-MM-DD，结果覆盖原列。</p>
+<p><strong>为什么这样写</strong>有效且统一的这种格式可按日期先后比较，也便于 CSV 与 SQLite TEXT 保存。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="56" data-end="57" title="Locate these lines in the full code"><span class="line-label">L56—57</span> 准备两份金额结果列表<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    sales_values = []
+    income_values = []</code></pre>
+<p><strong>语法和执行含义</strong>[] 创建空列表；sales_values 保存净销售额结果，income_values 保存营业利润结果。</p>
+<p><strong>为什么这样写</strong>逐行解析后 append 到对应列表，最后作为完整新列写回。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="58" data-end="58" title="Locate these lines in the full code"><span class="line-label">L58</span> 把表转成行字典并逐行处理<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    for row in clean_df.to_dict(&quot;records&quot;):</code></pre>
+<p><strong>语法和执行含义</strong>to_dict(&quot;records&quot;) 返回字典组成的列表，每个字典是一行，for 每轮让 row 指向一行。</p>
+<p><strong>为什么这样写</strong>用 row[&quot;列名&quot;] 访问不同字段，容易看清一条记录怎样被处理。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="59" data-end="60" title="Locate these lines in the full code"><span class="line-label">L59—60</span> 只接受 USD<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        if row[&quot;reported_currency&quot;] != &quot;USD&quot;:
+            raise ValueError(&quot;This version supports USD records only; it does not convert currencies.&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>比较 reported_currency 与 &quot;USD&quot;，不相等则 raise。</p>
+<p><strong>为什么这样写</strong>当前版本没有汇率转换；明确拒绝其他币种，避免把不同货币误当作美元。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="61" data-end="62" title="Locate these lines in the full code"><span class="line-label">L61—62</span> 先确认单位可查询<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        if row[&quot;reported_unit&quot;] not in UNIT_MULTIPLIERS:
+            raise ValueError(f&quot;Unsupported reported unit: {row[&#x27;reported_unit&#x27;]}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>not in UNIT_MULTIPLIERS 检查单位是否为该字典的一个键；未知单位会报错并显示原单位。</p>
+<p><strong>为什么这样写</strong>下一行要查乘数，先确认支持范围，不能凭猜测转换金额。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="63" data-end="63" title="Locate these lines in the full code"><span class="line-label">L63</span> 根据单位取得乘数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        multiplier = UNIT_MULTIPLIERS[row[&quot;reported_unit&quot;]]</code></pre>
+<p><strong>语法和执行含义</strong>嵌套方括号先取 row 的 reported_unit，再以它为键查询 UNIT_MULTIPLIERS。结果保存到 multiplier。</p>
+<p><strong>为什么这样写</strong>把研究数据的单位文字连接到通用换算规则。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="64" data-end="64" title="Locate these lines in the full code"><span class="line-label">L64</span> 解析并换算销售额<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        sales_values.append(parse_amount(row[&quot;net_sales_raw&quot;]) * multiplier)</code></pre>
+<p><strong>语法和执行含义</strong>先 parse_amount 取得原始销售额的数值，乘 multiplier 得到百万美元，再 append 加到 sales_values 最后。</p>
+<p><strong>为什么这样写</strong>每轮添加一个结果，保持与 clean_df 行顺序相同。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="65" data-end="65" title="Locate these lines in the full code"><span class="line-label">L65</span> 解析并换算营业利润<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        income_values.append(parse_amount(row[&quot;operating_income_raw&quot;]) * multiplier)</code></pre>
+<p><strong>语法和执行含义</strong>对 operating_income_raw 执行同样处理，加到 income_values。</p>
+<p><strong>为什么这样写</strong>复用同一个解析函数，亏损的负号不会被删掉，两项金额的规则保持一致。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="67" data-end="68" title="Locate these lines in the full code"><span class="line-label">L67—68</span> 把结果列表写成两列<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    clean_df[&quot;net_sales_usd_m&quot;] = sales_values
+    clean_df[&quot;operating_income_usd_m&quot;] = income_values</code></pre>
+<p><strong>语法和执行含义</strong>方括号指定列名，右边的列表按行赋值；列不存在时新增列。两列分别存百万美元销售额与营业利润。</p>
+<p><strong>为什么这样写</strong>原十四列仍在，加两列后成为十六列，同时保留证据文本与可计算数值。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="03" data-start="69" data-end="69" title="Locate these lines in the full code"><span class="line-label">L69</span> 排序并返回标准表<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    return clean_df.sort_values([&quot;unit_id&quot;, &quot;fiscal_year&quot;]).reset_index(drop=True)</code></pre>
+<p><strong>语法和执行含义</strong>sort_values 先按分部、再按财年排序；reset_index(drop=True) 重新编号且不保留旧索引列；return 交回结果。</p>
+<p><strong>为什么这样写</strong>形成稳定顺序，方便显示与后面的逐字段回读比较。</p>
+</article></div>
+</div></section><section class="cell-section" id="cell04">
+<h2>Cell 04: Define Record Validation</h2>
+<div class="reading-grid">
+<div class="code-panel"><div class="code-toolbar"><span>完整英文代码</span><button class="copy" data-cell="04">Copy cell</button></div>
+<div class="code-scroll" id="code-pane-04"><pre class="full-code"><code><span class="code-line" id="c04-l1" data-line="1"># Cell 04: Define Record Validation</span><span class="code-line" id="c04-l2" data-line="2"> </span><span class="code-line" id="c04-l3" data-line="3">def validate_records(clean_df, config):</span><span class="code-line" id="c04-l4" data-line="4">    &quot;&quot;&quot;Require exact configured coverage, correct identities and usable values.&quot;&quot;&quot;</span><span class="code-line" id="c04-l5" data-line="5">    if config.currency != &quot;USD&quot;:</span><span class="code-line" id="c04-l6" data-line="6">        raise ValueError(&quot;The configuration must use USD for this version.&quot;)</span><span class="code-line" id="c04-l7" data-line="7">    if clean_df.duplicated([&quot;unit_id&quot;, &quot;fiscal_year&quot;]).any():</span><span class="code-line" id="c04-l8" data-line="8">        raise ValueError(&quot;Duplicate segment/fiscal-year records were found.&quot;)</span><span class="code-line" id="c04-l9" data-line="9"> </span><span class="code-line" id="c04-l10" data-line="10">    expected_keys = set()</span><span class="code-line" id="c04-l11" data-line="11">    units_by_id = {}</span><span class="code-line" id="c04-l12" data-line="12">    for unit in config.business_units:</span><span class="code-line" id="c04-l13" data-line="13">        units_by_id[unit[&quot;unit_id&quot;]] = unit</span><span class="code-line" id="c04-l14" data-line="14">    for period in config.periods:</span><span class="code-line" id="c04-l15" data-line="15">        for unit_id in units_by_id:</span><span class="code-line" id="c04-l16" data-line="16">            expected_keys.add((unit_id, period[&quot;fiscal_years&quot;][unit_id]))</span><span class="code-line" id="c04-l17" data-line="17"> </span><span class="code-line" id="c04-l18" data-line="18">    actual_keys = set()</span><span class="code-line" id="c04-l19" data-line="19">    for row in clean_df.to_dict(&quot;records&quot;):</span><span class="code-line" id="c04-l20" data-line="20">        key = (row[&quot;unit_id&quot;], row[&quot;fiscal_year&quot;])</span><span class="code-line" id="c04-l21" data-line="21">        actual_keys.add(key)</span><span class="code-line" id="c04-l22" data-line="22">        if row[&quot;unit_id&quot;] not in units_by_id:</span><span class="code-line" id="c04-l23" data-line="23">            raise ValueError(f&quot;Unexpected business unit: {row[&#x27;unit_id&#x27;]}&quot;)</span><span class="code-line" id="c04-l24" data-line="24">        unit = units_by_id[row[&quot;unit_id&quot;]]</span><span class="code-line" id="c04-l25" data-line="25">        if row[&quot;company_name&quot;] != unit[&quot;company_name&quot;] or row[&quot;segment_name&quot;] != unit[&quot;segment_name&quot;]:</span><span class="code-line" id="c04-l26" data-line="26">            raise ValueError(f&quot;Company or segment name does not match configuration: {key}&quot;)</span><span class="code-line" id="c04-l27" data-line="27">        if row[&quot;reported_currency&quot;] != config.currency:</span><span class="code-line" id="c04-l28" data-line="28">            raise ValueError(f&quot;Currency does not match configuration: {key}&quot;)</span><span class="code-line" id="c04-l29" data-line="29">        if row[&quot;period_start&quot;] &gt;= row[&quot;period_end&quot;]:</span><span class="code-line" id="c04-l30" data-line="30">            raise ValueError(f&quot;Report start must be before report end: {key}&quot;)</span><span class="code-line" id="c04-l31" data-line="31">        for column in [&quot;net_sales_usd_m&quot;, &quot;operating_income_usd_m&quot;]:</span><span class="code-line" id="c04-l32" data-line="32">            if not math.isfinite(float(row[column])):</span><span class="code-line" id="c04-l33" data-line="33">                raise ValueError(f&quot;Non-finite financial value in {column}: {key}&quot;)</span><span class="code-line" id="c04-l34" data-line="34">        if row[&quot;net_sales_usd_m&quot;] &lt;= 0:</span><span class="code-line" id="c04-l35" data-line="35">            raise ValueError(f&quot;Net sales must be positive: {key}&quot;)</span><span class="code-line" id="c04-l36" data-line="36">        source = urlparse(row[&quot;source_url&quot;])</span><span class="code-line" id="c04-l37" data-line="37">        if source.scheme not in [&quot;http&quot;, &quot;https&quot;] or not source.netloc:</span><span class="code-line" id="c04-l38" data-line="38">            raise ValueError(f&quot;Invalid source URL: {key}&quot;)</span><span class="code-line" id="c04-l39" data-line="39">        for column in [&quot;source_section&quot;, &quot;date_basis&quot;, &quot;accessed_date&quot;]:</span><span class="code-line" id="c04-l40" data-line="40">            if not str(row[column]).strip():</span><span class="code-line" id="c04-l41" data-line="41">                raise ValueError(f&quot;Missing provenance in {column}: {key}&quot;)</span><span class="code-line" id="c04-l42" data-line="42"> </span><span class="code-line" id="c04-l43" data-line="43">    if actual_keys != expected_keys:</span><span class="code-line" id="c04-l44" data-line="44">        missing = sorted(expected_keys - actual_keys)</span><span class="code-line" id="c04-l45" data-line="45">        extra = sorted(actual_keys - expected_keys)</span><span class="code-line" id="c04-l46" data-line="46">        raise ValueError(f&quot;Coverage mismatch. Missing: {missing}; extra: {extra}&quot;)</span><span class="code-line" id="c04-l47" data-line="47">    if len(clean_df) != config.get_observation_count():</span><span class="code-line" id="c04-l48" data-line="48">        raise ValueError(&quot;Record count does not match the configured study.&quot;)</span></code></pre></div>
+<div class="code-caption">行号仅供阅读，复制时会自动去除。点击右侧行号可定位对应语句。</div></div>
+<div class="prose-panel"><h3>逐句解释</h3><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="1" data-end="1" title="Locate these lines in the full code"><span class="line-label">L1</span> 英文 cell 注释标题<span class="locate">定位代码</span></button>
+<pre class="snippet"><code># Cell 04: Define Record Validation</code></pre>
+<p><strong>语法和执行含义</strong>井号 # 后面是注释，Python 不把它作为操作执行。Cell 编号表示本模块中的格子编号，不是 Notebook 的执行次数。</p>
+<p><strong>为什么这样写</strong>便于复制和定位每一格；保留英文标题，代码内不混入中文说明。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="3" data-end="4" title="Locate these lines in the full code"><span class="line-label">L3—4</span> 定义只做检查的函数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>def validate_records(clean_df, config):
+    &quot;&quot;&quot;Require exact configured coverage, correct identities and usable values.&quot;&quot;&quot;</code></pre>
+<p><strong>语法和执行含义</strong>两个参数分别是实际标准数据 clean_df 与研究要求 config。函数通过时没有显式 return，默认返回 None；失败时抛出异常。</p>
+<p><strong>为什么这样写</strong>检查数据不必产生一张新表，因此调用时不把返回值赋给 clean_df。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="5" data-end="6" title="Locate these lines in the full code"><span class="line-label">L5—6</span> 检查研究配置币种<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    if config.currency != &quot;USD&quot;:
+        raise ValueError(&quot;The configuration must use USD for this version.&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>访问 config.currency 属性并与 USD 比较，不同则 raise。</p>
+<p><strong>为什么这样写</strong>除了逐行币种检查，也确认本版研究整体满足 USD 接口。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="7" data-end="8" title="Locate these lines in the full code"><span class="line-label">L7—8</span> 按联合身份查重复<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    if clean_df.duplicated([&quot;unit_id&quot;, &quot;fiscal_year&quot;]).any():
+        raise ValueError(&quot;Duplicate segment/fiscal-year records were found.&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>duplicated 指定 unit_id 和 fiscal_year 两列作为组合，返回重复标记；any 发现至少一个重复则 raise。</p>
+<p><strong>为什么这样写</strong>相同分部财年只能有一条，重复来源需要先核对，不能悄悄删除。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="10" data-end="10" title="Locate these lines in the full code"><span class="line-label">L10</span> 准备应该出现的身份集合<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    expected_keys = set()</code></pre>
+<p><strong>语法和执行含义</strong>set() 创建空集合 expected_keys，保存之后配置要求的元组。</p>
+<p><strong>为什么这样写</strong>集合用于比较覆盖，自动去重且不依赖输入行顺序。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="11" data-end="11" title="Locate these lines in the full code"><span class="line-label">L11</span> 准备分部查询字典<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    units_by_id = {}</code></pre>
+<p><strong>语法和执行含义</strong>{} 创建空字典 units_by_id；空字典与空集合的写法不同。</p>
+<p><strong>为什么这样写</strong>用稳定标识直接查对应分部配置。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="12" data-end="13" title="Locate these lines in the full code"><span class="line-label">L12—13</span> 按标识保存完整分部配置<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    for unit in config.business_units:
+        units_by_id[unit[&quot;unit_id&quot;]] = unit</code></pre>
+<p><strong>语法和执行含义</strong>for 每次取得一个 unit 字典；unit[&quot;unit_id&quot;] 是键，右侧 unit 是保存的完整配置值。</p>
+<p><strong>为什么这样写</strong>后面看到一条数据的标识就可取得正确名称和分部，无需反复搜索列表。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="14" data-end="16" title="Locate these lines in the full code"><span class="line-label">L14—16</span> 生成每期应有的分部财年组合<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    for period in config.periods:
+        for unit_id in units_by_id:
+            expected_keys.add((unit_id, period[&quot;fiscal_years&quot;][unit_id]))</code></pre>
+<p><strong>语法和执行含义</strong>外层遍历时期，内层遍历 units_by_id 的键；period[&quot;fiscal_years&quot;][unit_id] 取得该分部在该期的报告财年；组成元组并 add 到集合。</p>
+<p><strong>为什么这样写</strong>分析年度 2019 对应 Amazon 2019、Walmart 2020。用映射生成十二个身份，没有写死公司特例。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="18" data-end="18" title="Locate these lines in the full code"><span class="line-label">L18</span> 准备实际身份集合<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    actual_keys = set()</code></pre>
+<p><strong>语法和执行含义</strong>创建 actual_keys 空集合，等实际数据循环逐项加入。</p>
+<p><strong>为什么这样写</strong>最终与 expected_keys 比较，发现缺年、多年或错误配对。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="19" data-end="19" title="Locate these lines in the full code"><span class="line-label">L19</span> 逐条检查实际表<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    for row in clean_df.to_dict(&quot;records&quot;):</code></pre>
+<p><strong>语法和执行含义</strong>to_dict(&quot;records&quot;) 将每行变成字典；for 每轮取得一行 row。</p>
+<p><strong>为什么这样写</strong>一条数据有多个字段检查，使用明确的列名访问。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="20" data-end="20" title="Locate these lines in the full code"><span class="line-label">L20</span> 组合当前记录身份<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        key = (row[&quot;unit_id&quot;], row[&quot;fiscal_year&quot;])</code></pre>
+<p><strong>语法和执行含义</strong>以 row 的分部标识与财年创建二元素元组 key。</p>
+<p><strong>为什么这样写</strong>既用于覆盖检查，也放在错误提示中定位问题。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="21" data-end="21" title="Locate these lines in the full code"><span class="line-label">L21</span> 把身份加入实际名单<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        actual_keys.add(key)</code></pre>
+<p><strong>语法和执行含义</strong>actual_keys.add(key) 加入当前元组，重复元组在集合中仍只保留一份。</p>
+<p><strong>为什么这样写</strong>集合用于名单比较，重复检查已经在函数前面单独进行。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="22" data-end="23" title="Locate these lines in the full code"><span class="line-label">L22—23</span> 拒绝研究以外的分部<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        if row[&quot;unit_id&quot;] not in units_by_id:
+            raise ValueError(f&quot;Unexpected business unit: {row[&#x27;unit_id&#x27;]}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>not in 对字典查询键；当前标识不存在时抛出错误并显示该标识。</p>
+<p><strong>为什么这样写</strong>防止混入 AWS、其他地域或未配置公司，且保证下一行查字典安全。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="24" data-end="24" title="Locate these lines in the full code"><span class="line-label">L24</span> 取出正确分部配置<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        unit = units_by_id[row[&quot;unit_id&quot;]]</code></pre>
+<p><strong>语法和执行含义</strong>先取当前行 unit_id，再查询 units_by_id，把完整配置赋给局部变量 unit。</p>
+<p><strong>为什么这样写</strong>实际记录的名称与配置的名称接下来需要一一比较。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="25" data-end="26" title="Locate these lines in the full code"><span class="line-label">L25—26</span> 核对两个名称<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        if row[&quot;company_name&quot;] != unit[&quot;company_name&quot;] or row[&quot;segment_name&quot;] != unit[&quot;segment_name&quot;]:
+            raise ValueError(f&quot;Company or segment name does not match configuration: {key}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>两个 != 判断不一致，or 表示任意一项不一致就失败；raise 用 key 定位问题。字符串比较精确匹配大小写与拼写。</p>
+<p><strong>为什么这样写</strong>发现标识写对、公司或分部名字却录错的记录。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="27" data-end="28" title="Locate these lines in the full code"><span class="line-label">L27—28</span> 核对记录币种<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        if row[&quot;reported_currency&quot;] != config.currency:
+            raise ValueError(f&quot;Currency does not match configuration: {key}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>比较 row 中的 reported_currency 与 config.currency，不同就报错。</p>
+<p><strong>为什么这样写</strong>实际记录与整个研究的货币口径必须一致，此处不做汇率换算。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="29" data-end="30" title="Locate these lines in the full code"><span class="line-label">L29—30</span> 核对日期先后<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        if row[&quot;period_start&quot;] &gt;= row[&quot;period_end&quot;]:
+            raise ValueError(f&quot;Report start must be before report end: {key}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>&gt;= 表示晚于或等于。开始日期这样比较到结束日期时，要求条件为假，否则 raise。</p>
+<p><strong>为什么这样写</strong>报告开始必须严格早于结束；依赖标准化已将有效日期统一为 ISO 文本。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="31" data-end="33" title="Locate these lines in the full code"><span class="line-label">L31—33</span> 核对两个金额的有限性<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        for column in [&quot;net_sales_usd_m&quot;, &quot;operating_income_usd_m&quot;]:
+            if not math.isfinite(float(row[column])):
+                raise ValueError(f&quot;Non-finite financial value in {column}: {key}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>小循环分别取两个金额列；float 转成普通数值，再 isfinite 检查，not 让非有限值触发 raise。</p>
+<p><strong>为什么这样写</strong>保护后续计算；正常负营业利润仍是有限数，可通过。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="34" data-end="35" title="Locate these lines in the full code"><span class="line-label">L34—35</span> 要求销售额为正<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        if row[&quot;net_sales_usd_m&quot;] &lt;= 0:
+            raise ValueError(f&quot;Net sales must be positive: {key}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>&lt;= 0 检查零或负销售额，并拒绝这种输入。</p>
+<p><strong>为什么这样写</strong>净销售额会作为指标分母或指数基准；营业利润没有这个正数限制。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="36" data-end="36" title="Locate these lines in the full code"><span class="line-label">L36</span> 拆分来源网址<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        source = urlparse(row[&quot;source_url&quot;])</code></pre>
+<p><strong>语法和执行含义</strong>urlparse 返回解析结果对象，保存到 source，之后通过点号访问其中的组成部分。</p>
+<p><strong>为什么这样写</strong>检查基本结构，无需在小样本导入过程中联网抓取。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="37" data-end="38" title="Locate these lines in the full code"><span class="line-label">L37—38</span> 检查协议和地址部分<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        if source.scheme not in [&quot;http&quot;, &quot;https&quot;] or not source.netloc:
+            raise ValueError(f&quot;Invalid source URL: {key}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>scheme 要属于 http/https；not source.netloc 表示网络地址为空；任意条件失败则 raise。</p>
+<p><strong>为什么这样写</strong>发现明显无效的来源地址。它不证明网页可访问，也不核对网页中的金额。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="39" data-end="41" title="Locate these lines in the full code"><span class="line-label">L39—41</span> 拒绝空的追溯信息<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        for column in [&quot;source_section&quot;, &quot;date_basis&quot;, &quot;accessed_date&quot;]:
+            if not str(row[column]).strip():
+                raise ValueError(f&quot;Missing provenance in {column}: {key}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>循环取章节、日期依据和访问日；str 转文本，strip 去空白，not 把空文本视为缺失，再 raise。</p>
+<p><strong>为什么这样写</strong>有数字也要可追溯。前面的标准化已拒绝真正缺失值，否则单靠 str(None) 这种检查不充分。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="43" data-end="43" title="Locate these lines in the full code"><span class="line-label">L43</span> 所有行结束后比较名单<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    if actual_keys != expected_keys:</code></pre>
+<p><strong>语法和执行含义</strong>集合 != 检查是否有成员不同。这行缩进退回实际行循环外，等全部行检查完才判断。</p>
+<p><strong>为什么这样写</strong>若放在逐行循环里，第一行结束就会误报其他年份尚未出现。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="44" data-end="44" title="Locate these lines in the full code"><span class="line-label">L44</span> 取得缺少的身份<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        missing = sorted(expected_keys - actual_keys)</code></pre>
+<p><strong>语法和执行含义</strong>expected_keys - actual_keys 是集合差集，得到应有而未有的成员；sorted 输出有序列表。</p>
+<p><strong>为什么这样写</strong>报错时直接列出缺哪一个分部财年，便于定位。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="45" data-end="45" title="Locate these lines in the full code"><span class="line-label">L45</span> 取得多余的身份<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        extra = sorted(actual_keys - expected_keys)</code></pre>
+<p><strong>语法和执行含义</strong>反方向差集 actual_keys - expected_keys 得到实际多出的成员，再排序。</p>
+<p><strong>为什么这样写</strong>即使行数正确，替换成一个错误年份也会被发现。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="46" data-end="46" title="Locate these lines in the full code"><span class="line-label">L46</span> 报告覆盖差异<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        raise ValueError(f&quot;Coverage mismatch. Missing: {missing}; extra: {extra}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>f-string 分别插入 missing 与 extra；raise 停止本次检查。</p>
+<p><strong>为什么这样写</strong>不以删行或补零掩盖研究覆盖问题，先修正原始文件或配置。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="04" data-start="47" data-end="48" title="Locate these lines in the full code"><span class="line-label">L47—48</span> 比较行数与计划数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    if len(clean_df) != config.get_observation_count():
+        raise ValueError(&quot;Record count does not match the configured study.&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>len(clean_df) 返回行数；对象方法返回分部数乘时期数；不相等则 raise。</p>
+<p><strong>为什么这样写</strong>集合会去重，名单相同仍可能多了重复行。此处再次核对总数量，当前计划为十二行。</p>
+</article></div>
+</div></section><section class="cell-section" id="cell05">
+<h2>Cell 05: Define the Database Manager</h2>
+<div class="reading-grid">
+<div class="code-panel"><div class="code-toolbar"><span>完整英文代码</span><button class="copy" data-cell="05">Copy cell</button></div>
+<div class="code-scroll" id="code-pane-05"><pre class="full-code"><code><span class="code-line" id="c05-l1" data-line="1"># Cell 05: Define the Database Manager</span><span class="code-line" id="c05-l2" data-line="2"> </span><span class="code-line" id="c05-l3" data-line="3">class DatabaseManager:</span><span class="code-line" id="c05-l4" data-line="4">    &quot;&quot;&quot;Own the database connection without embedding company-specific rules.&quot;&quot;&quot;</span><span class="code-line" id="c05-l5" data-line="5"> </span><span class="code-line" id="c05-l6" data-line="6">    def __init__(self, database_path):</span><span class="code-line" id="c05-l7" data-line="7">        self.database_path = Path(database_path)</span><span class="code-line" id="c05-l8" data-line="8">        self.connection = None</span><span class="code-line" id="c05-l9" data-line="9"> </span><span class="code-line" id="c05-l10" data-line="10">    def connect(self):</span><span class="code-line" id="c05-l11" data-line="11">        if self.connection is None:</span><span class="code-line" id="c05-l12" data-line="12">            self.database_path.parent.mkdir(parents=True, exist_ok=True)</span><span class="code-line" id="c05-l13" data-line="13">            self.connection = sqlite3.connect(str(self.database_path))</span><span class="code-line" id="c05-l14" data-line="14">            self.connection.execute(&quot;PRAGMA foreign_keys = ON&quot;)</span><span class="code-line" id="c05-l15" data-line="15"> </span><span class="code-line" id="c05-l16" data-line="16">    def create_tables(self):</span><span class="code-line" id="c05-l17" data-line="17">        self.connection.executescript(&quot;&quot;&quot;</span><span class="code-line" id="c05-l18" data-line="18">            CREATE TABLE IF NOT EXISTS business_units (</span><span class="code-line" id="c05-l19" data-line="19">                unit_id TEXT PRIMARY KEY,</span><span class="code-line" id="c05-l20" data-line="20">                company_name TEXT NOT NULL,</span><span class="code-line" id="c05-l21" data-line="21">                ticker TEXT NOT NULL,</span><span class="code-line" id="c05-l22" data-line="22">                segment_name TEXT NOT NULL,</span><span class="code-line" id="c05-l23" data-line="23">                currency TEXT NOT NULL,</span><span class="code-line" id="c05-l24" data-line="24">                scope_notes TEXT NOT NULL,</span><span class="code-line" id="c05-l25" data-line="25">                source_urls TEXT NOT NULL</span><span class="code-line" id="c05-l26" data-line="26">            );</span><span class="code-line" id="c05-l27" data-line="27">            CREATE TABLE IF NOT EXISTS financial_records (</span><span class="code-line" id="c05-l28" data-line="28">                unit_id TEXT NOT NULL,</span><span class="code-line" id="c05-l29" data-line="29">                fiscal_year INTEGER NOT NULL,</span><span class="code-line" id="c05-l30" data-line="30">                period_start TEXT NOT NULL,</span><span class="code-line" id="c05-l31" data-line="31">                period_end TEXT NOT NULL,</span><span class="code-line" id="c05-l32" data-line="32">                net_sales_raw TEXT NOT NULL,</span><span class="code-line" id="c05-l33" data-line="33">                operating_income_raw TEXT NOT NULL,</span><span class="code-line" id="c05-l34" data-line="34">                reported_currency TEXT NOT NULL CHECK (reported_currency = &#x27;USD&#x27;),</span><span class="code-line" id="c05-l35" data-line="35">                reported_unit TEXT NOT NULL,</span><span class="code-line" id="c05-l36" data-line="36">                source_url TEXT NOT NULL,</span><span class="code-line" id="c05-l37" data-line="37">                source_section TEXT NOT NULL,</span><span class="code-line" id="c05-l38" data-line="38">                accessed_date TEXT NOT NULL,</span><span class="code-line" id="c05-l39" data-line="39">                date_basis TEXT NOT NULL,</span><span class="code-line" id="c05-l40" data-line="40">                net_sales_usd_m REAL NOT NULL CHECK (net_sales_usd_m &gt; 0),</span><span class="code-line" id="c05-l41" data-line="41">                operating_income_usd_m REAL NOT NULL,</span><span class="code-line" id="c05-l42" data-line="42">                PRIMARY KEY (unit_id, fiscal_year),</span><span class="code-line" id="c05-l43" data-line="43">                FOREIGN KEY (unit_id) REFERENCES business_units(unit_id),</span><span class="code-line" id="c05-l44" data-line="44">                CHECK (period_start &lt; period_end)</span><span class="code-line" id="c05-l45" data-line="45">            );</span><span class="code-line" id="c05-l46" data-line="46">            CREATE TABLE IF NOT EXISTS metric_results (</span><span class="code-line" id="c05-l47" data-line="47">                study_id TEXT NOT NULL,</span><span class="code-line" id="c05-l48" data-line="48">                config_signature TEXT NOT NULL,</span><span class="code-line" id="c05-l49" data-line="49">                unit_id TEXT NOT NULL,</span><span class="code-line" id="c05-l50" data-line="50">                analysis_year INTEGER NOT NULL,</span><span class="code-line" id="c05-l51" data-line="51">                metric_name TEXT NOT NULL,</span><span class="code-line" id="c05-l52" data-line="52">                metric_value REAL,</span><span class="code-line" id="c05-l53" data-line="53">                value_unit TEXT NOT NULL,</span><span class="code-line" id="c05-l54" data-line="54">                calculation_time TEXT NOT NULL,</span><span class="code-line" id="c05-l55" data-line="55">                missing_reason TEXT,</span><span class="code-line" id="c05-l56" data-line="56">                PRIMARY KEY (study_id, config_signature, unit_id, analysis_year, metric_name),</span><span class="code-line" id="c05-l57" data-line="57">                FOREIGN KEY (unit_id) REFERENCES business_units(unit_id)</span><span class="code-line" id="c05-l58" data-line="58">            );</span><span class="code-line" id="c05-l59" data-line="59">        &quot;&quot;&quot;)</span><span class="code-line" id="c05-l60" data-line="60"> </span><span class="code-line" id="c05-l61" data-line="61">    def save_data(self, config, clean_df):</span><span class="code-line" id="c05-l62" data-line="62">        counts = {&quot;inserted&quot;: 0, &quot;updated&quot;: 0, &quot;unchanged&quot;: 0}</span><span class="code-line" id="c05-l63" data-line="63">        columns_sql = &quot;, &quot;.join(RECORD_COLUMNS)</span><span class="code-line" id="c05-l64" data-line="64">        placeholders = &quot;, &quot;.join([&quot;?&quot;] * len(RECORD_COLUMNS))</span><span class="code-line" id="c05-l65" data-line="65">        update_parts = []</span><span class="code-line" id="c05-l66" data-line="66">        for column in RECORD_COLUMNS[2:]:</span><span class="code-line" id="c05-l67" data-line="67">            update_parts.append(column + &quot; = ?&quot;)</span><span class="code-line" id="c05-l68" data-line="68">        update_sql = &quot;, &quot;.join(update_parts)</span><span class="code-line" id="c05-l69" data-line="69"> </span><span class="code-line" id="c05-l70" data-line="70">        with self.connection:</span><span class="code-line" id="c05-l71" data-line="71">            for unit in config.business_units:</span><span class="code-line" id="c05-l72" data-line="72">                unit_values = (</span><span class="code-line" id="c05-l73" data-line="73">                    unit[&quot;company_name&quot;], unit[&quot;ticker&quot;], unit[&quot;segment_name&quot;],</span><span class="code-line" id="c05-l74" data-line="74">                    unit[&quot;currency&quot;], &quot;\n&quot;.join(unit[&quot;scope_notes&quot;]),</span><span class="code-line" id="c05-l75" data-line="75">                    &quot;\n&quot;.join(unit[&quot;source_urls&quot;]),</span><span class="code-line" id="c05-l76" data-line="76">                )</span><span class="code-line" id="c05-l77" data-line="77">                existing_unit = self.connection.execute(</span><span class="code-line" id="c05-l78" data-line="78">                    &quot;SELECT company_name, ticker, segment_name, currency, scope_notes, source_urls &quot;</span><span class="code-line" id="c05-l79" data-line="79">                    &quot;FROM business_units WHERE unit_id = ?&quot;, (unit[&quot;unit_id&quot;],)</span><span class="code-line" id="c05-l80" data-line="80">                ).fetchone()</span><span class="code-line" id="c05-l81" data-line="81">                if existing_unit is None:</span><span class="code-line" id="c05-l82" data-line="82">                    self.connection.execute(</span><span class="code-line" id="c05-l83" data-line="83">                        &quot;INSERT INTO business_units &quot;</span><span class="code-line" id="c05-l84" data-line="84">                        &quot;(company_name, ticker, segment_name, currency, scope_notes, source_urls, unit_id) &quot;</span><span class="code-line" id="c05-l85" data-line="85">                        &quot;VALUES (?, ?, ?, ?, ?, ?, ?)&quot;, unit_values + (unit[&quot;unit_id&quot;],)</span><span class="code-line" id="c05-l86" data-line="86">                    )</span><span class="code-line" id="c05-l87" data-line="87">                elif existing_unit != unit_values:</span><span class="code-line" id="c05-l88" data-line="88">                    self.connection.execute(</span><span class="code-line" id="c05-l89" data-line="89">                        &quot;UPDATE business_units SET company_name = ?, ticker = ?, segment_name = ?, &quot;</span><span class="code-line" id="c05-l90" data-line="90">                        &quot;currency = ?, scope_notes = ?, source_urls = ? WHERE unit_id = ?&quot;,</span><span class="code-line" id="c05-l91" data-line="91">                        unit_values + (unit[&quot;unit_id&quot;],)</span><span class="code-line" id="c05-l92" data-line="92">                    )</span><span class="code-line" id="c05-l93" data-line="93">                    self.connection.execute(&quot;DELETE FROM metric_results WHERE unit_id = ?&quot;, (unit[&quot;unit_id&quot;],))</span><span class="code-line" id="c05-l94" data-line="94"> </span><span class="code-line" id="c05-l95" data-line="95">            for row in clean_df.to_dict(&quot;records&quot;):</span><span class="code-line" id="c05-l96" data-line="96">                values = []</span><span class="code-line" id="c05-l97" data-line="97">                for column in RECORD_COLUMNS:</span><span class="code-line" id="c05-l98" data-line="98">                    values.append(row[column])</span><span class="code-line" id="c05-l99" data-line="99">                values = tuple(values)</span><span class="code-line" id="c05-l100" data-line="100">                key = (row[&quot;unit_id&quot;], row[&quot;fiscal_year&quot;])</span><span class="code-line" id="c05-l101" data-line="101">                existing = self.connection.execute(</span><span class="code-line" id="c05-l102" data-line="102">                    f&quot;SELECT {columns_sql} FROM financial_records WHERE unit_id = ? AND fiscal_year = ?&quot;, key</span><span class="code-line" id="c05-l103" data-line="103">                ).fetchone()</span><span class="code-line" id="c05-l104" data-line="104">                if existing is None:</span><span class="code-line" id="c05-l105" data-line="105">                    self.connection.execute(</span><span class="code-line" id="c05-l106" data-line="106">                        f&quot;INSERT INTO financial_records ({columns_sql}) VALUES ({placeholders})&quot;, values</span><span class="code-line" id="c05-l107" data-line="107">                    )</span><span class="code-line" id="c05-l108" data-line="108">                    counts[&quot;inserted&quot;] += 1</span><span class="code-line" id="c05-l109" data-line="109">                    self.connection.execute(&quot;DELETE FROM metric_results WHERE unit_id = ?&quot;, (row[&quot;unit_id&quot;],))</span><span class="code-line" id="c05-l110" data-line="110">                elif existing != values:</span><span class="code-line" id="c05-l111" data-line="111">                    self.connection.execute(</span><span class="code-line" id="c05-l112" data-line="112">                        f&quot;UPDATE financial_records SET {update_sql} WHERE unit_id = ? AND fiscal_year = ?&quot;,</span><span class="code-line" id="c05-l113" data-line="113">                        values[2:] + key,</span><span class="code-line" id="c05-l114" data-line="114">                    )</span><span class="code-line" id="c05-l115" data-line="115">                    counts[&quot;updated&quot;] += 1</span><span class="code-line" id="c05-l116" data-line="116">                    self.connection.execute(&quot;DELETE FROM metric_results WHERE unit_id = ?&quot;, (row[&quot;unit_id&quot;],))</span><span class="code-line" id="c05-l117" data-line="117">                else:</span><span class="code-line" id="c05-l118" data-line="118">                    counts[&quot;unchanged&quot;] += 1</span><span class="code-line" id="c05-l119" data-line="119">        return counts</span><span class="code-line" id="c05-l120" data-line="120"> </span><span class="code-line" id="c05-l121" data-line="121">    def read_selected_records(self, config):</span><span class="code-line" id="c05-l122" data-line="122">        frames = []</span><span class="code-line" id="c05-l123" data-line="123">        for unit in config.business_units:</span><span class="code-line" id="c05-l124" data-line="124">            years = []</span><span class="code-line" id="c05-l125" data-line="125">            for period in config.periods:</span><span class="code-line" id="c05-l126" data-line="126">                years.append(period[&quot;fiscal_years&quot;][unit[&quot;unit_id&quot;]])</span><span class="code-line" id="c05-l127" data-line="127">            placeholders = &quot;, &quot;.join([&quot;?&quot;] * len(years))</span><span class="code-line" id="c05-l128" data-line="128">            parameters = [unit[&quot;unit_id&quot;]] + years</span><span class="code-line" id="c05-l129" data-line="129">            query = f&quot;&quot;&quot;</span><span class="code-line" id="c05-l130" data-line="130">                SELECT f.*, b.company_name, b.segment_name</span><span class="code-line" id="c05-l131" data-line="131">                FROM financial_records AS f</span><span class="code-line" id="c05-l132" data-line="132">                JOIN business_units AS b ON f.unit_id = b.unit_id</span><span class="code-line" id="c05-l133" data-line="133">                WHERE f.unit_id = ? AND f.fiscal_year IN ({placeholders})</span><span class="code-line" id="c05-l134" data-line="134">                ORDER BY f.fiscal_year</span><span class="code-line" id="c05-l135" data-line="135">            &quot;&quot;&quot;</span><span class="code-line" id="c05-l136" data-line="136">            frames.append(pd.read_sql_query(query, self.connection, params=parameters))</span><span class="code-line" id="c05-l137" data-line="137">        financial_df = pd.concat(frames, ignore_index=True)</span><span class="code-line" id="c05-l138" data-line="138">        return financial_df.sort_values([&quot;unit_id&quot;, &quot;fiscal_year&quot;]).reset_index(drop=True)</span><span class="code-line" id="c05-l139" data-line="139"> </span><span class="code-line" id="c05-l140" data-line="140">    def get_table_counts(self):</span><span class="code-line" id="c05-l141" data-line="141">        counts = {}</span><span class="code-line" id="c05-l142" data-line="142">        for table in [&quot;business_units&quot;, &quot;financial_records&quot;, &quot;metric_results&quot;]:</span><span class="code-line" id="c05-l143" data-line="143">            row = self.connection.execute(f&quot;SELECT COUNT(*) FROM {table}&quot;).fetchone()</span><span class="code-line" id="c05-l144" data-line="144">            counts[table] = row[0]</span><span class="code-line" id="c05-l145" data-line="145">        return counts</span><span class="code-line" id="c05-l146" data-line="146"> </span><span class="code-line" id="c05-l147" data-line="147">    def close(self):</span><span class="code-line" id="c05-l148" data-line="148">        if self.connection is not None:</span><span class="code-line" id="c05-l149" data-line="149">            self.connection.close()</span><span class="code-line" id="c05-l150" data-line="150">            self.connection = None</span></code></pre></div>
+<div class="code-caption">行号仅供阅读，复制时会自动去除。点击右侧行号可定位对应语句。</div></div>
+<div class="prose-panel"><h3>逐句解释</h3><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="1" data-end="1" title="Locate these lines in the full code"><span class="line-label">L1</span> 英文 cell 注释标题<span class="locate">定位代码</span></button>
+<pre class="snippet"><code># Cell 05: Define the Database Manager</code></pre>
+<p><strong>语法和执行含义</strong>井号 # 后面是注释，Python 不把它作为操作执行。Cell 编号表示本模块中的格子编号，不是 Notebook 的执行次数。</p>
+<p><strong>为什么这样写</strong>便于复制和定位每一格；保留英文标题，代码内不混入中文说明。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="3" data-end="4" title="Locate these lines in the full code"><span class="line-label">L3—4</span> 定义数据库管理类<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>class DatabaseManager:
+    &quot;&quot;&quot;Own the database connection without embedding company-specific rules.&quot;&quot;&quot;</code></pre>
+<p><strong>语法和执行含义</strong>class 定义一种对象，类名为 DatabaseManager；三引号描述类职责。此时不创建实例、文件或连接。</p>
+<p><strong>为什么这样写</strong>多个方法共享 database_path 和 connection，把持续使用的状态集中到同一个对象。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="6" data-end="6" title="Locate these lines in the full code"><span class="line-label">L6</span> 定义初始化方法<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    def __init__(self, database_path):</code></pre>
+<p><strong>语法和执行含义</strong>__init__ 在创建实例时自动执行。self 是当前实例，由 Python 自动提供；database_path 是调用者传入的路径。</p>
+<p><strong>为什么这样写</strong>对象创建时就需要记住路径与初始状态，后面的数据库操作用普通方法主动调用。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="7" data-end="7" title="Locate these lines in the full code"><span class="line-label">L7</span> 把路径保存到对象<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        self.database_path = Path(database_path)</code></pre>
+<p><strong>语法和执行含义</strong>Path(database_path) 创建路径对象，赋给 self.database_path；左边是对象属性，右边 database_path 是本次方法参数。</p>
+<p><strong>为什么这样写</strong>参数只在方法调用中使用，保存成属性后 connect 等其他方法也能访问。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="8" data-end="8" title="Locate these lines in the full code"><span class="line-label">L8</span> 设置未连接状态<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        self.connection = None</code></pre>
+<p><strong>语法和执行含义</strong>None 表示没有连接对象，赋给 self.connection；它不是字符串 &quot;None&quot; 或数字零。</p>
+<p><strong>为什么这样写</strong>初始化与实际连接分开，创建实例不会马上创建数据库文件。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="10" data-end="10" title="Locate these lines in the full code"><span class="line-label">L10</span> 定义连接方法<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    def connect(self):</code></pre>
+<p><strong>语法和执行含义</strong>connect 接收 self，不需额外路径参数，因为路径已经在对象中。方法返回 None，但会改变对象状态。</p>
+<p><strong>为什么这样写</strong>用 database.connect() 在合适时机连接，而不是每次查询都新建连接。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="11" data-end="11" title="Locate these lines in the full code"><span class="line-label">L11</span> 避免同一对象重复连接<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        if self.connection is None:</code></pre>
+<p><strong>语法和执行含义</strong>is None 检查 connection 是否确实为 None，只有未连接时进入缩进块。</p>
+<p><strong>为什么这样写</strong>已有连接时保持原连接，避免重复打开并遗失原对象。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="12" data-end="12" title="Locate these lines in the full code"><span class="line-label">L12</span> 保证数据库父目录存在<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>            self.database_path.parent.mkdir(parents=True, exist_ok=True)</code></pre>
+<p><strong>语法和执行含义</strong>parent 取得数据库所在目录；mkdir 创建目录，parents=True 补齐上层目录，exist_ok=True 允许目录已存在。</p>
+<p><strong>为什么这样写</strong>SQLite 能创建文件，但不会替你建立不存在的文件夹，所以先准备目录。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="13" data-end="13" title="Locate these lines in the full code"><span class="line-label">L13</span> 连接文件并保存连接对象<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>            self.connection = sqlite3.connect(str(self.database_path))</code></pre>
+<p><strong>语法和执行含义</strong>str 将 Path 转路径文字；sqlite3.connect 打开已有库或创建新库，返回连接对象，赋给 self.connection。</p>
+<p><strong>为什么这样写</strong>后面的 execute、executescript 与事务都通过这一个连接操作。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="14" data-end="14" title="Locate these lines in the full code"><span class="line-label">L14</span> 为当前连接启用外键检查<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>            self.connection.execute(&quot;PRAGMA foreign_keys = ON&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>execute 执行一条 SQL 设置语句。PRAGMA foreign_keys = ON 打开当前连接的外键约束。</p>
+<p><strong>为什么这样写</strong>年度财务的 unit_id 必须已有对应分部；后面先写分部表，再写财务表。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="16" data-end="17" title="Locate these lines in the full code"><span class="line-label">L16—17</span> 定义建表方法并执行多条 SQL<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    def create_tables(self):
+        self.connection.executescript(&quot;&quot;&quot;</code></pre>
+<p><strong>语法和执行含义</strong>def 定义方法；executescript 接收三引号开始的多行字符串，执行其中由分号分开的建表 SQL。下面的缩进文字是 SQL 内容，不是 Python 变量赋值。</p>
+<p><strong>为什么这样写</strong>三张表一次建立，语句结构集中在这里；Cell 09 调用时才执行。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="18" data-end="18" title="Locate these lines in the full code"><span class="line-label">L18</span> 创建分部资料表<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>            CREATE TABLE IF NOT EXISTS business_units (</code></pre>
+<p><strong>语法和执行含义</strong>CREATE TABLE IF NOT EXISTS 指定表名 business_units，左括号开始列和约束定义。已存在同名表时保留。</p>
+<p><strong>为什么这样写</strong>一行表示一个分部，保存相对稳定的身份和口径，不重复保存年度金额。此语句不升级已有旧表结构。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="19" data-end="19" title="Locate these lines in the full code"><span class="line-label">L19</span> 用标识区分分部<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                unit_id TEXT PRIMARY KEY,</code></pre>
+<p><strong>语法和执行含义</strong>unit_id 是 TEXT 字段，PRIMARY KEY 指定记录身份并限制非空标识重复；本项目的非空内容由配置校验保障。</p>
+<p><strong>为什么这样写</strong>用稳定标识关联记录，不以显示名称作为连接依据。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="20" data-end="25" title="Locate these lines in the full code"><span class="line-label">L20—25</span> 定义分部资料的六个字段<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                company_name TEXT NOT NULL,
+                ticker TEXT NOT NULL,
+                segment_name TEXT NOT NULL,
+                currency TEXT NOT NULL,
+                scope_notes TEXT NOT NULL,
+                source_urls TEXT NOT NULL</code></pre>
+<p><strong>语法和执行含义</strong>company_name 是公司名，ticker 是股票代码，segment_name 是分部名，currency 是币种，scope_notes 是口径说明文字，source_urls 是来源文字。各行 TEXT 表示文本，NOT NULL 拒绝 SQL NULL。</p>
+<p><strong>为什么这样写</strong>名称与说明存一次即可。NOT NULL 不单独拒绝空字符串，所以仍需要 Python 内容检查。两个说明列表之后用换行连接为 TEXT。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="26" data-end="26" title="Locate these lines in the full code"><span class="line-label">L26</span> 结束第一张表的 SQL<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>            );</code></pre>
+<p><strong>语法和执行含义</strong>右括号结束表定义，分号结束这条 CREATE TABLE。</p>
+<p><strong>为什么这样写</strong>executescript 可以随后继续执行下一条建表语句。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="27" data-end="27" title="Locate these lines in the full code"><span class="line-label">L27</span> 创建年度财务表<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>            CREATE TABLE IF NOT EXISTS financial_records (</code></pre>
+<p><strong>语法和执行含义</strong>开始 financial_records 的定义，一行对应一个分部的实际报告财年。</p>
+<p><strong>为什么这样写</strong>基础数据保留 fiscal_year 和实际日期，分析年度和疫情阶段以后按研究配置加入。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="28" data-end="29" title="Locate these lines in the full code"><span class="line-label">L28—29</span> 定义财务身份字段<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                unit_id TEXT NOT NULL,
+                fiscal_year INTEGER NOT NULL,</code></pre>
+<p><strong>语法和执行含义</strong>unit_id 用 TEXT，fiscal_year 用 INTEGER，两者 NOT NULL；后面将一起作为联合主键。</p>
+<p><strong>为什么这样写</strong>同一个分部可有六年记录，单用 unit_id 不能区分年份。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="30" data-end="31" title="Locate these lines in the full code"><span class="line-label">L30—31</span> 保存报告期间<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                period_start TEXT NOT NULL,
+                period_end TEXT NOT NULL,</code></pre>
+<p><strong>语法和执行含义</strong>period_start 与 period_end 为文本字段；前面的标准化已统一成 YYYY-MM-DD。</p>
+<p><strong>为什么这样写</strong>保留真实期间，让两家近似配对时的日期差异可追溯。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="32" data-end="33" title="Locate these lines in the full code"><span class="line-label">L32—33</span> 保存原始金额文本<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                net_sales_raw TEXT NOT NULL,
+                operating_income_raw TEXT NOT NULL,</code></pre>
+<p><strong>语法和执行含义</strong>net_sales_raw 和 operating_income_raw 用 TEXT，保留千位逗号和亏损括号。</p>
+<p><strong>为什么这样写</strong>标准数值便于计算，原始字符串便于回查披露，两种表示都有用途。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="34" data-end="34" title="Locate these lines in the full code"><span class="line-label">L34</span> 要求披露币种为 USD<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                reported_currency TEXT NOT NULL CHECK (reported_currency = &#x27;USD&#x27;),</code></pre>
+<p><strong>语法和执行含义</strong>TEXT 与 NOT NULL 指定文本及非 NULL；CHECK (reported_currency = &#x27;USD&#x27;) 再要求具体值为 USD。</p>
+<p><strong>为什么这样写</strong>数据库也拒绝其他币种，作为 Python 检查之外的额外约束。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="35" data-end="35" title="Locate these lines in the full code"><span class="line-label">L35</span> 保留原始数量级<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                reported_unit TEXT NOT NULL,</code></pre>
+<p><strong>语法和执行含义</strong>reported_unit 用 TEXT 保存 millions 等原始单位，不使用标准金额替代它。</p>
+<p><strong>为什么这样写</strong>知道原表单位才能复核换算是否正确。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="36" data-end="39" title="Locate these lines in the full code"><span class="line-label">L36—39</span> 保存每条数值的出处<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                source_url TEXT NOT NULL,
+                source_section TEXT NOT NULL,
+                accessed_date TEXT NOT NULL,
+                date_basis TEXT NOT NULL,</code></pre>
+<p><strong>语法和执行含义</strong>source_url 保存具体网址；source_section 保存章节与列；accessed_date 保存访问日；date_basis 保存报告日期采用依据，均为非 NULL 文本。</p>
+<p><strong>为什么这样写</strong>把来源附在各年度记录上，而不是仅保存一个无法定位金额的公司主页。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="40" data-end="40" title="Locate these lines in the full code"><span class="line-label">L40</span> 定义标准销售额及条件<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                net_sales_usd_m REAL NOT NULL CHECK (net_sales_usd_m &gt; 0),</code></pre>
+<p><strong>语法和执行含义</strong>net_sales_usd_m 用 REAL 保存浮点数，NOT NULL 拒绝缺失，CHECK 要求大于零。</p>
+<p><strong>为什么这样写</strong>统一为百万美元，可供后续分母与指数计算；零或负销售额会在 SQL 写入时被拒绝。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="41" data-end="41" title="Locate these lines in the full code"><span class="line-label">L41</span> 定义标准营业利润<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                operating_income_usd_m REAL NOT NULL,</code></pre>
+<p><strong>语法和执行含义</strong>operating_income_usd_m 为 REAL NOT NULL，没有增加大于零的 CHECK。</p>
+<p><strong>为什么这样写</strong>营业利润可以亏损，合法负数应保存下来。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="42" data-end="42" title="Locate these lines in the full code"><span class="line-label">L42</span> 定义联合主键<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                PRIMARY KEY (unit_id, fiscal_year),</code></pre>
+<p><strong>语法和执行含义</strong>PRIMARY KEY (unit_id, fiscal_year) 让两个字段共同识别一行。</p>
+<p><strong>为什么这样写</strong>同一分部同一报告财年不能保存两条独立记录，更新时通过这两个条件定位。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="43" data-end="43" title="Locate these lines in the full code"><span class="line-label">L43</span> 关联已存在的分部<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                FOREIGN KEY (unit_id) REFERENCES business_units(unit_id),</code></pre>
+<p><strong>语法和执行含义</strong>FOREIGN KEY 指定本表 unit_id 引用 business_units 的 unit_id。</p>
+<p><strong>为什么这样写</strong>启用外键后，不允许财务记录引用不存在的分部，两个表的身份保持一致。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="44" data-end="45" title="Locate these lines in the full code"><span class="line-label">L44—45</span> 约束日期并结束财务表<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                CHECK (period_start &lt; period_end)
+            );</code></pre>
+<p><strong>语法和执行含义</strong>CHECK 要求开始日早于结束日；下一行右括号和分号结束本表定义。这里按标准化后的合法 ISO 文本比较。</p>
+<p><strong>为什么这样写</strong>即使调用者跳过部分 Python 检查，写入时仍有日期顺序约束；它不能证明日期来自财报。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="46" data-end="46" title="Locate these lines in the full code"><span class="line-label">L46</span> 创建指标结果表<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>            CREATE TABLE IF NOT EXISTS metric_results (</code></pre>
+<p><strong>语法和执行含义</strong>开始 metric_results 的结构定义，现在不 INSERT 任何指标。</p>
+<p><strong>为什么这样写</strong>让 Module 03 有明确的保存接口，建表与计算是不同动作。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="47" data-end="51" title="Locate these lines in the full code"><span class="line-label">L47—51</span> 定义指标身份及名称<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                study_id TEXT NOT NULL,
+                config_signature TEXT NOT NULL,
+                unit_id TEXT NOT NULL,
+                analysis_year INTEGER NOT NULL,
+                metric_name TEXT NOT NULL,</code></pre>
+<p><strong>语法和执行含义</strong>study_id 为研究标识，config_signature 为配置版本标识，unit_id 为分部标识，analysis_year 为整数分析年度，metric_name 为指标名。这些字段均不能为 NULL。</p>
+<p><strong>为什么这样写</strong>同一基础数据可以供不同研究和配置使用，结果需要知道是哪一个研究版本算出来的。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="52" data-end="52" title="Locate these lines in the full code"><span class="line-label">L52</span> 允许缺失的指标值<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                metric_value REAL,</code></pre>
+<p><strong>语法和执行含义</strong>metric_value 声明为 REAL，但没有 NOT NULL，因而可以保存 SQL NULL。</p>
+<p><strong>为什么这样写</strong>例如没有前一年数据的同比不能当成零；缺失结果应有明确表示。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="53" data-end="55" title="Locate these lines in the full code"><span class="line-label">L53—55</span> 记录指标单位和计算信息<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                value_unit TEXT NOT NULL,
+                calculation_time TEXT NOT NULL,
+                missing_reason TEXT,</code></pre>
+<p><strong>语法和执行含义</strong>value_unit 是单位文字，calculation_time 是计算时刻，两者非 NULL；missing_reason 可为 NULL，缺失结果可注明原因。</p>
+<p><strong>为什么这样写</strong>区分百分比、指数等单位，并追溯计算时间与未能计算的原因。本模块只预留字段。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="56" data-end="57" title="Locate these lines in the full code"><span class="line-label">L56—57</span> 定义结果身份与关联<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                PRIMARY KEY (study_id, config_signature, unit_id, analysis_year, metric_name),
+                FOREIGN KEY (unit_id) REFERENCES business_units(unit_id)</code></pre>
+<p><strong>语法和执行含义</strong>五个字段组成联合主键，区分研究、配置、分部、年度、指标；外键仍指向分部表。</p>
+<p><strong>为什么这样写</strong>相同身份的指标结果不重复存，结果与对应分部保持联系。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="58" data-end="59" title="Locate these lines in the full code"><span class="line-label">L58—59</span> 结束 SQL 字符串和调用<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>            );
+        &quot;&quot;&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>第 58 行结束指标表 SQL；第 59 行三个引号关闭多行字符串，右括号结束 executescript 调用。</p>
+<p><strong>为什么这样写</strong>上面的三张表结构形成一份完整脚本；括号和引号不能遗漏。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="61" data-end="61" title="Locate these lines in the full code"><span class="line-label">L61</span> 定义保存方法的输入<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    def save_data(self, config, clean_df):</code></pre>
+<p><strong>语法和执行含义</strong>save_data 使用当前连接、配置对象和已通过检查的 DataFrame；方法最后返回计数字典。</p>
+<p><strong>为什么这样写</strong>分部定义和年度记录来源不同，在同一批操作中分别保存。此方法不替你调用 validate_records。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="62" data-end="62" title="Locate these lines in the full code"><span class="line-label">L62</span> 初始化本次操作计数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        counts = {&quot;inserted&quot;: 0, &quot;updated&quot;: 0, &quot;unchanged&quot;: 0}</code></pre>
+<p><strong>语法和执行含义</strong>创建字典，三个键对应新增、更新、不变，初始值均为零。</p>
+<p><strong>为什么这样写</strong>只统计本次年度财务记录操作，不是完整表的历史总量，也不计分部资料的变化。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="63" data-end="63" title="Locate these lines in the full code"><span class="line-label">L63</span> 连接 SQL 的列名<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        columns_sql = &quot;, &quot;.join(RECORD_COLUMNS)</code></pre>
+<p><strong>语法和执行含义</strong>&quot;, &quot;.join(RECORD_COLUMNS) 在各列名之间放逗号和空格，得到一个长字符串。</p>
+<p><strong>为什么这样写</strong>SELECT 与 INSERT 使用同样的列顺序，便于与参数元组逐项对应。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="64" data-end="64" title="Locate these lines in the full code"><span class="line-label">L64</span> 创建相同数量的占位符<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        placeholders = &quot;, &quot;.join([&quot;?&quot;] * len(RECORD_COLUMNS))</code></pre>
+<p><strong>语法和执行含义</strong>[&quot;?&quot;] * len(RECORD_COLUMNS) 生成十四个问号组成的列表；join 将它连成 SQL 文本。</p>
+<p><strong>为什么这样写</strong>INSERT 有十四列就需要十四个参数。真实金额、名称等通过参数传入，不直接拼进 SQL。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="65" data-end="65" title="Locate these lines in the full code"><span class="line-label">L65</span> 准备 UPDATE 的片段列表<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        update_parts = []</code></pre>
+<p><strong>语法和执行含义</strong>[] 创建空列表 update_parts，随后逐列加入赋值表达式。</p>
+<p><strong>为什么这样写</strong>UPDATE 的 SET 部分需要列名与占位符，而不是 INSERT 的单纯列名列表。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="66" data-end="67" title="Locate these lines in the full code"><span class="line-label">L66—67</span> 只更新非主键字段<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        for column in RECORD_COLUMNS[2:]:
+            update_parts.append(column + &quot; = ?&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>RECORD_COLUMNS[2:] 跳过前两个身份字段；每轮把列名加上 &quot; = ?&quot; 并 append。</p>
+<p><strong>为什么这样写</strong>主键用于查找原记录，这个操作只更新其余十二个字段，避免改动身份。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="68" data-end="68" title="Locate these lines in the full code"><span class="line-label">L68</span> 组合 UPDATE 赋值部分<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        update_sql = &quot;, &quot;.join(update_parts)</code></pre>
+<p><strong>语法和执行含义</strong>用逗号连接各个 column = ? 片段，保存到 update_sql。</p>
+<p><strong>为什么这样写</strong>例如 period_start = ?, period_end = ?，可嵌入后面的 SET 部分。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="70" data-end="70" title="Locate these lines in the full code"><span class="line-label">L70</span> 用事务管理这一批写入<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        with self.connection:</code></pre>
+<p><strong>语法和执行含义</strong>with 调用连接的上下文管理。在此代码的默认连接方式下，正常结束提交 DML，异常离开回滚尚未提交的本批修改。</p>
+<p><strong>为什么这样写</strong>避免导入半份数据。它不会自动关闭连接；已在前一步建好的表结构也不因此消失。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="71" data-end="71" title="Locate these lines in the full code"><span class="line-label">L71</span> 先逐个处理分部定义<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>            for unit in config.business_units:</code></pre>
+<p><strong>语法和执行含义</strong>for 读取 config.business_units 中的各分部，下面的缩进块都在事务内。</p>
+<p><strong>为什么这样写</strong>外键要求年度数据写入前已有对应分部资料。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="72" data-end="76" title="Locate these lines in the full code"><span class="line-label">L72—76</span> 按固定顺序准备六个分部值<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                unit_values = (
+                    unit[&quot;company_name&quot;], unit[&quot;ticker&quot;], unit[&quot;segment_name&quot;],
+                    unit[&quot;currency&quot;], &quot;\n&quot;.join(unit[&quot;scope_notes&quot;]),
+                    &quot;\n&quot;.join(unit[&quot;source_urls&quot;]),
+                )</code></pre>
+<p><strong>语法和执行含义</strong>圆括号与逗号组成元组。第 73 行取公司、股票代码、分部名；第 74 行取币种并将说明列表用换行连接；第 75 行连接 URL 列表；第 76 行结束元组。</p>
+<p><strong>为什么这样写</strong>顺序必须对应后面的 SELECT 和 UPDATE 六个字段。小型文字列表暂存为一段 TEXT，避免增加更多表。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="77" data-end="80" title="Locate these lines in the full code"><span class="line-label">L77—80</span> 查询现有分部并取得一行<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                existing_unit = self.connection.execute(
+                    &quot;SELECT company_name, ticker, segment_name, currency, scope_notes, source_urls &quot;
+                    &quot;FROM business_units WHERE unit_id = ?&quot;, (unit[&quot;unit_id&quot;],)
+                ).fetchone()</code></pre>
+<p><strong>语法和执行含义</strong>execute 接收 SQL 与参数。第 78、79 行相邻字符串自动连接为一条 SELECT；WHERE 的问号接收 (unit_id,) 单元素元组；fetchone 返回一行值元组，无行时返回 None。</p>
+<p><strong>为什么这样写</strong>先查再决定插入或更新。单元素元组靠末尾逗号识别，不能只留下括号。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="81" data-end="86" title="Locate these lines in the full code"><span class="line-label">L81—86</span> 不存在时插入分部<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                if existing_unit is None:
+                    self.connection.execute(
+                        &quot;INSERT INTO business_units &quot;
+                        &quot;(company_name, ticker, segment_name, currency, scope_notes, source_urls, unit_id) &quot;
+                        &quot;VALUES (?, ?, ?, ?, ?, ?, ?)&quot;, unit_values + (unit[&quot;unit_id&quot;],)
+                    )</code></pre>
+<p><strong>语法和执行含义</strong>existing_unit is None 表示没找到；execute 的 INSERT 声明七个列，第 85 行七个问号接收六个 unit_values 加最后一个标识。元组 + 是连接，不是数值相加。</p>
+<p><strong>为什么这样写</strong>新分部保存一次，字段值顺序与 INSERT 列序一致。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="87" data-end="92" title="Locate these lines in the full code"><span class="line-label">L87—92</span> 已有但不同则更新分部<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                elif existing_unit != unit_values:
+                    self.connection.execute(
+                        &quot;UPDATE business_units SET company_name = ?, ticker = ?, segment_name = ?, &quot;
+                        &quot;currency = ?, scope_notes = ?, source_urls = ? WHERE unit_id = ?&quot;,
+                        unit_values + (unit[&quot;unit_id&quot;],)
+                    )</code></pre>
+<p><strong>语法和执行含义</strong>elif 只在前面的 if 不成立时检查；两个六元素元组不同则 UPDATE。六个新值对应 SET，最后一个标识对应 WHERE。</p>
+<p><strong>为什么这样写</strong>保留分部身份并同步变化的名称或口径；完全相同的定义不重复写。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="93" data-end="93" title="Locate these lines in the full code"><span class="line-label">L93</span> 分部定义变更使旧指标失效<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                    self.connection.execute(&quot;DELETE FROM metric_results WHERE unit_id = ?&quot;, (unit[&quot;unit_id&quot;],))</code></pre>
+<p><strong>语法和执行含义</strong>DELETE 仅针对 metric_results 中这个 unit_id 的行，参数仍是单元素元组。</p>
+<p><strong>为什么这样写</strong>口径或来源定义发生改变时，已有派生结果应重新计算；基础财务行没有被删除。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="95" data-end="95" title="Locate these lines in the full code"><span class="line-label">L95</span> 逐行处理已接受的年度数据<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>            for row in clean_df.to_dict(&quot;records&quot;):</code></pre>
+<p><strong>语法和执行含义</strong>clean_df.to_dict(&quot;records&quot;) 生成行字典列表，for 每次处理一行。此循环仍在 with 的事务内，与分部循环是同一缩进层级。</p>
+<p><strong>为什么这样写</strong>把分部资料和全部年度记录作为一批保存，失败时可一并回滚。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="96" data-end="99" title="Locate these lines in the full code"><span class="line-label">L96—99</span> 按列序生成值元组<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                values = []
+                for column in RECORD_COLUMNS:
+                    values.append(row[column])
+                values = tuple(values)</code></pre>
+<p><strong>语法和执行含义</strong>先空列表，for 按 RECORD_COLUMNS 的顺序取 row[column] 并 append，最后 tuple(values) 转为元组并覆盖 values 变量。</p>
+<p><strong>为什么这样写</strong>固定十四个值的顺序；后面的数据库查询也按同一列序返回，才能准确比较。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="100" data-end="100" title="Locate these lines in the full code"><span class="line-label">L100</span> 取出年度联合身份<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                key = (row[&quot;unit_id&quot;], row[&quot;fiscal_year&quot;])</code></pre>
+<p><strong>语法和执行含义</strong>将当前 unit_id 与 fiscal_year 组成 key 元组。</p>
+<p><strong>为什么这样写</strong>查找同一分部财年的旧记录，以及 UPDATE 的 WHERE 条件都使用它。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="101" data-end="103" title="Locate these lines in the full code"><span class="line-label">L101—103</span> 查询同一身份的旧财务记录<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                existing = self.connection.execute(
+                    f&quot;SELECT {columns_sql} FROM financial_records WHERE unit_id = ? AND fiscal_year = ?&quot;, key
+                ).fetchone()</code></pre>
+<p><strong>语法和执行含义</strong>f-string 放入固定列名，WHERE 有两个问号，key 提供两个值；fetchone 返回十四个旧字段组成的元组或 None。</p>
+<p><strong>为什么这样写</strong>取得完整字段，而不只看金额，才能识别来源或日期是否更新。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="104" data-end="107" title="Locate these lines in the full code"><span class="line-label">L104—107</span> 没有旧记录就插入<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                if existing is None:
+                    self.connection.execute(
+                        f&quot;INSERT INTO financial_records ({columns_sql}) VALUES ({placeholders})&quot;, values
+                    )</code></pre>
+<p><strong>语法和执行含义</strong>if 判断 None；INSERT 的列名与问号部分由之前固定规则生成，values 提供十四个值。</p>
+<p><strong>为什么这样写</strong>第一次导入写入新行；主键与外键在 SQL 中再约束身份。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="108" data-end="108" title="Locate these lines in the full code"><span class="line-label">L108</span> 新增计数加一<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                    counts[&quot;inserted&quot;] += 1</code></pre>
+<p><strong>语法和执行含义</strong>counts[&quot;inserted&quot;] += 1 等于把当前值加一，再写回该键。</p>
+<p><strong>为什么这样写</strong>每成功新增一条财务记录计一次，返回统计方便检查本次运行。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="109" data-end="109" title="Locate these lines in the full code"><span class="line-label">L109</span> 新增数据后清除该分部旧指标<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                    self.connection.execute(&quot;DELETE FROM metric_results WHERE unit_id = ?&quot;, (row[&quot;unit_id&quot;],))</code></pre>
+<p><strong>语法和执行含义</strong>删除指标表中对应 unit_id 的行。</p>
+<p><strong>为什么这样写</strong>新增基础数据可能改变覆盖或派生结果，采用简单的整分部重新计算规则。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="110" data-end="114" title="Locate these lines in the full code"><span class="line-label">L110—114</span> 字段变化时更新年度记录<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                elif existing != values:
+                    self.connection.execute(
+                        f&quot;UPDATE financial_records SET {update_sql} WHERE unit_id = ? AND fiscal_year = ?&quot;,
+                        values[2:] + key,
+                    )</code></pre>
+<p><strong>语法和执行含义</strong>旧记录存在且 existing 与 values 元组不同才进入 elif。SET 对应 values[2:] 的十二个新值，WHERE 对应加在最后的 key 两个值。</p>
+<p><strong>为什么这样写</strong>金额、日期和来源都参与比较。十四个参数顺序不能反过来；身份本身不更新。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="115" data-end="116" title="Locate these lines in the full code"><span class="line-label">L115—116</span> 记录更新并使旧指标失效<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                    counts[&quot;updated&quot;] += 1
+                    self.connection.execute(&quot;DELETE FROM metric_results WHERE unit_id = ?&quot;, (row[&quot;unit_id&quot;],))</code></pre>
+<p><strong>语法和执行含义</strong>updated 加一，再删除该分部已保存的派生指标。</p>
+<p><strong>为什么这样写</strong>某年的销售额变化会影响同比或指数，因此不能沿用旧结果；来源或访问日变化也算更新。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="117" data-end="118" title="Locate these lines in the full code"><span class="line-label">L117—118</span> 完全相同则不写入<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                else:
+                    counts[&quot;unchanged&quot;] += 1</code></pre>
+<p><strong>语法和执行含义</strong>else 对应旧记录已存在且所有值相同；只将 unchanged 加一，不执行财务 UPDATE 和指标 DELETE。</p>
+<p><strong>为什么这样写</strong>重复运行保持稳定，不增加重复记录，也保留仍适用的指标。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="119" data-end="119" title="Locate these lines in the full code"><span class="line-label">L119</span> 提交后返回统计<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        return counts</code></pre>
+<p><strong>语法和执行含义</strong>return 的缩进已经离开 with 块。正常退出事务提交后，返回 counts 给调用者。</p>
+<p><strong>为什么这样写</strong>失败时异常会离开方法，不会正常返回本次成功统计。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="121" data-end="121" title="Locate these lines in the full code"><span class="line-label">L121</span> 定义按研究范围查询方法<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    def read_selected_records(self, config):</code></pre>
+<p><strong>语法和执行含义</strong>config 决定需要哪些分部财年；方法使用当前连接并返回 DataFrame。</p>
+<p><strong>为什么这样写</strong>数据库可保存更多内容，但当前分析只读取配置要求的记录。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="122" data-end="122" title="Locate these lines in the full code"><span class="line-label">L122</span> 准备各分部查询表的列表<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        frames = []</code></pre>
+<p><strong>语法和执行含义</strong>frames = [] 建立空列表，后面每家分部查询结果 append 一次。</p>
+<p><strong>为什么这样写</strong>最后合并查询结果，避免人为固定只有一家公司。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="123" data-end="126" title="Locate these lines in the full code"><span class="line-label">L123—126</span> 从配置收集每个分部的财年<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        for unit in config.business_units:
+            years = []
+            for period in config.periods:
+                years.append(period[&quot;fiscal_years&quot;][unit[&quot;unit_id&quot;]])</code></pre>
+<p><strong>语法和执行含义</strong>外层遍历分部；每家先清空 years；内层遍历时期，按 period 的 fiscal_years 映射查询该分部年份，再 append。</p>
+<p><strong>为什么这样写</strong>Amazon 与 Walmart 的实际财年不同，用配置映射决定而不写公司特例。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="127" data-end="127" title="Locate these lines in the full code"><span class="line-label">L127</span> 为年份筛选创建问号<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>            placeholders = &quot;, &quot;.join([&quot;?&quot;] * len(years))</code></pre>
+<p><strong>语法和执行含义</strong>按 len(years) 生成同样数量的占位符，这里每家有六个。</p>
+<p><strong>为什么这样写</strong>IN 子句需要与财年列表长度对应，年份数改变时不改通用 SQL。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="128" data-end="128" title="Locate these lines in the full code"><span class="line-label">L128</span> 准备七个查询参数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>            parameters = [unit[&quot;unit_id&quot;]] + years</code></pre>
+<p><strong>语法和执行含义</strong>列表 [unit_id] 与 years 连接，得到一个分部标识加六个财年。</p>
+<p><strong>为什么这样写</strong>WHERE 的第一个问号取标识，IN 里的后六个问号按年取值。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="129" data-end="130" title="Locate these lines in the full code"><span class="line-label">L129—130</span> 开始查询并指定输出字段<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>            query = f&quot;&quot;&quot;
+                SELECT f.*, b.company_name, b.segment_name</code></pre>
+<p><strong>语法和执行含义</strong>f-string 三引号创建多行 SQL；SELECT f.* 取财务表全部字段，再增加分部表的公司名和分部名。</p>
+<p><strong>为什么这样写</strong>基础表没有重复存这两个名称，查询仍需恢复完整的审查数据。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="131" data-end="131" title="Locate these lines in the full code"><span class="line-label">L131</span> 指定财务表及别名<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                FROM financial_records AS f</code></pre>
+<p><strong>语法和执行含义</strong>FROM 说明主表，AS f 给表取简短别名，后面 f.字段 指向这张表。</p>
+<p><strong>为什么这样写</strong>连接多表时避免同名字段来源不清楚。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="132" data-end="132" title="Locate these lines in the full code"><span class="line-label">L132</span> 通过稳定标识连接分部表<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                JOIN business_units AS b ON f.unit_id = b.unit_id</code></pre>
+<p><strong>语法和执行含义</strong>JOIN business_units AS b 引入第二张表，ON 要求 f.unit_id 等于 b.unit_id。</p>
+<p><strong>为什么这样写</strong>将每年财务数据配上正确分部名称，不能依据显示行号连接。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="133" data-end="133" title="Locate these lines in the full code"><span class="line-label">L133</span> 限定当前分部和财年<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                WHERE f.unit_id = ? AND f.fiscal_year IN ({placeholders})</code></pre>
+<p><strong>语法和执行含义</strong>WHERE 的两个条件通过 AND 同时满足；IN 选择列表中的任意财年，f-string 在其中插入固定问号字符串。</p>
+<p><strong>为什么这样写</strong>只查询配置要求的范围，真实值通过 parameters 提供。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="134" data-end="135" title="Locate these lines in the full code"><span class="line-label">L134—135</span> 按财年排序并结束字符串<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>                ORDER BY f.fiscal_year
+            &quot;&quot;&quot;</code></pre>
+<p><strong>语法和执行含义</strong>ORDER BY 指定查询返回顺序，下一行三引号结束 SQL 文本。</p>
+<p><strong>为什么这样写</strong>每家先按财年返回，后面合并时再做统一排序。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="136" data-end="136" title="Locate these lines in the full code"><span class="line-label">L136</span> SQL 查询生成 DataFrame<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>            frames.append(pd.read_sql_query(query, self.connection, params=parameters))</code></pre>
+<p><strong>语法和执行含义</strong>pd.read_sql_query 接收 SQL、连接及 params 参数，返回查询结果 DataFrame，立即 append 到 frames。</p>
+<p><strong>为什么这样写</strong>这是从已保存数据库读取，不是给 clean_df 另取变量名。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="137" data-end="138" title="Locate these lines in the full code"><span class="line-label">L137—138</span> 合并并返回查询结果<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        financial_df = pd.concat(frames, ignore_index=True)
+        return financial_df.sort_values([&quot;unit_id&quot;, &quot;fiscal_year&quot;]).reset_index(drop=True)</code></pre>
+<p><strong>语法和执行含义</strong>pd.concat 把各分部的表按行合并，ignore_index=True 重编索引；再按身份排序、重设索引并 return。</p>
+<p><strong>为什么这样写</strong>给 Cell 11 一个完整且顺序稳定的 financial_df，供覆盖检查和逐字段比较。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="140" data-end="142" title="Locate these lines in the full code"><span class="line-label">L140—142</span> 准备统计三张表<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    def get_table_counts(self):
+        counts = {}
+        for table in [&quot;business_units&quot;, &quot;financial_records&quot;, &quot;metric_results&quot;]:</code></pre>
+<p><strong>语法和执行含义</strong>定义 get_table_counts；创建计数字典，for 从固定三张表名中依次取 table。</p>
+<p><strong>为什么这样写</strong>统计完整表的行数，而非仅本研究选中的查询结果。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="143" data-end="143" title="Locate these lines in the full code"><span class="line-label">L143</span> 查询整表行数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>            row = self.connection.execute(f&quot;SELECT COUNT(*) FROM {table}&quot;).fetchone()</code></pre>
+<p><strong>语法和执行含义</strong>SELECT COUNT(*) 返回一行计数；表名来自固定代码列表，fetchone 取得例如 (12,) 的元组。</p>
+<p><strong>为什么这样写</strong>此处 COUNT 是 SQL 聚合，不是读取全部行后手工数。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="144" data-end="145" title="Locate these lines in the full code"><span class="line-label">L144—145</span> 取出数字并返回字典<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>            counts[table] = row[0]
+        return counts</code></pre>
+<p><strong>语法和执行含义</strong>row[0] 取单元素元组的第一项，以 table 为字典键保存；循环结束后 return counts。</p>
+<p><strong>为什么这样写</strong>调用者可分别查看各表数量，当前案例新库通常为 2、12、0。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="147" data-end="148" title="Locate these lines in the full code"><span class="line-label">L147—148</span> 定义关闭方法并判断状态<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    def close(self):
+        if self.connection is not None:</code></pre>
+<p><strong>语法和执行含义</strong>close 接收当前对象；is not None 要求已有连接才执行下方关闭操作。</p>
+<p><strong>为什么这样写</strong>未连接或已关闭时不重复调用 SQLite close。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="05" data-start="149" data-end="150" title="Locate these lines in the full code"><span class="line-label">L149—150</span> 关闭连接并复原状态<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>            self.connection.close()
+            self.connection = None</code></pre>
+<p><strong>语法和执行含义</strong>先调用连接对象 close，再把属性设回 None。</p>
+<p><strong>为什么这样写</strong>释放连接资源，标明之后需要重新 connect；已提交文件和内存 DataFrame 不被删除。</p>
+</article></div>
+</div></section><section class="cell-section" id="cell06">
+<h2>Cell 06: Load Source CSV Files into DataFrames</h2>
+<div class="reading-grid">
+<div class="code-panel"><div class="code-toolbar"><span>完整英文代码</span><button class="copy" data-cell="06">Copy cell</button></div>
+<div class="code-scroll" id="code-pane-06"><pre class="full-code"><code><span class="code-line" id="c06-l1" data-line="1"># Cell 06: Load Source CSV Files into DataFrames</span><span class="code-line" id="c06-l2" data-line="2"> </span><span class="code-line" id="c06-l3" data-line="3">source_frames = {}</span><span class="code-line" id="c06-l4" data-line="4">for unit_id in RAW_FILES:</span><span class="code-line" id="c06-l5" data-line="5">    raw_file = RAW_FILES[unit_id]</span><span class="code-line" id="c06-l6" data-line="6">    frame = pd.read_csv(raw_file, dtype=str, keep_default_na=False)</span><span class="code-line" id="c06-l7" data-line="7">    if &quot;unit_id&quot; not in frame.columns or not frame[&quot;unit_id&quot;].eq(unit_id).all():</span><span class="code-line" id="c06-l8" data-line="8">        raise ValueError(f&quot;Source file does not match its configured unit: {raw_file}&quot;)</span><span class="code-line" id="c06-l9" data-line="9">    source_frames[unit_id] = frame</span><span class="code-line" id="c06-l10" data-line="10">    print(f&quot;Loaded {unit_id}: {len(frame)} rows&quot;)</span><span class="code-line" id="c06-l11" data-line="11"> </span><span class="code-line" id="c06-l12" data-line="12">amazon_raw_df = source_frames[&quot;amazon_north_america&quot;]</span><span class="code-line" id="c06-l13" data-line="13">walmart_raw_df = source_frames[&quot;walmart_us&quot;]</span><span class="code-line" id="c06-l14" data-line="14">raw_df = pd.concat(list(source_frames.values()), ignore_index=True)</span><span class="code-line" id="c06-l15" data-line="15"> </span><span class="code-line" id="c06-l16" data-line="16">print(f&quot;Combined raw records: {len(raw_df)}&quot;)</span><span class="code-line" id="c06-l17" data-line="17">print(raw_df[[&quot;unit_id&quot;, &quot;fiscal_year&quot;, &quot;net_sales_raw&quot;, &quot;operating_income_raw&quot;]].to_string(index=False))</span></code></pre></div>
+<div class="code-caption">行号仅供阅读，复制时会自动去除。点击右侧行号可定位对应语句。</div></div>
+<div class="prose-panel"><h3>逐句解释</h3><article class="explanation">
+<button class="line-jump" data-cell="06" data-start="1" data-end="1" title="Locate these lines in the full code"><span class="line-label">L1</span> 英文 cell 注释标题<span class="locate">定位代码</span></button>
+<pre class="snippet"><code># Cell 06: Load Source CSV Files into DataFrames</code></pre>
+<p><strong>语法和执行含义</strong>井号 # 后面是注释，Python 不把它作为操作执行。Cell 编号表示本模块中的格子编号，不是 Notebook 的执行次数。</p>
+<p><strong>为什么这样写</strong>便于复制和定位每一格；保留英文标题，代码内不混入中文说明。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="06" data-start="3" data-end="3" title="Locate these lines in the full code"><span class="line-label">L3</span> 准备保存各分部原始表<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>source_frames = {}</code></pre>
+<p><strong>语法和执行含义</strong>{} 创建字典 source_frames，键将是 unit_id，值将是该分部的 DataFrame。</p>
+<p><strong>为什么这样写</strong>各分部保留独立表，便于检查，再组合成一张输入表。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="06" data-start="4" data-end="5" title="Locate these lines in the full code"><span class="line-label">L4—5</span> 按映射逐份取文件位置<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>for unit_id in RAW_FILES:
+    raw_file = RAW_FILES[unit_id]</code></pre>
+<p><strong>语法和执行含义</strong>for 遍历 RAW_FILES 的字典键；通过同一个键查询其路径，赋给 raw_file。</p>
+<p><strong>为什么这样写</strong>研究文件选择来自 Cell 02，读取流程本身不用判断公司名称。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="06" data-start="6" data-end="6" title="Locate these lines in the full code"><span class="line-label">L6</span> 将 CSV 读入内存<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    frame = pd.read_csv(raw_file, dtype=str, keep_default_na=False)</code></pre>
+<p><strong>语法和执行含义</strong>pd.read_csv 返回 DataFrame。dtype=str 要求原始字段按文字读取，keep_default_na=False 不把默认文本标记自动解释成 NaN。</p>
+<p><strong>为什么这样写</strong>保留逗号和括号，稍后明确处理缺失与金额。这里读取本地 CSV，没有自动下载财报。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="06" data-start="7" data-end="8" title="Locate these lines in the full code"><span class="line-label">L7—8</span> 核对源文件归属<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    if &quot;unit_id&quot; not in frame.columns or not frame[&quot;unit_id&quot;].eq(unit_id).all():
+        raise ValueError(f&quot;Source file does not match its configured unit: {raw_file}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>or 左侧检查有没有 unit_id 列；若列不存在就短路，不继续访问它。若存在，eq 逐行匹配标识、all 要求全匹配，not 让不匹配触发 raise。</p>
+<p><strong>为什么这样写</strong>发现两家文件路径填反或混入其他标识的情况，错误信息显示当前文件。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="06" data-start="9" data-end="9" title="Locate these lines in the full code"><span class="line-label">L9</span> 把表放入字典<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    source_frames[unit_id] = frame</code></pre>
+<p><strong>语法和执行含义</strong>source_frames[unit_id] = frame 以当前标识保存读取结果。</p>
+<p><strong>为什么这样写</strong>循环结束后可以按标识取得任何一份原始表。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="06" data-start="10" data-end="10" title="Locate these lines in the full code"><span class="line-label">L10</span> 显示本份读取数量<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    print(f&quot;Loaded {unit_id}: {len(frame)} rows&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>len(frame) 数 DataFrame 行数，f-string 显示分部和行数；本行仍在循环内，所以每份文件打印一次。</p>
+<p><strong>为什么这样写</strong>确认每家实际读到六行，打印本身不验证完整研究覆盖。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="06" data-start="12" data-end="13" title="Locate these lines in the full code"><span class="line-label">L12—13</span> 为两份原始表设置展示名称<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>amazon_raw_df = source_frames[&quot;amazon_north_america&quot;]
+walmart_raw_df = source_frames[&quot;walmart_us&quot;]</code></pre>
+<p><strong>语法和执行含义</strong>根据标识从字典取得 DataFrame，分别赋给 amazon_raw_df 与 walmart_raw_df。这是同一对象的另一个名称，不是 copy。</p>
+<p><strong>为什么这样写</strong>方便当前案例查看。需要独立修改副本时再显式 copy，不要误认为赋值自动复制数据。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="06" data-start="14" data-end="14" title="Locate these lines in the full code"><span class="line-label">L14</span> 按行组合为 raw_df<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>raw_df = pd.concat(list(source_frames.values()), ignore_index=True)</code></pre>
+<p><strong>语法和执行含义</strong>values() 取得字典中的表，list 将它们组成列表；concat 默认沿行组合，ignore_index=True 重新生成连续索引。</p>
+<p><strong>为什么这样写</strong>两个六行表组成十二行表，不沿用两个重复的 0—5 显示索引。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="06" data-start="16" data-end="16" title="Locate these lines in the full code"><span class="line-label">L16</span> 显示组合总行数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(f&quot;Combined raw records: {len(raw_df)}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>len(raw_df) 计算实际组合行数，再 print 输出。</p>
+<p><strong>为什么这样写</strong>数量应为十二，是否包含正确的十二个身份还要 Cell 07 检查。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="06" data-start="17" data-end="17" title="Locate these lines in the full code"><span class="line-label">L17</span> 只显示四个核对列<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(raw_df[[&quot;unit_id&quot;, &quot;fiscal_year&quot;, &quot;net_sales_raw&quot;, &quot;operating_income_raw&quot;]].to_string(index=False))</code></pre>
+<p><strong>语法和执行含义</strong>raw_df[[...]] 用列名列表选多列，所以出现双层方括号；to_string 生成显示文本，index=False 隐藏索引；print 输出。</p>
+<p><strong>为什么这样写</strong>查看身份与原始金额，不修改 raw_df、不保存 CSV、不写数据库。</p>
+</article></div>
+</div></section><section class="cell-section" id="cell07">
+<h2>Cell 07: Standardize and Validate the Financial Records</h2>
+<div class="reading-grid">
+<div class="code-panel"><div class="code-toolbar"><span>完整英文代码</span><button class="copy" data-cell="07">Copy cell</button></div>
+<div class="code-scroll" id="code-pane-07"><pre class="full-code"><code><span class="code-line" id="c07-l1" data-line="1"># Cell 07: Standardize and Validate the Financial Records</span><span class="code-line" id="c07-l2" data-line="2"> </span><span class="code-line" id="c07-l3" data-line="3">clean_df = standardize_records(raw_df)</span><span class="code-line" id="c07-l4" data-line="4">validate_records(clean_df, config)</span><span class="code-line" id="c07-l5" data-line="5"> </span><span class="code-line" id="c07-l6" data-line="6">print(&quot;Financial record checks passed.&quot;)</span><span class="code-line" id="c07-l7" data-line="7">print(clean_df[[&quot;unit_id&quot;, &quot;fiscal_year&quot;, &quot;period_start&quot;, &quot;period_end&quot;, &quot;net_sales_usd_m&quot;, &quot;operating_income_usd_m&quot;]].to_string(index=False))</span></code></pre></div>
+<div class="code-caption">行号仅供阅读，复制时会自动去除。点击右侧行号可定位对应语句。</div></div>
+<div class="prose-panel"><h3>逐句解释</h3><article class="explanation">
+<button class="line-jump" data-cell="07" data-start="1" data-end="1" title="Locate these lines in the full code"><span class="line-label">L1</span> 英文 cell 注释标题<span class="locate">定位代码</span></button>
+<pre class="snippet"><code># Cell 07: Standardize and Validate the Financial Records</code></pre>
+<p><strong>语法和执行含义</strong>井号 # 后面是注释，Python 不把它作为操作执行。Cell 编号表示本模块中的格子编号，不是 Notebook 的执行次数。</p>
+<p><strong>为什么这样写</strong>便于复制和定位每一格；保留英文标题，代码内不混入中文说明。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="07" data-start="3" data-end="3" title="Locate these lines in the full code"><span class="line-label">L3</span> 调用清洗并接收返回表<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>clean_df = standardize_records(raw_df)</code></pre>
+<p><strong>语法和执行含义</strong>右侧 standardize_records(raw_df) 执行 Cell 03 的整表函数，左侧 clean_df 接收返回的 DataFrame。</p>
+<p><strong>为什么这样写</strong>输入仍为原始表，标准表另有变量；此时实际生成两列标准数值。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="07" data-start="4" data-end="4" title="Locate these lines in the full code"><span class="line-label">L4</span> 调用检查而不接收新表<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>validate_records(clean_df, config)</code></pre>
+<p><strong>语法和执行含义</strong>validate_records 接收标准表和配置，通过时返回 None，不赋值给 clean_df。</p>
+<p><strong>为什么这样写</strong>先标准化再检查。写 clean_df = validate_records(...) 会将表变量覆盖成 None。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="07" data-start="6" data-end="6" title="Locate these lines in the full code"><span class="line-label">L6</span> 只有检查通过才显示成功<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(&quot;Financial record checks passed.&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>前两句无异常才执行本行；单独运行这句 print 不能证明检查成功。</p>
+<p><strong>为什么这样写</strong>让输出与控制流程对应，失败时不要跳过检查继续写库。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="07" data-start="7" data-end="7" title="Locate these lines in the full code"><span class="line-label">L7</span> 显示标准数值核对视图<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(clean_df[[&quot;unit_id&quot;, &quot;fiscal_year&quot;, &quot;period_start&quot;, &quot;period_end&quot;, &quot;net_sales_usd_m&quot;, &quot;operating_income_usd_m&quot;]].to_string(index=False))</code></pre>
+<p><strong>语法和执行含义</strong>选取标识、财年、期间、两个标准金额列，转显示文本并隐藏索引。</p>
+<p><strong>为什么这样写</strong>标准表共有十六列，这里仅显示六列；原始披露与来源字段仍在完整表中。</p>
+</article></div>
+</div></section><section class="cell-section" id="cell08">
+<h2>Cell 08: Save the Import Snapshot and Clean Audit File</h2>
+<div class="reading-grid">
+<div class="code-panel"><div class="code-toolbar"><span>完整英文代码</span><button class="copy" data-cell="08">Copy cell</button></div>
+<div class="code-scroll" id="code-pane-08"><pre class="full-code"><code><span class="code-line" id="c08-l1" data-line="1"># Cell 08: Save the Import Snapshot and Clean Audit File</span><span class="code-line" id="c08-l2" data-line="2"> </span><span class="code-line" id="c08-l3" data-line="3">DATA_FILE.parent.mkdir(parents=True, exist_ok=True)</span><span class="code-line" id="c08-l4" data-line="4">CLEAN_FILE.parent.mkdir(parents=True, exist_ok=True)</span><span class="code-line" id="c08-l5" data-line="5">raw_df.to_csv(DATA_FILE, index=False)</span><span class="code-line" id="c08-l6" data-line="6">clean_df.to_csv(CLEAN_FILE, index=False)</span><span class="code-line" id="c08-l7" data-line="7"> </span><span class="code-line" id="c08-l8" data-line="8">print(f&quot;Import snapshot saved: {DATA_FILE}&quot;)</span><span class="code-line" id="c08-l9" data-line="9">print(f&quot;Clean audit file saved: {CLEAN_FILE}&quot;)</span></code></pre></div>
+<div class="code-caption">行号仅供阅读，复制时会自动去除。点击右侧行号可定位对应语句。</div></div>
+<div class="prose-panel"><h3>逐句解释</h3><article class="explanation">
+<button class="line-jump" data-cell="08" data-start="1" data-end="1" title="Locate these lines in the full code"><span class="line-label">L1</span> 英文 cell 注释标题<span class="locate">定位代码</span></button>
+<pre class="snippet"><code># Cell 08: Save the Import Snapshot and Clean Audit File</code></pre>
+<p><strong>语法和执行含义</strong>井号 # 后面是注释，Python 不把它作为操作执行。Cell 编号表示本模块中的格子编号，不是 Notebook 的执行次数。</p>
+<p><strong>为什么这样写</strong>便于复制和定位每一格；保留英文标题，代码内不混入中文说明。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="08" data-start="3" data-end="3" title="Locate these lines in the full code"><span class="line-label">L3</span> 准备快照保存目录<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>DATA_FILE.parent.mkdir(parents=True, exist_ok=True)</code></pre>
+<p><strong>语法和执行含义</strong>从 DATA_FILE 取得 parent，mkdir 允许创建上级目录和复用已有目录。</p>
+<p><strong>为什么这样写</strong>to_csv 写文件前，其所在目录必须存在。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="08" data-start="4" data-end="4" title="Locate these lines in the full code"><span class="line-label">L4</span> 准备清洗输出目录<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>CLEAN_FILE.parent.mkdir(parents=True, exist_ok=True)</code></pre>
+<p><strong>语法和执行含义</strong>对 CLEAN_FILE 的 parent 做同样操作，即 data/clean/。</p>
+<p><strong>为什么这样写</strong>原始组合快照与清洗表分开位置，便于审查。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="08" data-start="5" data-end="5" title="Locate these lines in the full code"><span class="line-label">L5</span> 导出组合原始快照<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>raw_df.to_csv(DATA_FILE, index=False)</code></pre>
+<p><strong>语法和执行含义</strong>raw_df.to_csv 将原始组合表写到 DATA_FILE，index=False 不导出显示索引。默认模式会覆盖已有同名导出。</p>
+<p><strong>为什么这样写</strong>保留这次输入的组合版本，不覆盖 raw/ 中两份源文件。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="08" data-start="6" data-end="6" title="Locate these lines in the full code"><span class="line-label">L6</span> 导出标准化核对表<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>clean_df.to_csv(CLEAN_FILE, index=False)</code></pre>
+<p><strong>语法和执行含义</strong>将 clean_df 写到 CLEAN_FILE，仍不保存索引；十六列包括原始和标准金额。</p>
+<p><strong>为什么这样写</strong>供人工复查清洗效果。两个 CSV 写入分别执行，不属于后面 SQLite 的事务。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="08" data-start="8" data-end="9" title="Locate these lines in the full code"><span class="line-label">L8—9</span> 显示两个导出位置<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(f&quot;Import snapshot saved: {DATA_FILE}&quot;)
+print(f&quot;Clean audit file saved: {CLEAN_FILE}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>两行 f-string 分别插入实际 Path 值并输出。</p>
+<p><strong>为什么这样写</strong>定位生成的核对材料；CSV 保存完成不代表数据库导入完成。</p>
+</article></div>
+</div></section><section class="cell-section" id="cell09">
+<h2>Cell 09: Connect to SQLite and Create Tables</h2>
+<div class="reading-grid">
+<div class="code-panel"><div class="code-toolbar"><span>完整英文代码</span><button class="copy" data-cell="09">Copy cell</button></div>
+<div class="code-scroll" id="code-pane-09"><pre class="full-code"><code><span class="code-line" id="c09-l1" data-line="1"># Cell 09: Connect to SQLite and Create Tables</span><span class="code-line" id="c09-l2" data-line="2"> </span><span class="code-line" id="c09-l3" data-line="3">database = DatabaseManager(DATABASE_FILE)</span><span class="code-line" id="c09-l4" data-line="4">database.connect()</span><span class="code-line" id="c09-l5" data-line="5">database.create_tables()</span><span class="code-line" id="c09-l6" data-line="6">print(&quot;Database connected and tables are available.&quot;)</span></code></pre></div>
+<div class="code-caption">行号仅供阅读，复制时会自动去除。点击右侧行号可定位对应语句。</div></div>
+<div class="prose-panel"><h3>逐句解释</h3><article class="explanation">
+<button class="line-jump" data-cell="09" data-start="1" data-end="1" title="Locate these lines in the full code"><span class="line-label">L1</span> 英文 cell 注释标题<span class="locate">定位代码</span></button>
+<pre class="snippet"><code># Cell 09: Connect to SQLite and Create Tables</code></pre>
+<p><strong>语法和执行含义</strong>井号 # 后面是注释，Python 不把它作为操作执行。Cell 编号表示本模块中的格子编号，不是 Notebook 的执行次数。</p>
+<p><strong>为什么这样写</strong>便于复制和定位每一格；保留英文标题，代码内不混入中文说明。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="09" data-start="3" data-end="3" title="Locate these lines in the full code"><span class="line-label">L3</span> 创建数据库对象<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>database = DatabaseManager(DATABASE_FILE)</code></pre>
+<p><strong>语法和执行含义</strong>DatabaseManager 是类，圆括号调用会创建实例并执行 __init__；DATABASE_FILE 传给 database_path，结果赋给 database。</p>
+<p><strong>为什么这样写</strong>此刻仅有路径和 None 初始连接，尚未打开数据库。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="09" data-start="4" data-end="4" title="Locate these lines in the full code"><span class="line-label">L4</span> 主动调用连接方法<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>database.connect()</code></pre>
+<p><strong>语法和执行含义</strong>database.connect() 的 self 由 Python 自动提供为 database。执行后对象保存实际连接。</p>
+<p><strong>为什么这样写</strong>不需要写 database.connect(database)，也不需要每个方法重复传路径。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="09" data-start="5" data-end="5" title="Locate these lines in the full code"><span class="line-label">L5</span> 通过已有连接建表<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>database.create_tables()</code></pre>
+<p><strong>语法和执行含义</strong>调用 create_tables 执行 Cell 05 定义的三条建表 SQL；已有同名表保留。</p>
+<p><strong>为什么这样写</strong>新库先建结构再写数据，建表成功不说明表里已有年度财务行。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="09" data-start="6" data-end="6" title="Locate these lines in the full code"><span class="line-label">L6</span> 显示准备完成<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(&quot;Database connected and tables are available.&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>只有前面连接与建表调用成功，才输出本行。</p>
+<p><strong>为什么这样写</strong>确认可继续执行 Cell 10，年度记录在下一格保存。</p>
+</article></div>
+</div></section><section class="cell-section" id="cell10">
+<h2>Cell 10: Write the Accepted Records in One Transaction</h2>
+<div class="reading-grid">
+<div class="code-panel"><div class="code-toolbar"><span>完整英文代码</span><button class="copy" data-cell="10">Copy cell</button></div>
+<div class="code-scroll" id="code-pane-10"><pre class="full-code"><code><span class="code-line" id="c10-l1" data-line="1"># Cell 10: Write the Accepted Records in One Transaction</span><span class="code-line" id="c10-l2" data-line="2"> </span><span class="code-line" id="c10-l3" data-line="3">write_counts = database.save_data(config, clean_df)</span><span class="code-line" id="c10-l4" data-line="4">print(f&quot;Inserted records: {write_counts[&#x27;inserted&#x27;]}&quot;)</span><span class="code-line" id="c10-l5" data-line="5">print(f&quot;Updated records: {write_counts[&#x27;updated&#x27;]}&quot;)</span><span class="code-line" id="c10-l6" data-line="6">print(f&quot;Unchanged records: {write_counts[&#x27;unchanged&#x27;]}&quot;)</span></code></pre></div>
+<div class="code-caption">行号仅供阅读，复制时会自动去除。点击右侧行号可定位对应语句。</div></div>
+<div class="prose-panel"><h3>逐句解释</h3><article class="explanation">
+<button class="line-jump" data-cell="10" data-start="1" data-end="1" title="Locate these lines in the full code"><span class="line-label">L1</span> 英文 cell 注释标题<span class="locate">定位代码</span></button>
+<pre class="snippet"><code># Cell 10: Write the Accepted Records in One Transaction</code></pre>
+<p><strong>语法和执行含义</strong>井号 # 后面是注释，Python 不把它作为操作执行。Cell 编号表示本模块中的格子编号，不是 Notebook 的执行次数。</p>
+<p><strong>为什么这样写</strong>便于复制和定位每一格；保留英文标题，代码内不混入中文说明。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="10" data-start="3" data-end="3" title="Locate these lines in the full code"><span class="line-label">L3</span> 保存本次接受的数据<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>write_counts = database.save_data(config, clean_df)</code></pre>
+<p><strong>语法和执行含义</strong>调用对象 save_data，传入 config 与 clean_df，内部事务成功后返回计数字典，赋给 write_counts。</p>
+<p><strong>为什么这样写</strong>这个调用真正写入分部定义和年度财务；必须先有本次成功检查与可用连接。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="10" data-start="4" data-end="4" title="Locate these lines in the full code"><span class="line-label">L4</span> 显示新增数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(f&quot;Inserted records: {write_counts[&#x27;inserted&#x27;]}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>write_counts[&#x27;inserted&#x27;] 通过键取整数，嵌入 f-string。内层单引号与外层双引号清楚区分字符串边界。</p>
+<p><strong>为什么这样写</strong>当前新库通常为十二，已有相同数据时可以为零。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="10" data-start="5" data-end="5" title="Locate these lines in the full code"><span class="line-label">L5</span> 显示更新数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(f&quot;Updated records: {write_counts[&#x27;updated&#x27;]}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>读取 updated 计数并输出。</p>
+<p><strong>为什么这样写</strong>相同身份任一保存字段变化会计为更新，包括来源和访问日期，不只金额。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="10" data-start="6" data-end="6" title="Locate these lines in the full code"><span class="line-label">L6</span> 显示不变数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(f&quot;Unchanged records: {write_counts[&#x27;unchanged&#x27;]}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>读取 unchanged 计数并输出。</p>
+<p><strong>为什么这样写</strong>同一数据重复运行通常显示十二行不变，说明避免了重复插入。三个计数不是全表历史行数。</p>
+</article></div>
+</div></section><section class="cell-section" id="cell11">
+<h2>Cell 11: Read Back and Verify the Persisted Records</h2>
+<div class="reading-grid">
+<div class="code-panel"><div class="code-toolbar"><span>完整英文代码</span><button class="copy" data-cell="11">Copy cell</button></div>
+<div class="code-scroll" id="code-pane-11"><pre class="full-code"><code><span class="code-line" id="c11-l1" data-line="1"># Cell 11: Read Back and Verify the Persisted Records</span><span class="code-line" id="c11-l2" data-line="2"> </span><span class="code-line" id="c11-l3" data-line="3">def verify_database_copy(clean_df, financial_df):</span><span class="code-line" id="c11-l4" data-line="4">    &quot;&quot;&quot;Compare every imported field after reading the persisted records back.&quot;&quot;&quot;</span><span class="code-line" id="c11-l5" data-line="5">    left = clean_df.sort_values([&quot;unit_id&quot;, &quot;fiscal_year&quot;]).reset_index(drop=True)</span><span class="code-line" id="c11-l6" data-line="6">    right = financial_df.sort_values([&quot;unit_id&quot;, &quot;fiscal_year&quot;]).reset_index(drop=True)</span><span class="code-line" id="c11-l7" data-line="7">    if len(left) != len(right):</span><span class="code-line" id="c11-l8" data-line="8">        raise ValueError(&quot;Database row count does not match the accepted records.&quot;)</span><span class="code-line" id="c11-l9" data-line="9">    for column in left.columns:</span><span class="code-line" id="c11-l10" data-line="10">        if column not in right.columns or left[column].tolist() != right[column].tolist():</span><span class="code-line" id="c11-l11" data-line="11">            raise ValueError(f&quot;Database values differ from accepted records: {column}&quot;)</span><span class="code-line" id="c11-l12" data-line="12"> </span><span class="code-line" id="c11-l13" data-line="13">financial_df = database.read_selected_records(config)</span><span class="code-line" id="c11-l14" data-line="14">validate_records(financial_df, config)</span><span class="code-line" id="c11-l15" data-line="15">verify_database_copy(clean_df, financial_df)</span><span class="code-line" id="c11-l16" data-line="16"> </span><span class="code-line" id="c11-l17" data-line="17">table_counts = database.get_table_counts()</span><span class="code-line" id="c11-l18" data-line="18">print(&quot;Database read-back verification passed.&quot;)</span><span class="code-line" id="c11-l19" data-line="19">print(f&quot;Selected financial records: {len(financial_df)}&quot;)</span><span class="code-line" id="c11-l20" data-line="20">for table in table_counts:</span><span class="code-line" id="c11-l21" data-line="21">    print(f&quot;{table}: {table_counts[table]} rows&quot;)</span></code></pre></div>
+<div class="code-caption">行号仅供阅读，复制时会自动去除。点击右侧行号可定位对应语句。</div></div>
+<div class="prose-panel"><h3>逐句解释</h3><article class="explanation">
+<button class="line-jump" data-cell="11" data-start="1" data-end="1" title="Locate these lines in the full code"><span class="line-label">L1</span> 英文 cell 注释标题<span class="locate">定位代码</span></button>
+<pre class="snippet"><code># Cell 11: Read Back and Verify the Persisted Records</code></pre>
+<p><strong>语法和执行含义</strong>井号 # 后面是注释，Python 不把它作为操作执行。Cell 编号表示本模块中的格子编号，不是 Notebook 的执行次数。</p>
+<p><strong>为什么这样写</strong>便于复制和定位每一格；保留英文标题，代码内不混入中文说明。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="11" data-start="3" data-end="4" title="Locate these lines in the full code"><span class="line-label">L3—4</span> 定义逐字段核对函数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>def verify_database_copy(clean_df, financial_df):
+    &quot;&quot;&quot;Compare every imported field after reading the persisted records back.&quot;&quot;&quot;</code></pre>
+<p><strong>语法和执行含义</strong>两个输入分别是本次接受的 clean_df 和数据库查询的 financial_df；说明字符串仅描述用途。通过返回 None，失败 raise。</p>
+<p><strong>为什么这样写</strong>证明保存后的字段内容与接受数据一致，不能只核对行数或金额合计。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="11" data-start="5" data-end="5" title="Locate these lines in the full code"><span class="line-label">L5</span> 整理左侧比较表<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    left = clean_df.sort_values([&quot;unit_id&quot;, &quot;fiscal_year&quot;]).reset_index(drop=True)</code></pre>
+<p><strong>语法和执行含义</strong>对 clean_df 按分部、财年排序，再 reset_index(drop=True)，赋给 left。</p>
+<p><strong>为什么这样写</strong>两边同一身份必须对应同一行位置，避免因排序不同误报差异。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="11" data-start="6" data-end="6" title="Locate these lines in the full code"><span class="line-label">L6</span> 同样整理右侧比较表<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    right = financial_df.sort_values([&quot;unit_id&quot;, &quot;fiscal_year&quot;]).reset_index(drop=True)</code></pre>
+<p><strong>语法和执行含义</strong>对 financial_df 采用完全相同的排序和索引规则，赋给 right。</p>
+<p><strong>为什么这样写</strong>这些调用返回新的表，没有用 inplace 修改传入数据。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="11" data-start="7" data-end="8" title="Locate these lines in the full code"><span class="line-label">L7—8</span> 先比较行数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    if len(left) != len(right):
+        raise ValueError(&quot;Database row count does not match the accepted records.&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>len 取两表行数，不相等则 raise。</p>
+<p><strong>为什么这样写</strong>数量不同已经证明保存或查询不完整，无需继续逐列比较。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="11" data-start="9" data-end="9" title="Locate these lines in the full code"><span class="line-label">L9</span> 逐列核对所有接受字段<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>    for column in left.columns:</code></pre>
+<p><strong>语法和执行含义</strong>遍历 left.columns 的列名，将当前列名赋给 column。</p>
+<p><strong>为什么这样写</strong>以本次导入的全部字段为核对范围，包括来源、日期和原始文本。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="11" data-start="10" data-end="11" title="Locate these lines in the full code"><span class="line-label">L10—11</span> 检查列存在且逐值相等<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>        if column not in right.columns or left[column].tolist() != right[column].tolist():
+            raise ValueError(f&quot;Database values differ from accepted records: {column}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>or 左边检查右表是否有该列；缺列时短路不再访问它。列存在则 tolist 转成普通列表，!= 检查对应位置值差异，失败 raise 显示列名。</p>
+<p><strong>为什么这样写</strong>允许右表有额外字段，但左表所有字段必须保留。数值 7033 与 7033.0 可比较相等，这不是 dtype 的严格一致检查。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="11" data-start="13" data-end="13" title="Locate these lines in the full code"><span class="line-label">L13</span> 从数据库真正查询<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>financial_df = database.read_selected_records(config)</code></pre>
+<p><strong>语法和执行含义</strong>调用 read_selected_records，内部 SQL 按配置筛选并 JOIN 分部名称，pandas 将结果变为新 DataFrame，赋给 financial_df。</p>
+<p><strong>为什么这样写</strong>这份数据来自已提交数据库，不是内存 clean_df 的别名。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="11" data-start="14" data-end="14" title="Locate these lines in the full code"><span class="line-label">L14</span> 检查查询覆盖及字段规则<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>validate_records(financial_df, config)</code></pre>
+<p><strong>语法和执行含义</strong>对 financial_df 再调用 validate_records。</p>
+<p><strong>为什么这样写</strong>确保选中的实际数据仍符合当前配置，发现查询漏年或身份错误。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="11" data-start="15" data-end="15" title="Locate these lines in the full code"><span class="line-label">L15</span> 比较保存前后的全部字段<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>verify_database_copy(clean_df, financial_df)</code></pre>
+<p><strong>语法和执行含义</strong>调用刚定义的 verify_database_copy，以 clean_df 和 financial_df 为左右输入，不接收返回值。</p>
+<p><strong>为什么这样写</strong>覆盖正确仍可能值写错，此检查证明本次保存内容逐项一致。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="11" data-start="17" data-end="17" title="Locate these lines in the full code"><span class="line-label">L17</span> 查询全表计数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>table_counts = database.get_table_counts()</code></pre>
+<p><strong>语法和执行含义</strong>get_table_counts 返回三张表名到行数的字典，赋给 table_counts。</p>
+<p><strong>为什么这样写</strong>它数完整表，当前研究选中行数另看 len(financial_df)；未来存其他研究时全表可更大。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="11" data-start="18" data-end="18" title="Locate these lines in the full code"><span class="line-label">L18</span> 显示回读核对通过<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(&quot;Database read-back verification passed.&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>只有查询与两项检查成功后，才执行这个 print。</p>
+<p><strong>为什么这样写</strong>结合真实查询而不是重复打印 clean_df，确认数据库保存结果。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="11" data-start="19" data-end="19" title="Locate these lines in the full code"><span class="line-label">L19</span> 显示当前选中行数<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(f&quot;Selected financial records: {len(financial_df)}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>len(financial_df) 取配置所选查询行数。</p>
+<p><strong>为什么这样写</strong>当前应为十二，与三张全表数量不是同一个统计。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="11" data-start="20" data-end="21" title="Locate these lines in the full code"><span class="line-label">L20—21</span> 依次显示三表数量<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>for table in table_counts:
+    print(f&quot;{table}: {table_counts[table]} rows&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>遍历 table_counts 的键，再用同一个键查询数量；第 21 行缩进在循环里，因此打印三次。</p>
+<p><strong>为什么这样写</strong>新库导入后常见为分部表二、财务表十二、指标表零。指标尚未计算，空指标表正常。</p>
+</article></div>
+</div></section><section class="cell-section" id="cell12">
+<h2>Cell 12: Close the Connection and Prepare the Next Module</h2>
+<div class="reading-grid">
+<div class="code-panel"><div class="code-toolbar"><span>完整英文代码</span><button class="copy" data-cell="12">Copy cell</button></div>
+<div class="code-scroll" id="code-pane-12"><pre class="full-code"><code><span class="code-line" id="c12-l1" data-line="1"># Cell 12: Close the Connection and Prepare the Next Module</span><span class="code-line" id="c12-l2" data-line="2"> </span><span class="code-line" id="c12-l3" data-line="3">database.close()</span><span class="code-line" id="c12-l4" data-line="4">print(&quot;Database connection closed.&quot;)</span><span class="code-line" id="c12-l5" data-line="5">print(&quot;Module 02 completed.&quot;)</span><span class="code-line" id="c12-l6" data-line="6">print(f&quot;Persistent database: {DATABASE_FILE}&quot;)</span><span class="code-line" id="c12-l7" data-line="7">print(&quot;Next: query financial_records, join study periods and calculate metrics.&quot;)</span><span class="code-line" id="c12-l8" data-line="8">print(&quot;No sales growth, operating margin or sales index has been calculated in Module 02.&quot;)</span></code></pre></div>
+<div class="code-caption">行号仅供阅读，复制时会自动去除。点击右侧行号可定位对应语句。</div></div>
+<div class="prose-panel"><h3>逐句解释</h3><article class="explanation">
+<button class="line-jump" data-cell="12" data-start="1" data-end="1" title="Locate these lines in the full code"><span class="line-label">L1</span> 英文 cell 注释标题<span class="locate">定位代码</span></button>
+<pre class="snippet"><code># Cell 12: Close the Connection and Prepare the Next Module</code></pre>
+<p><strong>语法和执行含义</strong>井号 # 后面是注释，Python 不把它作为操作执行。Cell 编号表示本模块中的格子编号，不是 Notebook 的执行次数。</p>
+<p><strong>为什么这样写</strong>便于复制和定位每一格；保留英文标题，代码内不混入中文说明。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="12" data-start="3" data-end="3" title="Locate these lines in the full code"><span class="line-label">L3</span> 关闭对象保存的连接<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>database.close()</code></pre>
+<p><strong>语法和执行含义</strong>调用 DatabaseManager.close，内部关闭实际连接并将属性复原为 None。</p>
+<p><strong>为什么这样写</strong>释放连接资源，已提交文件保留，financial_df 仍是可用的内存表。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="12" data-start="4" data-end="5" title="Locate these lines in the full code"><span class="line-label">L4—5</span> 显示关闭与模块完成<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(&quot;Database connection closed.&quot;)
+print(&quot;Module 02 completed.&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>两句 print 输出状态文字，不执行额外保存或计算。</p>
+<p><strong>为什么这样写</strong>这些提示依赖前面的流程真正成功，不能靠单独运行 print 来证明完成。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="12" data-start="6" data-end="6" title="Locate these lines in the full code"><span class="line-label">L6</span> 显示持久化文件位置<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(f&quot;Persistent database: {DATABASE_FILE}&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>f-string 将 DATABASE_FILE 嵌入提示，指出磁盘文件在哪里。</p>
+<p><strong>为什么这样写</strong>kernel 重启后可以用这个路径重新连接，不依赖现有内存变量。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="12" data-start="7" data-end="7" title="Locate these lines in the full code"><span class="line-label">L7</span> 说明下一模块读取步骤<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(&quot;Next: query financial_records, join study periods and calculate metrics.&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>输出下一步是查询基础财务表、加入研究时期并计算指标的英文提示。</p>
+<p><strong>为什么这样写</strong>这里只交接流程，实际 SQL 与指标计算由下一模块运行。</p>
+</article><article class="explanation">
+<button class="line-jump" data-cell="12" data-start="8" data-end="8" title="Locate these lines in the full code"><span class="line-label">L8</span> 说明当前尚未计算指标<span class="locate">定位代码</span></button>
+<pre class="snippet"><code>print(&quot;No sales growth, operating margin or sales index has been calculated in Module 02.&quot;)</code></pre>
+<p><strong>语法和执行含义</strong>输出本模块没有计算销售增长、营业利润率和销售指数的英文提示。</p>
+<p><strong>为什么这样写</strong>明确数据库有基础数据和结果表结构，不代表三项指标已有值。</p>
+</article></div>
+</div></section>
+<div class="footer">研究输入为 2019—2024 六个分析年度、两家分部共十二条基础记录。原始数据来自已核对的官方年报转录 CSV；来源见 <a href="source_notes.md">source_notes.md</a>。本页重排代码讲解，不修改研究代码或你的原 Notebook。函数与类定义在 Cell 03—05，实际数据处理在 Cell 06—12。</div>
+</main></div><script>const cellCode={"01": "# Cell 01: Import Libraries\n\nimport math\nimport re\nimport sqlite3\nfrom pathlib import Path\nfrom urllib.parse import urlparse\n\nimport pandas as pd\nimport sys\n", "02": "# Cell 02: Load Study Configuration and Set Input Paths\n\nCONFIG_PATH = Path.cwd() / \"study.json\"\n\nconfig = load_study_config(CONFIG_PATH)\npaths = config.resolve_paths(CONFIG_PATH)\nDATA_FILE = paths[\"data_file\"]\nDATABASE_FILE = paths[\"database_file\"]\nRAW_DIRECTORY = DATA_FILE.parent / \"raw\"\nCLEAN_FILE = DATA_FILE.parent / \"clean\" / \"financial_records.csv\"\n\nRAW_FILES = {\n    \"amazon_north_america\": RAW_DIRECTORY / \"amazon_segment_raw.csv\",\n    \"walmart_us\": RAW_DIRECTORY / \"walmart_segment_raw.csv\",\n}\n\nprint(f\"Working directory: {Path.cwd()}\")\nprint(f\"Configuration: {CONFIG_PATH}\")\nprint(f\"Planned records: {config.get_observation_count()}\")\nprint(f\"Index base year: {config.index_base_year}\")\nprint(f\"Database: {DATABASE_FILE}\")\n", "03": "# Cell 03: Define Cleaning Functions\n\nRAW_COLUMNS = [\n    \"unit_id\", \"company_name\", \"segment_name\", \"fiscal_year\",\n    \"period_start\", \"period_end\", \"net_sales_raw\", \"operating_income_raw\",\n    \"reported_currency\", \"reported_unit\", \"source_url\", \"source_section\",\n    \"accessed_date\", \"date_basis\",\n]\n\nUNIT_MULTIPLIERS = {\"units\": 0.000001, \"millions\": 1.0, \"billions\": 1000.0}\n\nRECORD_COLUMNS = [\n    \"unit_id\", \"fiscal_year\", \"period_start\", \"period_end\",\n    \"net_sales_raw\", \"operating_income_raw\", \"reported_currency\",\n    \"reported_unit\", \"source_url\", \"source_section\", \"accessed_date\",\n    \"date_basis\", \"net_sales_usd_m\", \"operating_income_usd_m\",\n]\n\n\ndef parse_amount(value):\n    \"\"\"Convert a reported amount string without treating missing data as zero.\"\"\"\n    text = str(value).strip().replace(\",\", \"\")\n    if text.startswith(\"(\") and text.endswith(\")\"):\n        text = \"-\" + text[1:-1]\n    if re.fullmatch(r\"-?\\d+(\\.\\d+)?\", text) is None:\n        raise ValueError(f\"Invalid reported amount: {value}\")\n    amount = float(pd.to_numeric(text, errors=\"raise\"))\n    if not math.isfinite(amount):\n        raise ValueError(f\"Reported amount must be finite: {value}\")\n    return amount\n\n\ndef standardize_records(raw_df):\n    \"\"\"Preserve source strings and add numeric amounts in USD millions.\"\"\"\n    for column in RAW_COLUMNS:\n        if column not in raw_df.columns:\n            raise ValueError(f\"Missing raw column: {column}\")\n\n    clean_df = raw_df[RAW_COLUMNS].copy()\n    for column in RAW_COLUMNS:\n        if clean_df[column].isna().any():\n            raise ValueError(f\"Missing value in column: {column}\")\n        clean_df[column] = clean_df[column].astype(str).str.strip()\n        if clean_df[column].eq(\"\").any():\n            raise ValueError(f\"Blank value in column: {column}\")\n\n    years = pd.to_numeric(clean_df[\"fiscal_year\"], errors=\"raise\")\n    if not years.between(1900, 2100).all() or not years.eq(years.round()).all():\n        raise ValueError(\"Fiscal years must be integer years between 1900 and 2100.\")\n    clean_df[\"fiscal_year\"] = years.astype(int)\n\n    for column in [\"period_start\", \"period_end\", \"accessed_date\"]:\n        dates = pd.to_datetime(clean_df[column], format=\"%Y-%m-%d\", errors=\"raise\")\n        clean_df[column] = dates.dt.strftime(\"%Y-%m-%d\")\n\n    sales_values = []\n    income_values = []\n    for row in clean_df.to_dict(\"records\"):\n        if row[\"reported_currency\"] != \"USD\":\n            raise ValueError(\"This version supports USD records only; it does not convert currencies.\")\n        if row[\"reported_unit\"] not in UNIT_MULTIPLIERS:\n            raise ValueError(f\"Unsupported reported unit: {row['reported_unit']}\")\n        multiplier = UNIT_MULTIPLIERS[row[\"reported_unit\"]]\n        sales_values.append(parse_amount(row[\"net_sales_raw\"]) * multiplier)\n        income_values.append(parse_amount(row[\"operating_income_raw\"]) * multiplier)\n\n    clean_df[\"net_sales_usd_m\"] = sales_values\n    clean_df[\"operating_income_usd_m\"] = income_values\n    return clean_df.sort_values([\"unit_id\", \"fiscal_year\"]).reset_index(drop=True)\n", "04": "# Cell 04: Define Record Validation\n\ndef validate_records(clean_df, config):\n    \"\"\"Require exact configured coverage, correct identities and usable values.\"\"\"\n    if config.currency != \"USD\":\n        raise ValueError(\"The configuration must use USD for this version.\")\n    if clean_df.duplicated([\"unit_id\", \"fiscal_year\"]).any():\n        raise ValueError(\"Duplicate segment/fiscal-year records were found.\")\n\n    expected_keys = set()\n    units_by_id = {}\n    for unit in config.business_units:\n        units_by_id[unit[\"unit_id\"]] = unit\n    for period in config.periods:\n        for unit_id in units_by_id:\n            expected_keys.add((unit_id, period[\"fiscal_years\"][unit_id]))\n\n    actual_keys = set()\n    for row in clean_df.to_dict(\"records\"):\n        key = (row[\"unit_id\"], row[\"fiscal_year\"])\n        actual_keys.add(key)\n        if row[\"unit_id\"] not in units_by_id:\n            raise ValueError(f\"Unexpected business unit: {row['unit_id']}\")\n        unit = units_by_id[row[\"unit_id\"]]\n        if row[\"company_name\"] != unit[\"company_name\"] or row[\"segment_name\"] != unit[\"segment_name\"]:\n            raise ValueError(f\"Company or segment name does not match configuration: {key}\")\n        if row[\"reported_currency\"] != config.currency:\n            raise ValueError(f\"Currency does not match configuration: {key}\")\n        if row[\"period_start\"] >= row[\"period_end\"]:\n            raise ValueError(f\"Report start must be before report end: {key}\")\n        for column in [\"net_sales_usd_m\", \"operating_income_usd_m\"]:\n            if not math.isfinite(float(row[column])):\n                raise ValueError(f\"Non-finite financial value in {column}: {key}\")\n        if row[\"net_sales_usd_m\"] \u003c= 0:\n            raise ValueError(f\"Net sales must be positive: {key}\")\n        source = urlparse(row[\"source_url\"])\n        if source.scheme not in [\"http\", \"https\"] or not source.netloc:\n            raise ValueError(f\"Invalid source URL: {key}\")\n        for column in [\"source_section\", \"date_basis\", \"accessed_date\"]:\n            if not str(row[column]).strip():\n                raise ValueError(f\"Missing provenance in {column}: {key}\")\n\n    if actual_keys != expected_keys:\n        missing = sorted(expected_keys - actual_keys)\n        extra = sorted(actual_keys - expected_keys)\n        raise ValueError(f\"Coverage mismatch. Missing: {missing}; extra: {extra}\")\n    if len(clean_df) != config.get_observation_count():\n        raise ValueError(\"Record count does not match the configured study.\")\n", "05": "# Cell 05: Define the Database Manager\n\nclass DatabaseManager:\n    \"\"\"Own the database connection without embedding company-specific rules.\"\"\"\n\n    def __init__(self, database_path):\n        self.database_path = Path(database_path)\n        self.connection = None\n\n    def connect(self):\n        if self.connection is None:\n            self.database_path.parent.mkdir(parents=True, exist_ok=True)\n            self.connection = sqlite3.connect(str(self.database_path))\n            self.connection.execute(\"PRAGMA foreign_keys = ON\")\n\n    def create_tables(self):\n        self.connection.executescript(\"\"\"\n            CREATE TABLE IF NOT EXISTS business_units (\n                unit_id TEXT PRIMARY KEY,\n                company_name TEXT NOT NULL,\n                ticker TEXT NOT NULL,\n                segment_name TEXT NOT NULL,\n                currency TEXT NOT NULL,\n                scope_notes TEXT NOT NULL,\n                source_urls TEXT NOT NULL\n            );\n            CREATE TABLE IF NOT EXISTS financial_records (\n                unit_id TEXT NOT NULL,\n                fiscal_year INTEGER NOT NULL,\n                period_start TEXT NOT NULL,\n                period_end TEXT NOT NULL,\n                net_sales_raw TEXT NOT NULL,\n                operating_income_raw TEXT NOT NULL,\n                reported_currency TEXT NOT NULL CHECK (reported_currency = 'USD'),\n                reported_unit TEXT NOT NULL,\n                source_url TEXT NOT NULL,\n                source_section TEXT NOT NULL,\n                accessed_date TEXT NOT NULL,\n                date_basis TEXT NOT NULL,\n                net_sales_usd_m REAL NOT NULL CHECK (net_sales_usd_m > 0),\n                operating_income_usd_m REAL NOT NULL,\n                PRIMARY KEY (unit_id, fiscal_year),\n                FOREIGN KEY (unit_id) REFERENCES business_units(unit_id),\n                CHECK (period_start \u003c period_end)\n            );\n            CREATE TABLE IF NOT EXISTS metric_results (\n                study_id TEXT NOT NULL,\n                config_signature TEXT NOT NULL,\n                unit_id TEXT NOT NULL,\n                analysis_year INTEGER NOT NULL,\n                metric_name TEXT NOT NULL,\n                metric_value REAL,\n                value_unit TEXT NOT NULL,\n                calculation_time TEXT NOT NULL,\n                missing_reason TEXT,\n                PRIMARY KEY (study_id, config_signature, unit_id, analysis_year, metric_name),\n                FOREIGN KEY (unit_id) REFERENCES business_units(unit_id)\n            );\n        \"\"\")\n\n    def save_data(self, config, clean_df):\n        counts = {\"inserted\": 0, \"updated\": 0, \"unchanged\": 0}\n        columns_sql = \", \".join(RECORD_COLUMNS)\n        placeholders = \", \".join([\"?\"] * len(RECORD_COLUMNS))\n        update_parts = []\n        for column in RECORD_COLUMNS[2:]:\n            update_parts.append(column + \" = ?\")\n        update_sql = \", \".join(update_parts)\n\n        with self.connection:\n            for unit in config.business_units:\n                unit_values = (\n                    unit[\"company_name\"], unit[\"ticker\"], unit[\"segment_name\"],\n                    unit[\"currency\"], \"\\n\".join(unit[\"scope_notes\"]),\n                    \"\\n\".join(unit[\"source_urls\"]),\n                )\n                existing_unit = self.connection.execute(\n                    \"SELECT company_name, ticker, segment_name, currency, scope_notes, source_urls \"\n                    \"FROM business_units WHERE unit_id = ?\", (unit[\"unit_id\"],)\n                ).fetchone()\n                if existing_unit is None:\n                    self.connection.execute(\n                        \"INSERT INTO business_units \"\n                        \"(company_name, ticker, segment_name, currency, scope_notes, source_urls, unit_id) \"\n                        \"VALUES (?, ?, ?, ?, ?, ?, ?)\", unit_values + (unit[\"unit_id\"],)\n                    )\n                elif existing_unit != unit_values:\n                    self.connection.execute(\n                        \"UPDATE business_units SET company_name = ?, ticker = ?, segment_name = ?, \"\n                        \"currency = ?, scope_notes = ?, source_urls = ? WHERE unit_id = ?\",\n                        unit_values + (unit[\"unit_id\"],)\n                    )\n                    self.connection.execute(\"DELETE FROM metric_results WHERE unit_id = ?\", (unit[\"unit_id\"],))\n\n            for row in clean_df.to_dict(\"records\"):\n                values = []\n                for column in RECORD_COLUMNS:\n                    values.append(row[column])\n                values = tuple(values)\n                key = (row[\"unit_id\"], row[\"fiscal_year\"])\n                existing = self.connection.execute(\n                    f\"SELECT {columns_sql} FROM financial_records WHERE unit_id = ? AND fiscal_year = ?\", key\n                ).fetchone()\n                if existing is None:\n                    self.connection.execute(\n                        f\"INSERT INTO financial_records ({columns_sql}) VALUES ({placeholders})\", values\n                    )\n                    counts[\"inserted\"] += 1\n                    self.connection.execute(\"DELETE FROM metric_results WHERE unit_id = ?\", (row[\"unit_id\"],))\n                elif existing != values:\n                    self.connection.execute(\n                        f\"UPDATE financial_records SET {update_sql} WHERE unit_id = ? AND fiscal_year = ?\",\n                        values[2:] + key,\n                    )\n                    counts[\"updated\"] += 1\n                    self.connection.execute(\"DELETE FROM metric_results WHERE unit_id = ?\", (row[\"unit_id\"],))\n                else:\n                    counts[\"unchanged\"] += 1\n        return counts\n\n    def read_selected_records(self, config):\n        frames = []\n        for unit in config.business_units:\n            years = []\n            for period in config.periods:\n                years.append(period[\"fiscal_years\"][unit[\"unit_id\"]])\n            placeholders = \", \".join([\"?\"] * len(years))\n            parameters = [unit[\"unit_id\"]] + years\n            query = f\"\"\"\n                SELECT f.*, b.company_name, b.segment_name\n                FROM financial_records AS f\n                JOIN business_units AS b ON f.unit_id = b.unit_id\n                WHERE f.unit_id = ? AND f.fiscal_year IN ({placeholders})\n                ORDER BY f.fiscal_year\n            \"\"\"\n            frames.append(pd.read_sql_query(query, self.connection, params=parameters))\n        financial_df = pd.concat(frames, ignore_index=True)\n        return financial_df.sort_values([\"unit_id\", \"fiscal_year\"]).reset_index(drop=True)\n\n    def get_table_counts(self):\n        counts = {}\n        for table in [\"business_units\", \"financial_records\", \"metric_results\"]:\n            row = self.connection.execute(f\"SELECT COUNT(*) FROM {table}\").fetchone()\n            counts[table] = row[0]\n        return counts\n\n    def close(self):\n        if self.connection is not None:\n            self.connection.close()\n            self.connection = None\n", "06": "# Cell 06: Load Source CSV Files into DataFrames\n\nsource_frames = {}\nfor unit_id in RAW_FILES:\n    raw_file = RAW_FILES[unit_id]\n    frame = pd.read_csv(raw_file, dtype=str, keep_default_na=False)\n    if \"unit_id\" not in frame.columns or not frame[\"unit_id\"].eq(unit_id).all():\n        raise ValueError(f\"Source file does not match its configured unit: {raw_file}\")\n    source_frames[unit_id] = frame\n    print(f\"Loaded {unit_id}: {len(frame)} rows\")\n\namazon_raw_df = source_frames[\"amazon_north_america\"]\nwalmart_raw_df = source_frames[\"walmart_us\"]\nraw_df = pd.concat(list(source_frames.values()), ignore_index=True)\n\nprint(f\"Combined raw records: {len(raw_df)}\")\nprint(raw_df[[\"unit_id\", \"fiscal_year\", \"net_sales_raw\", \"operating_income_raw\"]].to_string(index=False))\n", "07": "# Cell 07: Standardize and Validate the Financial Records\n\nclean_df = standardize_records(raw_df)\nvalidate_records(clean_df, config)\n\nprint(\"Financial record checks passed.\")\nprint(clean_df[[\"unit_id\", \"fiscal_year\", \"period_start\", \"period_end\", \"net_sales_usd_m\", \"operating_income_usd_m\"]].to_string(index=False))\n", "08": "# Cell 08: Save the Import Snapshot and Clean Audit File\n\nDATA_FILE.parent.mkdir(parents=True, exist_ok=True)\nCLEAN_FILE.parent.mkdir(parents=True, exist_ok=True)\nraw_df.to_csv(DATA_FILE, index=False)\nclean_df.to_csv(CLEAN_FILE, index=False)\n\nprint(f\"Import snapshot saved: {DATA_FILE}\")\nprint(f\"Clean audit file saved: {CLEAN_FILE}\")\n", "09": "# Cell 09: Connect to SQLite and Create Tables\n\ndatabase = DatabaseManager(DATABASE_FILE)\ndatabase.connect()\ndatabase.create_tables()\nprint(\"Database connected and tables are available.\")\n", "10": "# Cell 10: Write the Accepted Records in One Transaction\n\nwrite_counts = database.save_data(config, clean_df)\nprint(f\"Inserted records: {write_counts['inserted']}\")\nprint(f\"Updated records: {write_counts['updated']}\")\nprint(f\"Unchanged records: {write_counts['unchanged']}\")\n", "11": "# Cell 11: Read Back and Verify the Persisted Records\n\ndef verify_database_copy(clean_df, financial_df):\n    \"\"\"Compare every imported field after reading the persisted records back.\"\"\"\n    left = clean_df.sort_values([\"unit_id\", \"fiscal_year\"]).reset_index(drop=True)\n    right = financial_df.sort_values([\"unit_id\", \"fiscal_year\"]).reset_index(drop=True)\n    if len(left) != len(right):\n        raise ValueError(\"Database row count does not match the accepted records.\")\n    for column in left.columns:\n        if column not in right.columns or left[column].tolist() != right[column].tolist():\n            raise ValueError(f\"Database values differ from accepted records: {column}\")\n\nfinancial_df = database.read_selected_records(config)\nvalidate_records(financial_df, config)\nverify_database_copy(clean_df, financial_df)\n\ntable_counts = database.get_table_counts()\nprint(\"Database read-back verification passed.\")\nprint(f\"Selected financial records: {len(financial_df)}\")\nfor table in table_counts:\n    print(f\"{table}: {table_counts[table]} rows\")\n", "12": "# Cell 12: Close the Connection and Prepare the Next Module\n\ndatabase.close()\nprint(\"Database connection closed.\")\nprint(\"Module 02 completed.\")\nprint(f\"Persistent database: {DATABASE_FILE}\")\nprint(\"Next: query financial_records, join study periods and calculate metrics.\")\nprint(\"No sales growth, operating margin or sales index has been calculated in Module 02.\")\n"};
+document.querySelectorAll('.copy').forEach(button=>button.addEventListener('click',async()=>{
+ const text=cellCode[button.dataset.cell];
+ try{await navigator.clipboard.writeText(text);}catch(error){
+  const area=document.createElement('textarea');area.value=text;document.body.appendChild(area);area.select();document.execCommand('copy');area.remove();
+ }
+ button.textContent='Copied';window.setTimeout(()=>button.textContent='Copy cell',1600);
+}));
+document.querySelectorAll('.line-jump').forEach(button=>button.addEventListener('click',()=>{
+ const cell=button.dataset.cell;const start=Number(button.dataset.start);const end=Number(button.dataset.end);
+ const pane=document.getElementById('code-pane-'+cell);pane.querySelectorAll('.selected').forEach(line=>line.classList.remove('selected'));
+ for(let i=start;i<=end;i++)document.getElementById('c'+cell+'-l'+i).classList.add('selected');
+ const target=document.getElementById('c'+cell+'-l'+start);
+ if(window.innerWidth<=900||document.body.classList.contains('stacked'))pane.closest('.code-panel').scrollIntoView({block:'start',behavior:'auto'});
+ pane.scrollTo({top:pane.scrollTop+target.getBoundingClientRect().top-pane.getBoundingClientRect().top-34,behavior:'smooth'});
+}));
+document.querySelector('.layout-toggle').addEventListener('click',()=>{
+ const stacked=document.body.classList.toggle('stacked');document.querySelector('.layout-toggle').textContent=stacked?'Switch to side by side':'Switch to stacked';
+});
+</script></body></html>

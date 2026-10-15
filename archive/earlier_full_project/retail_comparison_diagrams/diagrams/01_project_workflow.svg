@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1590" height="1550" viewBox="0 0 1590 1550">
+<style>text{font-family:Arial,Helvetica,sans-serif}</style>
+<rect width="1590" height="1550" fill="#F7F9FC"/>
+<text x="90" y="75.24" font-size="36" font-weight="700" fill="#172B44" text-anchor="start">Retail Growth and Profitability Comparison</text>
+<text x="90" y="115.64" font-size="21" font-weight="400" fill="#52647A" text-anchor="start">PROJECT WORKFLOW  |  2019 baseline and comparison around the COVID-19 pandemic</text>
+<ellipse cx="795.0" cy="177.5" rx="125.0" ry="27.5" fill="#EEF4FC" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="795" y="184.8" font-size="20" font-weight="700" fill="#172B44" text-anchor="middle">Start research</text>
+<polyline points="795,205 795,235" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="795,235 800.0,224.0 790.0,224.0" fill="#6C8098"/>
+<rect x="90" y="235" width="1410" height="225" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="115" y="266.44" font-size="16" font-weight="700" fill="#245DA8" text-anchor="start">MODULE 01</text>
+<text x="250" y="270.16" font-size="24" font-weight="700" fill="#172B44" text-anchor="start">Research Configuration</text>
+<text x="1475" y="269.28" font-size="17" font-weight="700" fill="#147A6A" text-anchor="end">Implemented</text>
+<rect x="120" y="305" width="295" height="104" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="138" y="337.8" font-size="20" font-weight="700" fill="#245DA8" text-anchor="start">Enter study settings</text>
+<text x="138" y="368.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Years, metrics, study stages</text>
+<text x="138" y="393.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Sources and file paths</text>
+<rect x="465" y="305" width="290" height="104" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="483" y="337.8" font-size="20" font-weight="700" fill="#245DA8" text-anchor="start">Initialize StudyConfig</text>
+<text x="483" y="368.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Store settings as attributes</text>
+<text x="483" y="393.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Run configuration checks</text>
+<polygon points="880,307.0 955.0,357 880,407.0 805.0,357" fill="#EEF4FC" stroke="#245DA8" stroke-width="1.5"/>
+<text x="880" y="364.64" font-size="21" font-weight="700" fill="#172B44" text-anchor="middle">Valid?</text>
+<rect x="1040" y="305" width="425" height="104" rx="12" fill="#EEF4FC" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="1058" y="337.8" font-size="20" font-weight="700" fill="#245DA8" text-anchor="start">Save configuration</text>
+<text x="1058" y="368.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">study.json</text>
+<text x="1058" y="393.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Reusable input for later modules</text>
+<polyline points="415,357 465,357" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="465,357 454.0,352.0 454.0,362.0" fill="#6C8098"/>
+<polyline points="755,357 805,357" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="805,357 794.0,352.0 794.0,362.0" fill="#6C8098"/>
+<polyline points="955,357 1040,357" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="1040,357 1029.0,352.0 1029.0,362.0" fill="#6C8098"/>
+<text x="979" y="344.28" font-size="17" font-weight="400" fill="#147A6A" text-anchor="start">Yes</text>
+<polyline points="880,407 880,435 267,435 267,409" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="267,409 262.0,420.0 272.0,420.0" fill="#6C8098"/>
+<text x="595" y="429.28" font-size="17" font-weight="400" fill="#52647A" text-anchor="middle">No: correct settings</text>
+<polyline points="795,460 795,490" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="795,490 800.0,479.0 790.0,479.0" fill="#6C8098"/>
+<rect x="90" y="490" width="1410" height="225" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="115" y="521.44" font-size="16" font-weight="700" fill="#245DA8" text-anchor="start">MODULE 02</text>
+<text x="250" y="525.16" font-size="24" font-weight="700" fill="#172B44" text-anchor="start">Data and Database Management</text>
+<text x="1475" y="524.28" font-size="17" font-weight="700" fill="#147A6A" text-anchor="end">Implemented</text>
+<rect x="120" y="560" width="295" height="104" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="138" y="592.8" font-size="20" font-weight="700" fill="#245DA8" text-anchor="start">Collect official data</text>
+<text x="138" y="623.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Browser + manual CSV entry</text>
+<text x="138" y="648.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Segment sales and income</text>
+<rect x="465" y="560" width="290" height="104" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="483" y="592.8" font-size="20" font-weight="700" fill="#245DA8" text-anchor="start">Prepare DataFrames</text>
+<text x="483" y="623.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">pandas: load and standardize</text>
+<text x="483" y="648.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Check dates, units, sources</text>
+<polygon points="880,562.0 955.0,612 880,662.0 805.0,612" fill="#EEF4FC" stroke="#245DA8" stroke-width="1.5"/>
+<text x="880" y="619.64" font-size="21" font-weight="700" fill="#172B44" text-anchor="middle">Valid?</text>
+<rect x="1040" y="560" width="425" height="104" rx="12" fill="#EDF8F4" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="1058" y="592.8" font-size="20" font-weight="700" fill="#245DA8" text-anchor="start">Store accepted records</text>
+<text x="1058" y="623.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">SQLite: business_units</text>
+<text x="1058" y="648.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">SQLite: financial_records</text>
+<polyline points="415,612 465,612" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="465,612 454.0,607.0 454.0,617.0" fill="#6C8098"/>
+<polyline points="755,612 805,612" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="805,612 794.0,607.0 794.0,617.0" fill="#6C8098"/>
+<polyline points="955,612 1040,612" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="1040,612 1029.0,607.0 1029.0,617.0" fill="#6C8098"/>
+<text x="979" y="599.28" font-size="17" font-weight="400" fill="#147A6A" text-anchor="start">Yes</text>
+<polyline points="880,662 880,690 267,690 267,664" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="267,664 262.0,675.0 272.0,675.0" fill="#6C8098"/>
+<text x="595" y="684.28" font-size="17" font-weight="400" fill="#52647A" text-anchor="middle">No: review source and correct raw data</text>
+<polyline points="795,715 795,745" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="795,745 800.0,734.0 790.0,734.0" fill="#6C8098"/>
+<rect x="90" y="745" width="1410" height="205" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="115" y="776.44" font-size="16" font-weight="700" fill="#245DA8" text-anchor="start">MODULE 03</text>
+<text x="250" y="780.16" font-size="24" font-weight="700" fill="#172B44" text-anchor="start">Metrics and Comparative Analysis</text>
+<text x="1475" y="779.28" font-size="17" font-weight="700" fill="#52647A" text-anchor="end">Planned</text>
+<rect x="120" y="815" width="340" height="106" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="138" y="847.8" font-size="20" font-weight="700" fill="#245DA8" text-anchor="start">Query and align data</text>
+<text x="138" y="878.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Read SQLite financial records</text>
+<text x="138" y="903.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Join configured fiscal mapping</text>
+<rect x="545" y="815" width="400" height="106" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="563" y="847.8" font-size="20" font-weight="700" fill="#245DA8" text-anchor="start">Calculate three metrics</text>
+<text x="563" y="878.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Sales growth, margin, sales index</text>
+<text x="563" y="903.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Use simple functions and checks</text>
+<rect x="1030" y="815" width="435" height="106" rx="12" fill="#EDF8F4" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="1048" y="847.8" font-size="20" font-weight="700" fill="#245DA8" text-anchor="start">Save and compare results</text>
+<text x="1048" y="878.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">SQLite: metric_results</text>
+<text x="1048" y="903.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Compare stages to 2019 baseline</text>
+<polyline points="460,867 545,867" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="545,867 534.0,862.0 534.0,872.0" fill="#6C8098"/>
+<polyline points="945,867 1030,867" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="1030,867 1019.0,862.0 1019.0,872.0" fill="#6C8098"/>
+<polyline points="795,950 795,980" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="795,980 800.0,969.0 790.0,969.0" fill="#6C8098"/>
+<rect x="90" y="980" width="1410" height="205" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="115" y="1011.44" font-size="16" font-weight="700" fill="#245DA8" text-anchor="start">MODULE 04</text>
+<text x="250" y="1015.16" font-size="24" font-weight="700" fill="#172B44" text-anchor="start">Reporting and Workflow</text>
+<text x="1475" y="1014.28" font-size="17" font-weight="700" fill="#52647A" text-anchor="end">Planned</text>
+<rect x="120" y="1050" width="340" height="106" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="138" y="1082.8" font-size="20" font-weight="700" fill="#245DA8" text-anchor="start">Read saved results</text>
+<text x="138" y="1113.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Filter by study and configuration</text>
+<text x="138" y="1138.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Recover names and source notes</text>
+<rect x="545" y="1050" width="400" height="106" rx="12" fill="#FFFFFF" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="563" y="1082.8" font-size="20" font-weight="700" fill="#245DA8" text-anchor="start">Build charts and tables</text>
+<text x="563" y="1113.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Matplotlib charts + CSV tables</text>
+<text x="563" y="1138.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Mark baseline and study stages</text>
+<rect x="1030" y="1050" width="435" height="106" rx="12" fill="#EEF4FC" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="1048" y="1082.8" font-size="20" font-weight="700" fill="#245DA8" text-anchor="start">Export research report</text>
+<text x="1048" y="1113.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">Explain findings with cited reports</text>
+<text x="1048" y="1138.96" font-size="19" font-weight="400" fill="#172B44" text-anchor="start">State fiscal and business-mix limits</text>
+<polyline points="460,1102 545,1102" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="545,1102 534.0,1097.0 534.0,1107.0" fill="#6C8098"/>
+<polyline points="945,1102 1030,1102" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="1030,1102 1019.0,1097.0 1019.0,1107.0" fill="#6C8098"/>
+<polyline points="795,1185 795,1218" fill="none" stroke="#6C8098" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="795,1218 800.0,1207.0 790.0,1207.0" fill="#6C8098"/>
+<ellipse cx="795.0" cy="1248.0" rx="195.0" ry="30.0" fill="#EEF4FC" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="795" y="1254.64" font-size="21" font-weight="700" fill="#172B44" text-anchor="middle">Completed comparison report</text>
+<rect x="90" y="1298" width="1410" height="145" rx="12" fill="#EEF4FC" stroke="#B8C6D6" stroke-width="1.5"/>
+<text x="115" y="1332.48" font-size="22" font-weight="700" fill="#245DA8" text-anchor="start">Pandemic comparison lens | 2019 is a formal observation and the index base year</text>
+<text x="115" y="1369.64" font-size="21" font-weight="700" fill="#172B44" text-anchor="start">2019</text>
+<text x="560" y="1369.64" font-size="21" font-weight="700" fill="#172B44" text-anchor="start">2020-2021</text>
+<text x="1030" y="1369.64" font-size="21" font-weight="700" fill="#172B44" text-anchor="start">2022-2024</text>
+<text x="115" y="1401.8" font-size="20" font-weight="400" fill="#172B44" text-anchor="start">Pre-pandemic baseline</text>
+<text x="560" y="1401.8" font-size="20" font-weight="400" fill="#172B44" text-anchor="start">Pandemic disruption</text>
+<text x="1030" y="1401.8" font-size="20" font-weight="400" fill="#172B44" text-anchor="start">Subsequent adjustment</text>
+<text x="90" y="1481.96" font-size="19" font-weight="400" fill="#52647A" text-anchor="start">Scope: Amazon 2019-2024 vs. Walmart U.S. FY2020-FY2025 | 12 segment-year observations.</text>
+<text x="90" y="1511.96" font-size="19" font-weight="400" fill="#52647A" text-anchor="start">One pre-pandemic year supports descriptive comparison; differences do not establish a causal effect.</text>
+<text x="90" y="1538.12" font-size="18" font-weight="400" fill="#52647A" text-anchor="start">Modules 01-02 are implemented. Metrics and reporting are planned. Stage boundaries are study conventions.</text>
+</svg>

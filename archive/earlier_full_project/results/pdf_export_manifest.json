@@ -1,0 +1,19 @@
+{
+  "source_html": "outputs/Retail_Growth_and_Profitability_Comparison/results/research_report.html",
+  "source_sha256": "824c67dced9c5e6e9cd20e543941e57519c6179349143e1039ab1e594e3cf646",
+  "pdf": "outputs/Retail_Growth_and_Profitability_Comparison/results/research_report.pdf",
+  "pdf_sha256": "a49a05d81360adf4034f2f913a6a5b9b77a4c69738573b12e2e243eab2508749",
+  "pages": 11,
+  "figures": 3,
+  "tables": 4,
+  "table_rows": [
+    12,
+    12,
+    6,
+    12
+  ],
+  "official_links": 4,
+  "content_verified": "All body paragraphs, headings, list entries and table values retained.",
+  "export_date": "2026-10-12",
+  "update_policy": "PDF snapshot of the source HTML; rerun PDF export after changing the HTML report."
+}

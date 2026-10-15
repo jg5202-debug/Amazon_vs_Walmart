@@ -1,0 +1,174 @@
+{
+  "title": "Retail Growth and Profitability Comparison: Amazon North America and Walmart U.S., 2019-2024",
+  "question": "How did segment sales growth and operating profitability change around the pandemic, relative to 2019?",
+  "start_year": 2019,
+  "end_year": 2024,
+  "base_year": 2019,
+  "units": {
+    "amazon": {
+      "company": "Amazon.com, Inc.",
+      "segment": "North America",
+      "label": "Amazon North America",
+      "year_offset": 0,
+      "date_basis": "Annual December 31 year-end in source table; January 1 start derived from annual calendar period",
+      "color": "#D97706",
+      "fiscal_label": "AMZN CY",
+      "label_offset": 12
+    },
+    "walmart": {
+      "company": "Walmart Inc.",
+      "segment": "Walmart U.S.",
+      "label": "Walmart U.S.",
+      "year_offset": -1,
+      "date_basis": "Annual January 31 year-end in source table and U.S. fiscal calendar; February 1 start derived from annual period",
+      "color": "#174A7E",
+      "fiscal_label": "WMT FY",
+      "label_offset": -18
+    }
+  },
+  "stages": [
+    {
+      "name": "Pre-pandemic baseline",
+      "start": 2019,
+      "end": 2019,
+      "shade": false
+    },
+    {
+      "name": "Pandemic disruption",
+      "start": 2020,
+      "end": 2021,
+      "shade": true
+    },
+    {
+      "name": "Subsequent adjustment",
+      "start": 2022,
+      "end": 2024,
+      "shade": false
+    }
+  ],
+  "charts": [
+    {
+      "column": "sales_growth_pct",
+      "title": "Annual Sales Growth",
+      "ylabel": "Growth (%)",
+      "reference": 0,
+      "suffix": "%",
+      "legend_location": "upper right",
+      "reverse_base_labels": false
+    },
+    {
+      "column": "sales_index",
+      "title": "Sales Index",
+      "ylabel": "Index (base year = 100)",
+      "reference": 100,
+      "suffix": "",
+      "legend_location": "upper left",
+      "reverse_base_labels": false
+    },
+    {
+      "column": "operating_margin_pct",
+      "title": "Operating Margin",
+      "ylabel": "Operating margin (%)",
+      "reference": 0,
+      "suffix": "%",
+      "legend_location": "upper center",
+      "reverse_base_labels": true
+    }
+  ],
+  "notes": [
+    "Amazon CY2019-CY2024 (January-December) is approximately paired with Walmart FY2020-FY2025 (February-January). For example, Amazon CY2023 runs January 1-December 31, 2023; Walmart FY2024 runs February 1, 2023-January 31, 2024. The windows are shifted by one month, not identical.",
+    "All financial amounts are nominal USD millions, without inflation adjustment. Sales means segment net sales.",
+    "First study-year growth is unavailable, not zero. The sales index uses the configured base year.",
+    "Stage means average available annual values. They are not CAGR or pooled operating margins.",
+    "Stage labels are study groupings. One pre-pandemic year and different segment business mixes do not support causal pandemic conclusions.",
+    "Amazon North America includes services and excludes AWS. Walmart U.S. excludes Sam's Club and Walmart International. Their geography and revenue recognition differ.",
+    "Amounts were manually transcribed from adopted historical official filings. Later restatements are not automatically included.",
+    "Sales CAGR is calculated over the full configured study window: six annual observations from 2019 to 2024 contain five compounding intervals. It is separate from the stage arithmetic means."
+  ],
+  "label_years": [
+    2019,
+    2022,
+    2024
+  ],
+  "metric_columns": [
+    "sales_growth_pct",
+    "operating_margin_pct",
+    "sales_index"
+  ],
+  "annual_columns": [
+    "company",
+    "segment",
+    "analysis_year",
+    "fiscal_year",
+    "period_start",
+    "period_end",
+    "net_sales",
+    "operating_income",
+    "sales_growth_pct",
+    "operating_margin_pct",
+    "sales_index"
+  ],
+  "sources": {
+    "S1": {
+      "section": "Note 10 - Segment Information; North America",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872422000005/amzn-20211231.htm",
+      "accessed_date": "2026-10-10"
+    },
+    "S2": {
+      "section": "Note 10 - Segment Information; North America",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000004/amzn-20241231.htm",
+      "accessed_date": "2026-10-10"
+    },
+    "S3": {
+      "section": "Item 7 - MD&A; Walmart U.S. Segment",
+      "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416922000012/wmt-20220131.htm",
+      "accessed_date": "2026-10-10"
+    },
+    "S4": {
+      "section": "Item 7 - MD&A; Walmart U.S. Segment; checked against segment note",
+      "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416925000021/wmt-20250131.htm",
+      "accessed_date": "2026-10-10"
+    }
+  },
+  "context_sources": {
+    "C1": {
+      "title": "Amazon 2022 Form 10-K, MD&A: operating cost pressures",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872423000004/amzn-20221231.htm"
+    },
+    "C2": {
+      "title": "Amazon 2022 shareholder letter: fulfillment expansion",
+      "url": "https://www.aboutamazon.com/news/company-news/amazon-ceo-andy-jassy-2022-letter-to-shareholders"
+    },
+    "C3": {
+      "title": "Amazon 2023 shareholder letter: regionalization and unit costs",
+      "url": "https://www.aboutamazon.com/news/company-news/amazon-ceo-andy-jassy-2023-letter-to-shareholders"
+    },
+    "C4": {
+      "title": "Amazon 2024 shareholder letter: fulfillment network redesign",
+      "url": "https://www.aboutamazon.com/news/company-news/amazon-ceo-andy-jassy-2024-letter-to-shareholders"
+    },
+    "S2": {
+      "title": "Amazon 2024 Form 10-K, MD&A: North America operating income",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000004/amzn-20241231.htm"
+    }
+  },
+  "business_context": [
+    {
+      "title": "The 2022 margin dip",
+      "text": "Amazon rapidly expanded its fulfillment network during the pandemic. Its 2022 filing describes demand returning toward normal seasonal levels relative to network fixed costs, alongside higher transportation, utility and wage costs. This supports an interpretation of capacity growing faster than normalized demand and inflation-related cost pressure around the North America loss.",
+      "sources": [
+        "C1",
+        "C2"
+      ]
+    },
+    {
+      "title": "The recovery through 2024",
+      "text": "Amazon describes regionalization as placing inventory closer to customers, shortening transport distances and lowering cost to serve; its 2024 letter describes continued network improvements. These changes provide context for the margin recovery. The 2024 filing also attributes higher North America operating income primarily to increased unit and advertising sales, partly offset by higher total fulfillment and shipping costs. Lower unit costs do not mean total costs fell.",
+      "sources": [
+        "C3",
+        "C4",
+        "S2"
+      ]
+    }
+  ]
+}

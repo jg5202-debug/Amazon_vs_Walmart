@@ -1,0 +1,7 @@
+unit_id,company_name,segment_name,comparison_stage,analysis_years,record_count,sales_growth_pct_valid_years,sales_growth_pct_mean,operating_margin_pct_valid_years,operating_margin_pct_mean,sales_index_valid_years,sales_index_mean
+amazon_north_america,"Amazon.com, Inc.",North America,Pre-pandemic baseline,2019,1,0,,1,4.118332523291152,1,100.0
+amazon_north_america,"Amazon.com, Inc.",North America,Pandemic disruption,"2020, 2021",2,2,28.396034284298743,2,3.1298192275256738,2,151.1114169101673
+amazon_north_america,"Amazon.com, Inc.",North America,Subsequent adjustment,"2022, 2023, 2024",3,3,11.468164217150601,3,3.252785706185732,3,206.1615907276521
+walmart_us,Walmart Inc.,Walmart U.S.,Pre-pandemic baseline,2019,1,0,,1,5.096714408042134,1,100.0
+walmart_us,Walmart Inc.,Walmart U.S.,Pandemic disruption,"2020, 2021",2,2,7.39293904181868,2,5.32821420405187,2,111.90631194941994
+walmart_us,Walmart Inc.,Walmart U.S.,Subsequent adjustment,"2022, 2023, 2024",3,3,5.554012842790082,3,5.027328733756629,3,129.4984809562351

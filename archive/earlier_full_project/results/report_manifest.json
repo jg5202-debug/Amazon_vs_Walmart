@@ -1,0 +1,136 @@
+{
+  "study_id": "amazon_walmart_segment_comparison",
+  "config_signature": "fff3b71fa5b9c8a5d0b9b931bd34cbf12b33166b53f581994daf28678b5f9355",
+  "calculation_version": "1.0",
+  "generated_time": "2026-10-12T02:28:41+00:00",
+  "study_settings": {
+    "study_id": "amazon_walmart_segment_comparison",
+    "title": "Sales Growth and Operating Profitability of Internet-Origin and Store-Origin Retailers: Amazon North America and Walmart U.S. Around the COVID-19 Pandemic, 2019-2024",
+    "research_question": "Relative to a 2019 pre-pandemic baseline, how did sales growth and operating margins differ between Amazon North America and Walmart U.S. during 2020-2021 and the subsequent 2022-2024 adjustment period? This is a descriptive comparison, not an estimate of the causal effect of COVID-19.",
+    "frequency": "annual",
+    "currency": "USD",
+    "business_units": [
+      {
+        "unit_id": "amazon_north_america",
+        "company_name": "Amazon.com, Inc.",
+        "ticker": "AMZN",
+        "segment_name": "North America",
+        "currency": "USD",
+        "source_urls": [
+          "https://ir.aboutamazon.com/annual-reports-proxies-and-shareholder-letters/default.aspx",
+          "https://www.sec.gov/Archives/edgar/data/1018724/000101872422000005/amzn-20211231.htm",
+          "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000004/amzn-20241231.htm"
+        ],
+        "scope_notes": [
+          "Use North America segment net sales and operating income, not consolidated totals.",
+          "The segment excludes AWS but includes advertising, subscription services, and third-party seller services.",
+          "The segment's geographical scope and revenue recognition differ from Walmart U.S."
+        ]
+      },
+      {
+        "unit_id": "walmart_us",
+        "company_name": "Walmart Inc.",
+        "ticker": "WMT",
+        "segment_name": "Walmart U.S.",
+        "currency": "USD",
+        "source_urls": [
+          "https://stock.walmart.com/financial-information/annual-reports",
+          "https://www.sec.gov/Archives/edgar/data/104169/000010416922000012/wmt-20220131.htm",
+          "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-25-000021/wmt-20250131.htm/wmtexhibit991fy2510-k.htm"
+        ],
+        "scope_notes": [
+          "Use Walmart U.S. segment net sales and operating income, not consolidated totals.",
+          "Exclude Sam's Club and Walmart International from the selected segment data.",
+          "Walmart fiscal years end on January 31 of the labeled year."
+        ]
+      }
+    ],
+    "periods": [
+      {
+        "analysis_year": 2019,
+        "fiscal_years": {
+          "amazon_north_america": 2019,
+          "walmart_us": 2020
+        },
+        "comparison_stage": "Pre-pandemic baseline"
+      },
+      {
+        "analysis_year": 2020,
+        "fiscal_years": {
+          "amazon_north_america": 2020,
+          "walmart_us": 2021
+        },
+        "comparison_stage": "Pandemic disruption"
+      },
+      {
+        "analysis_year": 2021,
+        "fiscal_years": {
+          "amazon_north_america": 2021,
+          "walmart_us": 2022
+        },
+        "comparison_stage": "Pandemic disruption"
+      },
+      {
+        "analysis_year": 2022,
+        "fiscal_years": {
+          "amazon_north_america": 2022,
+          "walmart_us": 2023
+        },
+        "comparison_stage": "Subsequent adjustment"
+      },
+      {
+        "analysis_year": 2023,
+        "fiscal_years": {
+          "amazon_north_america": 2023,
+          "walmart_us": 2024
+        },
+        "comparison_stage": "Subsequent adjustment"
+      },
+      {
+        "analysis_year": 2024,
+        "fiscal_years": {
+          "amazon_north_america": 2024,
+          "walmart_us": 2025
+        },
+        "comparison_stage": "Subsequent adjustment"
+      }
+    ],
+    "metrics": [
+      "sales_growth",
+      "operating_margin",
+      "sales_index"
+    ],
+    "index_base_year": 2019,
+    "missing_previous_period": "leave_missing",
+    "alignment_note": "Amazon years ending December 31 are paired with Walmart fiscal years ending January 31 of the following year. These are approximately corresponding periods, not identical periods. Actual start and end dates must be recorded and checked in the data module.",
+    "data_file": "data/financial_data.csv",
+    "results_directory": "results",
+    "database_file": "data/retail_comparison.sqlite"
+  },
+  "report_notes": [
+    "2019 supplies a pre-pandemic reference for sales scale and operating margin.",
+    "The 2020-2021 and 2022-2024 stages are study groupings, not estimates of pandemic effects or a claim that the pandemic ended in 2022.",
+    "This is a small, descriptive segment comparison. One pre-pandemic year cannot establish a pre-pandemic trend or a counterfactual.",
+    "Amazon North America includes service revenue and covers a different geography from Walmart U.S.; the segments are not identical retail businesses.",
+    "Historical columns in the adopted official reports are used; later restatements are not automatically included.",
+    "Changes in these financial indicators alone cannot identify the causes of the observed patterns."
+  ],
+  "annual_rows": 12,
+  "metric_rows": 36,
+  "first_year_missing_growth": 2,
+  "report_file": "research_report.html",
+  "chart_files": {
+    "sales_growth": {
+      "png": "figures/sales_growth.png",
+      "svg": "figures/sales_growth.svg"
+    },
+    "operating_margin": {
+      "png": "figures/operating_margin.png",
+      "svg": "figures/operating_margin.svg"
+    },
+    "sales_index": {
+      "png": "figures/sales_index.png",
+      "svg": "figures/sales_index.svg"
+    }
+  }
+}

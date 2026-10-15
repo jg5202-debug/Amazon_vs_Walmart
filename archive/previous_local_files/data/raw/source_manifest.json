@@ -1,0 +1,58 @@
+[
+  {
+    "source_id": "S1",
+    "report_title": "Amazon 2021 Form 10-K",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872422000005/amzn-20211231.htm",
+    "source_section": "Note 10 - Segment Information; North America",
+    "fiscal_years_used": [
+      2019,
+      2020,
+      2021
+    ],
+    "accessed_date": "2026-10-10",
+    "acquisition_method": "Manual transcription of official tables verified with web access",
+    "full_report_snapshot": "Not included; official URL and verified transcription supplied"
+  },
+  {
+    "source_id": "S2",
+    "report_title": "Amazon 2024 Form 10-K",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000004/amzn-20241231.htm",
+    "source_section": "Note 10 - Segment Information; North America",
+    "fiscal_years_used": [
+      2022,
+      2023,
+      2024
+    ],
+    "accessed_date": "2026-10-10",
+    "acquisition_method": "Manual transcription of official tables verified with web access",
+    "full_report_snapshot": "Not included; official URL and verified transcription supplied"
+  },
+  {
+    "source_id": "S3",
+    "report_title": "Walmart FY2022 Form 10-K",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/104169/000010416922000012/wmt-20220131.htm",
+    "source_section": "Item 7 - MD&A; Walmart U.S. Segment",
+    "fiscal_years_used": [
+      2020,
+      2021,
+      2022
+    ],
+    "accessed_date": "2026-10-10",
+    "acquisition_method": "Manual transcription of official tables verified with web access",
+    "full_report_snapshot": "Not included; official URL and verified transcription supplied"
+  },
+  {
+    "source_id": "S4",
+    "report_title": "Walmart FY2025 Form 10-K",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/104169/000010416925000021/wmt-20250131.htm",
+    "source_section": "Item 7 - MD&A; Walmart U.S. Segment; checked against segment note",
+    "fiscal_years_used": [
+      2023,
+      2024,
+      2025
+    ],
+    "accessed_date": "2026-10-10",
+    "acquisition_method": "Manual transcription of official tables verified with web access",
+    "full_report_snapshot": "Not included; official URL and verified transcription supplied"
+  }
+]

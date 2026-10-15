@@ -1,0 +1,17 @@
+{
+  "study_id": "amazon_walmart_segment_comparison",
+  "config_signature": "fff3b71fa5b9c8a5d0b9b931bd34cbf12b33166b53f581994daf28678b5f9355",
+  "calculation_version": "1.0",
+  "calculation_time": "2026-10-12T02:07:26+00:00",
+  "index_base_year": 2019,
+  "annual_rows": 12,
+  "metric_rows": 36,
+  "missing_metric_values": 2,
+  "summary_method": "Unweighted arithmetic means of available annual metric values.",
+  "percentage_convention": "Values are multiplied by 100; 5 means 5 percent.",
+  "files": {
+    "annual_metrics": "annual_metrics.csv",
+    "metric_records": "metric_records.csv",
+    "stage_summary": "stage_summary.csv"
+  }
+}

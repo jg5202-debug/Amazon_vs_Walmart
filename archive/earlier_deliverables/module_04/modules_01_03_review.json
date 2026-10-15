@@ -1,0 +1,21 @@
+{
+  "notebook": "/Users/dadabaibaidegoose/Desktop/JupyterProject/retail_growth_and_profitability_comparison.ipynb",
+  "notebook_sha256": "19d0eb55cd79200be1bde4f33a4e8af8178aafd51d638728ab6d695d9e24ab31",
+  "code_cells": 32,
+  "saved_output_errors": 0,
+  "fresh_execution": "All 32 code cells passed in an isolated project copy using the user Python environment.",
+  "independent_formulas": "All 12 rows checked with Decimal arithmetic.",
+  "source_and_export_match": true,
+  "rerun_metric_rows": 36,
+  "first_year_growth_missing": 2,
+  "base_indexes": [
+    100,
+    100
+  ],
+  "negative_margin_preserved": true,
+  "sqlite_integrity": "ok",
+  "foreign_key_violations": 0,
+  "signature": "fff3b71fa5b9c8a5d0b9b931bd34cbf12b33166b53f581994daf28678b5f9355",
+  "original_user_files": "No changes made by the review.",
+  "conclusion": "No blocking issues found for Module 04."
+}
